@@ -13,7 +13,6 @@ func _ready():
 func _physics_process(delta):
 	
 	velocity.y += delta * 20
-	print("test")
 	if (Input.is_action_pressed("player_left")):
 		velocity.x = -WALK_SPEED
 	elif (Input.is_action_pressed("player_right")):

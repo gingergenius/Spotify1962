@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/rotatable_furniture_test1.gd" type="Script" id=1]
+[ext_resource path="res://images/furniture_placeholder.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 0.01
+
+[node name="test1_rotatable_funiture" type="Node2D"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 236.295, 461.229 )
+
+[node name="rotatable_furniture" type="RigidBody2D" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( -7.83121, 0.660889 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 4.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = 128.0
+angular_velocity = 10.0
+angular_damp = 50.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Angular", "Applied Forces", "Linear" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="rotatable_furniture" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -91.6995, -34.567, -96.0013, -47.831, -106.039, -46.397, -109.982, 41.0735, -107.114, 48.2432, -76.2845, 45.3753, -23.9456, 47.1678, 102.6, 43.9414, 103.675, -43.8876, 92.2038, -41.0197, 88.9774, -32.0576 )
+
+[node name="furniture_placeholder" type="Sprite" parent="rotatable_furniture/CollisionPolygon2D" index="0"]
+
+position = Vector2( -0.735107, -2.20528 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+
+position = Vector2( -7.83121, 0.660889 )
+input_pickable = false
+collision_layer = 0
+collision_mask = 0
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+position = Vector2( 2.20528, 7.35089 )
+shape = SubResource( 2 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." index="2"]
+
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../rotatable_furniture")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+
