@@ -9,6 +9,8 @@
 [ext_resource path="res://images/Fenster_oben_rechts.png" type="Texture" id=7]
 [ext_resource path="res://images/Türe.png" type="Texture" id=8]
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0

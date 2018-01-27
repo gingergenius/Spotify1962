@@ -3,6 +3,8 @@
 [ext_resource path="res://scripts/rotatable_funiture.gd" type="Script" id=1]
 [ext_resource path="res://images/furniture_placeholder.png" type="Texture" id=2]
 
+
+
 [node name="rotatable_furniture" type="StaticBody2D"]
 
 editor/display_folded = true

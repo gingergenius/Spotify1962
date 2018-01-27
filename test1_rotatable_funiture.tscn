@@ -3,6 +3,8 @@
 [ext_resource path="res://scripts/rotatable_furniture_test1.gd" type="Script" id=1]
 [ext_resource path="res://images/furniture_placeholder.png" type="Texture" id=2]
 
+
+
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
