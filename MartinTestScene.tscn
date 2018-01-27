@@ -1,57 +1,19 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://PlayerNode.gd" type="Script" id=1]
 [ext_resource path="res://objects/player.png" type="Texture" id=2]
-[ext_resource path="res://particle_curve_decrease.tres" type="Texture" id=3]
-[ext_resource path="res://sound_particle.png" type="Texture" id=4]
-[ext_resource path="res://EmitterNode.gd" type="Script" id=5]
-[ext_resource path="res://objects/emitter.png" type="Texture" id=6]
+[ext_resource path="res://objects/emitter.png" type="Texture" id=3]
+[ext_resource path="res://Transmission.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 25.1465, 16.4711 )
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
-render_priority = 0
-trail_divisor = 1
-trail_size_modifier = ExtResource( 3 )
-emission_shape = 0
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = true
-spread = 0.0
-flatness = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 100.0
-initial_velocity_random = 0.0
-angular_velocity = 0.0
-angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 0.0
-linear_accel_random = 0.0
-radial_accel = 0.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 0.0
-damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 1.0
-scale_random = 0.32
-scale_curve = ExtResource( 3 )
-color = Color( 1, 1, 1, 1 )
-hue_variation = 0.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-_sections_unfolded = [ "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Trail" ]
+custom_solver_bias = 0.0
+extents = Vector2( 10, 9.20822 )
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -78,37 +40,63 @@ shape = SubResource( 1 )
 position = Vector2( 4.08109, 0 )
 texture = ExtResource( 2 )
 
-[node name="LightParticles" type="Particles2D" parent="." index="1"]
+[node name="Level" type="Node2D" parent="." index="1"]
 
-position = Vector2( 481.295, 229.488 )
-emitting = true
-amount = 44
-lifetime = 10.0
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
-draw_order = 0
-process_material = SubResource( 2 )
-texture = ExtResource( 4 )
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+[node name="KinematicBody2D2" type="KinematicBody2D" parent="Level" index="0"]
+
+position = Vector2( 629.03, 142.352 )
+rotation = 2.44653
+scale = Vector2( 1, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/KinematicBody2D2" index="0"]
+
+scale = Vector2( 2.81255, 7.98985 )
+shape = SubResource( 3 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Level" index="1"]
+
+position = Vector2( 478.03, 477.351 )
+rotation = 1.14458
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/KinematicBody2D" index="0"]
+
+rotation = 0.0571785
+scale = Vector2( 2.81255, 7.98985 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="EmitterNode" type="Node2D" parent="." index="2"]
 
-position = Vector2( 118.352, 380.904 )
-script = ExtResource( 5 )
+position = Vector2( 324.999, 165 )
 
 [node name="Sprite" type="Sprite" parent="EmitterNode" index="0"]
 
-position = Vector2( 0.487671, 0 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Transmission" type="Node2D" parent="EmitterNode" index="1"]
+
+script = ExtResource( 4 )
+points = PoolVector2Array(  )
+
+[node name="Rays" type="Node2D" parent="EmitterNode/Transmission" index="0"]
+
+[node name="debugTransmission" type="Line2D" parent="EmitterNode/Transmission" index="1"]
+
+position = Vector2( 2, 0 )
+points = PoolVector2Array( 0, 0, 472.836, 232.362, 136.836, 281.362, -172.163, 97.3621 )
+width = 10.0
+default_color = Color( 1, 0.892187, 0.4, 0.237569 )
+texture_mode = 39818496
+sharp_limit = 2.0
+round_precision = 8
 
 
