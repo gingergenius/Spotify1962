@@ -41,8 +41,6 @@ func step_and_wrap_rotation (delta):
 	if rotation < -2 * PI:
 		rotation += 2 * PI
 
-	print(rotation, ", ", target_angle, ", ", rot_direction, ", [", angle_min, ", ", angle_max, "]")
-
 	self.rotation = rotation
 
 func _process(delta):

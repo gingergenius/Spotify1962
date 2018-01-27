@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://PlayerNode.gd" type="Script" id=1]
 [ext_resource path="res://objects/player.png" type="Texture" id=2]
-[ext_resource path="res://particle_curve_decrease.tres" type="Texture" id=3]
-[ext_resource path="res://sound_particle.png" type="Texture" id=4]
-[ext_resource path="res://EmitterNode.gd" type="Script" id=5]
-[ext_resource path="res://objects/emitter.png" type="Texture" id=6]
+[ext_resource path="res://EmitterNode.gd" type="Script" id=3]
+[ext_resource path="res://objects/emitter.png" type="Texture" id=4]
+[ext_resource path="res://particle_curve_decrease.tres" type="Texture" id=5]
+[ext_resource path="res://sound_particle.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -16,7 +16,7 @@ extents = Vector2( 25.1465, 16.4711 )
 
 render_priority = 0
 trail_divisor = 1
-trail_size_modifier = ExtResource( 3 )
+trail_size_modifier = ExtResource( 5 )
 emission_shape = 0
 flag_align_y = false
 flag_rotate_y = false
@@ -42,7 +42,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.32
-scale_curve = ExtResource( 3 )
+scale_curve = ExtResource( 5 )
 color = Color( 1, 1, 1, 1 )
 hue_variation = 0.0
 hue_variation_random = 0.0
@@ -52,6 +52,11 @@ anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Trail" ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 9.20822 )
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -78,9 +83,45 @@ shape = SubResource( 1 )
 position = Vector2( 4.08109, 0 )
 texture = ExtResource( 2 )
 
-[node name="LightParticles" type="Particles2D" parent="." index="1"]
+[node name="EmitterNode" type="Node2D" parent="." index="1"]
 
-position = Vector2( 481.295, 229.488 )
+position = Vector2( 320.336, 166.862 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="EmitterNode" index="0"]
+
+position = Vector2( 0.487671, 0 )
+texture = ExtResource( 4 )
+
+[node name="DirectionLine" type="Line2D" parent="EmitterNode" index="1"]
+
+points = PoolVector2Array(  )
+width = 5.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = -1183937892
+sharp_limit = 2.0
+round_precision = 8
+
+[node name="TransmissionPath" type="Line2D" parent="EmitterNode" index="2"]
+
+points = PoolVector2Array( -6.34683, 4.46129, 282.662, 5.13721, 140.663, 280.137, -184.337, 239.137 )
+width = 10.0
+default_color = Color( 0.789445, 0.808594, 0.195831, 0.287294 )
+texture_mode = 6
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D" type="RayCast2D" parent="EmitterNode" index="3"]
+
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, 50 )
+collision_mask = 1
+
+[node name="LightParticles" type="Particles2D" parent="EmitterNode" index="4"]
+
+position = Vector2( 160.959, 62.6261 )
 emitting = true
 amount = 44
 lifetime = 10.0
@@ -95,20 +136,43 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
 
-[node name="EmitterNode" type="Node2D" parent="." index="2"]
+[node name="Level" type="Node2D" parent="." index="2"]
 
-position = Vector2( 118.352, 380.904 )
-script = ExtResource( 5 )
+[node name="KinematicBody2D2" type="KinematicBody2D" parent="Level" index="0"]
 
-[node name="Sprite" type="Sprite" parent="EmitterNode" index="0"]
+position = Vector2( 629.03, 142.352 )
+rotation = 2.44653
+scale = Vector2( 1, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
 
-position = Vector2( 0.487671, 0 )
-texture = ExtResource( 6 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/KinematicBody2D2" index="0"]
+
+scale = Vector2( 2.81255, 7.98985 )
+shape = SubResource( 3 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Level" index="1"]
+
+position = Vector2( 478.03, 477.351 )
+rotation = 1.14458
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/KinematicBody2D" index="0"]
+
+rotation = 0.0571785
+scale = Vector2( 2.81255, 7.98985 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 
