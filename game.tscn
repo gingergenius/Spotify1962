@@ -11,13 +11,13 @@
 custom_solver_bias = 0.0
 radius = 34.0
 
-[node name="game" type="Node"]
+[node name="game" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
 [node name="player" type="RigidBody2D" parent="." index="0"]
 
-position = Vector2( 277.267, 242.215 )
+position = Vector2( 221.268, 236.215 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
