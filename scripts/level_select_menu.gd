@@ -4,6 +4,7 @@ extends Panel
 var current_stage = 0
 var amount_stages = 3
 var level_names = ["Intro", "Level 1 - get a move on", "Level 2 - vacuum the rug"]
+var level_filenames = ["00_intro", "01_medium", "02_advanced"]
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -30,8 +31,9 @@ func update_stage():
 	pass
 
 func play_stage():
-	print("loading level " + str(current_stage))
-	get_tree().change_scene("res://levels/" + str(current_stage) +".tscn")
+	var filename = level_filenames[current_stage]
+	print("loading level " + filename)
+	get_tree().change_scene("res://scenes/levels/" + filename + ".tscn")
 	pass
 
 

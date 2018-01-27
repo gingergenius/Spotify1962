@@ -11,12 +11,12 @@ func _ready():
 
 func load_first_level():
 	print("loading first level")
-	get_tree().change_scene("res://levels/0.tscn")
+	get_tree().change_scene("res://scenes/levels/00_intro.tscn")
 	pass
 	
 func load_level_selection():
 	print("loading level selection screen")
-	get_tree().change_scene("res://level_select_menu.tscn")
+	get_tree().change_scene("res://scenes/level_select_menu.tscn")
 	pass
 
 func quit():

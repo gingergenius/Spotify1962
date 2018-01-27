@@ -446,6 +446,7 @@ texture = ExtResource( 13 )
 
 position = Vector2( 2825.76, 521.59 )
 rotation = 1.5708
+SNEAK_SPEED = 300
 
 [node name="Caster" parent="." index="5" instance=ExtResource( 15 )]
 
