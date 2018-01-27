@@ -59,8 +59,6 @@ editor/display_folded = true
 
 [node name="room1" type="Node2D" parent="rooms" index="0"]
 
-editor/display_folded = true
-
 [node name="floor" type="NinePatchRect" parent="rooms/room1" index="0"]
 
 anchor_left = 0.0
@@ -591,7 +589,7 @@ position = Vector2( 5055.06, 560.852 )
 
 [node name="doublebed" parent="furniture" index="4" instance=ExtResource( 13 )]
 
-position = Vector2( 5986.03, 709.295 )
+position = Vector2( 5996.61, 719.88 )
 
 [node name="trash_basket" parent="furniture" index="5" instance=ExtResource( 14 )]
 
@@ -647,6 +645,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Caster" parent="." index="6" instance=ExtResource( 26 )]
 
-position = Vector2( 349.899, 947.454 )
+position = Vector2( 449.87, 924.734 )
+rotation = -0.353018
 
 

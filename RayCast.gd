@@ -76,14 +76,31 @@ func _physics_process(delta):
 	debug_points.push_back(Vector2(80.0, -20.0))
 	updateLinePoints(debug_line, debug_points)
 
+	# backup old transmissions
+	var old_transmission_points = transmission_points
+	var transmission_has_changed = false
+
+	# perform the raycasts
 	var points = PoolVector2Array()
 	points.push_back(origin)
-
 	points = cast_ray(origin, target, points, 0, 5)
+	
+	if transmission_points.size() != points.size():
+		transmission_has_changed = true
 	
 	transmission_points = PoolVector2Array()
 	for i in range(points.size()):
 		transmission_points.push_back(to_local(points[i]))
+		
+		if not transmission_has_changed:
+			if transmission_points[i] != old_transmission_points[i]:
+				transmission_has_changed = true
 
 	updateLinePoints(line, transmission_points)	
-	print(transmission_points)
+	
+	print("transmission_has_changed: ", transmission_has_changed)
+
+	if transmission_has_changed:	
+		var transmission = get_node("Transmission")
+		transmission.points = transmission_points
+		transmission.reset_transmission = true
