@@ -43,8 +43,6 @@ func _process(delta):
 	if debug_ui:
 		debug_ui.set_rotation(-self.rotation)
 	
-	var line = get_node("Line2D")
-	
 	var direction_line = get_node("DirectionLine")
 
 	updateLinePoints(direction_line, [
