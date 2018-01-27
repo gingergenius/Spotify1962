@@ -26,7 +26,7 @@ extents = Vector2( 110, 110 )
 custom_solver_bias = 0.0
 extents = Vector2( 312.237, 441.528 )
 
-[node name="game" type="Node"]
+[node name="game" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -451,6 +451,5 @@ rotation = 1.5708
 
 position = Vector2( 1213.56, 253.914 )
 rotation = 1.5708
-TARGET_DIST = 10000
 
 

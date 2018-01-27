@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://images/player.png" type="Texture" id=2]
+[ext_resource path="res://scripts/playerPullHelper.gd" type="Script" id=3]
 
 [node name="player" type="RigidBody2D"]
 
 input_pickable = false
-collision_layer = 1
+collision_layer = 2
 collision_mask = 1
 mode = 2
 mass = 1.0
@@ -24,8 +25,9 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
 WALK_SPEED = 1500
+SNEAK_SPEED = 300
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -39,7 +41,7 @@ limit_top = -10000000
 limit_right = 10000000
 limit_bottom = 10000000
 limit_smoothed = true
-drag_margin_h_enabled = false
+drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 smoothing_speed = 5.0
@@ -64,5 +66,12 @@ _sections_unfolded = [ "Transform" ]
 
 build_mode = 0
 polygon = PoolVector2Array( 32.4577, -50.371, 31.8274, -84.404, 12.2053, -110.055, -8.2713, -123.706, -46.3804, -122.569, -68.5634, -105.505, -83.352, -82.7533, -80.1234, 90.3368, -64.7558, 109.085, -41.0896, 123.838, -9.12485, 124.146, 15.4634, 104.168, 29.2943, 82.0383, 29.8935, 56.9558 )
+
+[node name="playerPullHelper" type="Node2D" parent="." index="3"]
+
+script = ExtResource( 3 )
+PULLING_DISTANCE = 500
+PULLING_SPEED = 1200
+SNEAK_PULLING_SPEED = 300
 
 

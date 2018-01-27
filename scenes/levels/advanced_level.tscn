@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://images/Raum_1.png" type="Texture" id=1]
 [ext_resource path="res://images/Fenster_linkeSeite_unten.png" type="Texture" id=2]
@@ -9,20 +9,27 @@
 [ext_resource path="res://images/Fenster_oben_rechts.png" type="Texture" id=7]
 [ext_resource path="res://images/Türe.png" type="Texture" id=8]
 [ext_resource path="res://images/Bad/Badezimmer.png" type="Texture" id=9]
-[ext_resource path="res://objects/furniture/doublebed.tscn" type="PackedScene" id=10]
-[ext_resource path="res://objects/furniture/bookshelf.tscn" type="PackedScene" id=11]
-[ext_resource path="res://objects/furniture/couch.tscn" type="PackedScene" id=12]
-[ext_resource path="res://objects/furniture/plant.tscn" type="PackedScene" id=13]
-[ext_resource path="res://objects/furniture/table_big.tscn" type="PackedScene" id=14]
-[ext_resource path="res://objects/furniture/desk.tscn" type="PackedScene" id=15]
-[ext_resource path="res://objects/furniture/desk_chair.tscn" type="PackedScene" id=16]
-[ext_resource path="res://objects/furniture/chair2.tscn" type="PackedScene" id=17]
-[ext_resource path="res://objects/furniture/newspaper_holder.tscn" type="PackedScene" id=18]
-[ext_resource path="res://objects/furniture/bench.tscn" type="PackedScene" id=19]
-[ext_resource path="res://objects/furniture/trash_basket.tscn" type="PackedScene" id=20]
-[ext_resource path="res://objects/furniture/aquarium_rect.tscn" type="PackedScene" id=21]
-[ext_resource path="res://player.tscn" type="PackedScene" id=22]
-[ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=23]
+[ext_resource path="res://images/Bad/Radio_2_größer_bad.png" type="Texture" id=10]
+[ext_resource path="res://images/Laptop.png" type="Texture" id=11]
+[ext_resource path="res://images/Bad/Teppich Badewanne.png" type="Texture" id=12]
+[ext_resource path="res://objects/furniture/doublebed.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/furniture/bookshelf.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/furniture/couch.tscn" type="PackedScene" id=15]
+[ext_resource path="res://objects/furniture/plant.tscn" type="PackedScene" id=16]
+[ext_resource path="res://objects/furniture/table_big.tscn" type="PackedScene" id=17]
+[ext_resource path="res://objects/furniture/desk.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/furniture/desk_chair.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/furniture/chair2.tscn" type="PackedScene" id=20]
+[ext_resource path="res://objects/furniture/newspaper_holder.tscn" type="PackedScene" id=21]
+[ext_resource path="res://objects/furniture/bench.tscn" type="PackedScene" id=22]
+[ext_resource path="res://objects/furniture/trash_basket.tscn" type="PackedScene" id=23]
+[ext_resource path="res://objects/furniture/aquarium_rect.tscn" type="PackedScene" id=24]
+[ext_resource path="res://objects/furniture/chair.tscn" type="PackedScene" id=25]
+[ext_resource path="res://objects/furniture/bath/toilette.tscn" type="PackedScene" id=26]
+[ext_resource path="res://objects/furniture/bath/bathtub.tscn" type="PackedScene" id=27]
+[ext_resource path="res://objects/furniture/aquarium_circle.tscn" type="PackedScene" id=28]
+[ext_resource path="res://player.tscn" type="PackedScene" id=29]
+[ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -1027,6 +1034,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 11.0
+margin_top = -42.0
+margin_right = 11.0
+margin_bottom = -42.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1904,93 +1915,125 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="decorations" type="Node2D" parent="." index="2"]
 
+[node name="Radio_2_größer_bad" type="Sprite" parent="decorations" index="0"]
+
+position = Vector2( 383.135, 3272.26 )
+texture = ExtResource( 10 )
+
+[node name="Laptop" type="Sprite" parent="decorations/Radio_2_größer_bad" index="0"]
+
+position = Vector2( 929.442, 1360.43 )
+texture = ExtResource( 11 )
+
+[node name="Teppich Badewanne" type="Sprite" parent="decorations" index="1"]
+
+position = Vector2( 2039.11, 3544.15 )
+scale = Vector2( 3.01521, 1.98902 )
+texture = ExtResource( 12 )
+
 [node name="furniture" type="Node2D" parent="." index="3"]
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="doublebed" parent="furniture" index="0" instance=ExtResource( 10 )]
+[node name="doublebed" parent="furniture" index="0" instance=ExtResource( 13 )]
 
 position = Vector2( 5500.77, 4670.85 )
 
-[node name="bookshelf" parent="furniture" index="1" instance=ExtResource( 11 )]
+[node name="bookshelf" parent="furniture" index="1" instance=ExtResource( 14 )]
 
 position = Vector2( 5835.54, 3238.87 )
 
-[node name="couch" parent="furniture" index="2" instance=ExtResource( 12 )]
+[node name="couch" parent="furniture" index="2" instance=ExtResource( 15 )]
 
 position = Vector2( 8107.61, 4483.56 )
 rotation = 1.54015
 
-[node name="plant" parent="furniture" index="3" instance=ExtResource( 13 )]
+[node name="plant" parent="furniture" index="3" instance=ExtResource( 16 )]
 
 position = Vector2( 7438.56, 3503.35 )
 
-[node name="table_big" parent="furniture" index="4" instance=ExtResource( 14 )]
+[node name="table_big" parent="furniture" index="4" instance=ExtResource( 17 )]
 
 position = Vector2( 7740.56, 841.453 )
 
-[node name="desk" parent="furniture" index="5" instance=ExtResource( 15 )]
+[node name="desk" parent="furniture" index="5" instance=ExtResource( 18 )]
 
 position = Vector2( 8298.88, 2045.32 )
 rotation = 1.61324
 _sections_unfolded = [ "Angular", "Linear", "Transform" ]
 
-[node name="desk_chair" parent="furniture" index="6" instance=ExtResource( 16 )]
+[node name="desk_chair" parent="furniture" index="6" instance=ExtResource( 19 )]
 
 position = Vector2( 7967.55, 2189.15 )
 rotation = 0.441178
 
-[node name="chair2" parent="furniture" index="7" instance=ExtResource( 17 )]
+[node name="chair2" parent="furniture" index="7" instance=ExtResource( 20 )]
 
 position = Vector2( 7522.3, 1152.08 )
 rotation = -0.948513
 
-[node name="chair3" parent="furniture" index="8" instance=ExtResource( 17 )]
+[node name="chair3" parent="furniture" index="8" instance=ExtResource( 20 )]
 
 position = Vector2( 7942.73, 1152.08 )
 rotation = -1.10227
 
-[node name="chair4" parent="furniture" index="9" instance=ExtResource( 17 )]
+[node name="chair4" parent="furniture" index="9" instance=ExtResource( 20 )]
 
 position = Vector2( 7918.75, 491.1 )
 rotation = -4.01832
 
-[node name="chair5" parent="furniture" index="10" instance=ExtResource( 17 )]
+[node name="chair5" parent="furniture" index="10" instance=ExtResource( 20 )]
 
 position = Vector2( 7489.24, 485.03 )
 rotation = -3.79344
 
-[node name="newspaper_holder" parent="furniture" index="11" instance=ExtResource( 18 )]
+[node name="newspaper_holder" parent="furniture" index="11" instance=ExtResource( 21 )]
 
 position = Vector2( 4377.34, 523.252 )
 rotation = 0.673023
 
-[node name="bench" parent="furniture" index="12" instance=ExtResource( 19 )]
+[node name="bench" parent="furniture" index="12" instance=ExtResource( 22 )]
 
 position = Vector2( 677.956, 1043.42 )
 rotation = 0.174728
 
-[node name="trash_basket" parent="furniture" index="13" instance=ExtResource( 20 )]
+[node name="trash_basket" parent="furniture" index="13" instance=ExtResource( 23 )]
 
 position = Vector2( 4440.6, 932.794 )
 
-[node name="aquarium_rect" parent="furniture" index="14" instance=ExtResource( 21 )]
+[node name="aquarium_rect" parent="furniture" index="14" instance=ExtResource( 24 )]
 
 position = Vector2( 3451.15, 357.317 )
 
-[node name="bookshelf2" parent="furniture" index="15" instance=ExtResource( 11 )]
+[node name="bookshelf2" parent="furniture" index="15" instance=ExtResource( 14 )]
 
 position = Vector2( 3551.5, 1085.41 )
 
-[node name="player" parent="." index="4" instance=ExtResource( 22 )]
+[node name="chair" parent="furniture" index="16" instance=ExtResource( 25 )]
+
+position = Vector2( 6781.89, 4507.87 )
+rotation = -1.63924
+
+[node name="toilette" parent="furniture" index="17" instance=ExtResource( 26 )]
+
+position = Vector2( 1317.58, 4925.54 )
+rotation = 4.71239
+
+[node name="bathtub" parent="furniture" index="18" instance=ExtResource( 27 )]
+
+position = Vector2( 2174.72, 3549.01 )
+
+[node name="aquarium_circle" parent="furniture" index="19" instance=ExtResource( 28 )]
+
+position = Vector2( 2950.7, 2038.49 )
+
+[node name="player" parent="." index="4" instance=ExtResource( 29 )]
 
 position = Vector2( 8197.24, 3768.74 )
-SNEAK_SPEED = 300
 
-[node name="Caster" parent="." index="5" instance=ExtResource( 23 )]
+[node name="Caster" parent="." index="5" instance=ExtResource( 30 )]
 
 position = Vector2( 8412.03, 4441.18 )
 rotation = 3.14159
-TARGET_DIST = 10000
 
 
