@@ -6,7 +6,7 @@ extends Node
 
 var speed = 100
 var angle = 0.0
-var angle_vel = 3 * 3.141592
+var angle_vel = 6 * 3.141592
 var target_angle = 0.0
 
 func _ready():
@@ -47,13 +47,13 @@ func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	var direction = Vector2()
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("player_left"):
 		direction.x = direction.x - 1.0
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("player_right"):
 		direction.x = direction.x + 1.0
-	if Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed("player_up"):
 		direction.y = direction.y - 1.0
-	if Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("player_down"):
 		direction.y = direction.y + 1.0
 
 	# Integrate position
