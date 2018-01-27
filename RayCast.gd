@@ -33,7 +33,6 @@ func _ready():
 	space = get_world_2d().get_space()
 	space_state = Physics2DServer.space_get_direct_state(space)
 	
-
 #recursively cast rays and append points array until given depth
 func cast_ray(source, goal, points, cur_depth, max_depth):	
 	if (cur_depth == max_depth):
@@ -83,5 +82,5 @@ func _physics_process(delta):
 	debug_points.push_back(to_local(goal.position))
 	updateLinePoints(debug_line, debug_points)
 
-	var final_points = cast_ray(to_local(source.position), to_local(goal.position), points, 0, 20)
+	var final_points = cast_ray(to_local(source.position), to_local(goal.position), points, 0, 5)
 	updateLinePoints(line, final_points)
