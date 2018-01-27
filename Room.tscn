@@ -42,6 +42,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Goal" type="Position2D" parent="." index="0"]
 
 editor/display_folded = true
+visible = false
 position = Vector2( 30.3551, 95.5532 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -64,6 +65,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 [node name="Source" type="Position2D" parent="." index="2"]
 
 editor/display_folded = true
+visible = false
 position = Vector2( 533.862, 380.035 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -74,7 +76,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Wall" type="StaticBody2D" parent="." index="3"]
 
-editor/display_folded = true
 modulate = Color( 0.0571136, 0.10164, 0.769531, 1 )
 material = SubResource( 1 )
 input_pickable = false
