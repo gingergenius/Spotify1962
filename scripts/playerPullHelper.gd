@@ -26,12 +26,10 @@ func _physics_process(delta):
 		if !isPulling:
 			# find nearest node that is within radius
 			pullingNode = get_nearest_furniture()
-			print("start pulling", pullingNode)
 			if pullingNode != null:
 				isPulling = true
 				offset = pullingNode.global_position - global_position
 		if pullingNode != null:
-			#print(player.get_linear_velocity())
 			var a = player.get_linear_velocity()
 			if (a.length() > 0):
 				var b = pullingNode.global_position - global_position
@@ -39,7 +37,6 @@ func _physics_process(delta):
 				var vel = a.length() * a.dot(b) * b
 				vel = vel.normalized() * PULLING_SPEED
 				
-				print(vel.dot(b))
 				if b.dot(vel) < 0:
 					pullingNode.set_linear_velocity(vel)
 					player.set_linear_velocity(player.get_linear_velocity() * 0.7) # slower while dragging
