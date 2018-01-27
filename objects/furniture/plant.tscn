@@ -2,14 +2,14 @@
 
 [ext_resource path="res://images/Zimmerpflanze_1.png" type="Texture" id=1]
 
-
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 125.425
 
-[node name="plant" type="RigidBody2D"]
+[node name="plant" type="RigidBody2D" index="0" groups=[
+"Furniture",
+]]
 
 position = Vector2( 514.792, 1006.62 )
 input_pickable = false

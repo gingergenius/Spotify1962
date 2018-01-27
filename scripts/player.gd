@@ -7,6 +7,7 @@ var angle_vel = 6 * 3.141592
 var target_angle = 0.0
 
 onready var sprite = get_node("sprite")
+onready var collisionShape = get_node("collisionShape")
 
 func step_and_wrap_rotation (delta):
 	var rotation = sprite.rotation
@@ -36,6 +37,7 @@ func step_and_wrap_rotation (delta):
 		rotation += 2 * PI
 
 	sprite.rotation = rotation
+	collisionShape.rotation = rotation
 
 
 func _ready():
@@ -45,20 +47,20 @@ func _physics_process(delta):
 	
 	velocity.y += delta * 20
 	if (Input.is_action_pressed("player_left")):
-		velocity.x = -WALK_SPEED
+		velocity.x = -1
 	elif (Input.is_action_pressed("player_right")):
-		velocity.x =  WALK_SPEED
+		velocity.x =  1
 	else:
 		velocity.x = 0
 	
 	if (Input.is_action_pressed("player_up")):
-		velocity.y = -WALK_SPEED
+		velocity.y = -1
 	elif (Input.is_action_pressed("player_down")):
-		velocity.y = WALK_SPEED
+		velocity.y = 1
 	else:
 		velocity.y = 0
 
-	set_linear_velocity(velocity)
+	set_linear_velocity(velocity.normalized() * WALK_SPEED)
 	
 	# Step rotation
 	if velocity.length_squared() > 0.0001:

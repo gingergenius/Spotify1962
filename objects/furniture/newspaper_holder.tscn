@@ -2,14 +2,14 @@
 
 [ext_resource path="res://images/Zeitschriftenhalter.png" type="Texture" id=1]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8.79329, 7.92046 )
 
-[node name="newspaper_holder" type="RigidBody2D"]
+[node name="newspaper_holder" type="RigidBody2D" index="0" groups=[
+"Furniture",
+]]
 
 position = Vector2( 514.792, 1006.62 )
 input_pickable = false

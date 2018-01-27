@@ -2,14 +2,14 @@
 
 [ext_resource path="res://images/Stuhl_1.png" type="Texture" id=1]
 
-
-
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 7.48686, 8.44626 )
 
-[node name="chair2" type="RigidBody2D"]
+[node name="chair2" type="RigidBody2D" index="0" groups=[
+"Furniture",
+]]
 
 position = Vector2( 514.792, 1006.62 )
 input_pickable = false
@@ -41,7 +41,7 @@ _sections_unfolded = [ "Transform" ]
 
 rotation = 1.06444
 scale = Vector2( 19.3562, 16.6181 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 
