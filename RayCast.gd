@@ -47,6 +47,7 @@ func cast_ray(origin, target, points, cur_depth, max_depth):
 		if result.size() > 0:
 			var collision_point = result.position
 			var normal = result.normal
+			var collider = result.collider
 			
 			# for the debugging scene of the Caster
 			if debug_collision_point:
@@ -55,15 +56,21 @@ func cast_ray(origin, target, points, cur_depth, max_depth):
 			# mark object as being reached by the transmission
 			if not transmission_objects.has(result.collider):
 				transmission_objects[result.collider] = true
+
+			# check whether we are at the end of a transmission
+			var is_object_transmission_sink = "isTransmissionSink" in collider and collider.isTransmissionSink
 			
 			# add point if is sufficiently far away from the previous point
 			var distance_to_previous = (points[points.size()-1] - collision_point).length_squared()
 			if distance_to_previous > 0.01:
 				points.push_back(collision_point)
+				if is_object_transmission_sink:
+					return points
 				
 			# compute the reflection
 			var falling = collision_point - origin
-			if falling.length_squared() < 0.01:
+			
+			if falling.length_squared() < 0.01 :
 				points.push_back(target)
 				return points
 				
@@ -122,15 +129,17 @@ func _physics_process(delta):
 		transmission.reset_transmission = true
 
 		# check which objects are no more in the transmission
-		var old_transmission_objects_list = old_transmission_objects.values()
+		var old_transmission_objects_list = old_transmission_objects.keys()
 		for o in old_transmission_objects_list:
 			if not transmission_objects.has(o):
-				# object is no more touched by the transmission
-				pass
+				if o.has_method("onTransmissionStop"):
+					o.onTransmissionStop()
 		
-		var new_transmission_objects_list = transmission_objects.values()
+		var new_transmission_objects_list = transmission_objects.keys()
 		for o in new_transmission_objects_list:
 			if not old_transmission_objects.has(o):
 				# object is being touched by the transmission
-				pass
+				if o.has_method("onTransmissionStart"):
+					o.onTransmissionStart()
+
 		
