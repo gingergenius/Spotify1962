@@ -35,7 +35,7 @@ extents = Vector2( 486.64, 48.8373 )
 custom_solver_bias = 0.0
 extents = Vector2( 47.7365, 302.289 )
 
-[node name="Room" type="Node" index="0"]
+[node name="Room" type="Node"]
 
 _sections_unfolded = [ "Pause" ]
 

@@ -3,11 +3,7 @@
 [ext_resource path="res://scripts/PlayerNode.gd" type="Script" id=1]
 [ext_resource path="res://images/player.png" type="Texture" id=2]
 [ext_resource path="res://images/emitter.png" type="Texture" id=3]
-[ext_resource path="res://scripts/Transmission.gd" type="Script" id=4]
-
-
-
-
+[ext_resource path="res://objects/Transmission.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -85,22 +81,8 @@ position = Vector2( 324.999, 165 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Transmission" type="Node2D" parent="EmitterNode" index="1"]
+[node name="Transmission" parent="EmitterNode" index="1" instance=ExtResource( 4 )]
 
-script = ExtResource( 4 )
-points = PoolVector2Array(  )
-ParticleSeparation = 20.0
-
-[node name="Rays" type="Node2D" parent="EmitterNode/Transmission" index="0"]
-
-[node name="debugTransmission" type="Line2D" parent="EmitterNode/Transmission" index="1"]
-
-position = Vector2( 3, 0 )
-points = PoolVector2Array( 0, 0, 472.836, 232.362, 136.836, 281.362, -172.163, 97.3621, -268.999, 226, -86.999, 307, -28.6414, 236.34, 98.001, 83, 171.001, -194 )
-width = 10.0
-default_color = Color( 1, 0.892187, 0.4, 0.237569 )
-texture_mode = 39818496
-sharp_limit = 2.0
-round_precision = 8
+reset_transmission = false
 
 

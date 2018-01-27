@@ -4,6 +4,7 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 export var points = PoolVector2Array()
+export var reset_transmission = false
 export var ParticleSeparation = 20.0
 var transmission_ray_scene = load("res://objects/TransmissionRay.tscn")
 
@@ -21,7 +22,7 @@ func _process(delta):
 	var num_rays = points.size() - 1
 	var rays = get_node("Rays")
 	
-	if points.size() - 1 != rays.get_child_count():
+	if reset_transmission:
 		var ray_children = rays.get_children()
 		
 		for child in ray_children:
@@ -42,6 +43,8 @@ func _process(delta):
 			emitter.amount = length / ParticleSeparation
 		
 			get_node("Rays").call_deferred("add_child", ray)
+		
+		reset_transmission = false
 
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
