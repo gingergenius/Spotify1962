@@ -39,8 +39,8 @@ func _process(delta):
 			ray.rotation = direction.angle()
 			var emitter = ray.get_node("ParticleEmitter")
 			var speed = emitter.process_material.initial_velocity
-			emitter.lifetime = length / speed
-			emitter.amount = length / ParticleSeparation
+			emitter.lifetime = length / emitter.scale.x / speed
+			emitter.amount = length / emitter.scale.x / ParticleSeparation
 		
 			get_node("Rays").call_deferred("add_child", ray)
 		

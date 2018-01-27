@@ -4,7 +4,7 @@
 [ext_resource path="res://images/emitter.png" type="Texture" id=2]
 [ext_resource path="res://objects/Transmission.tscn" type="PackedScene" id=3]
 
-[node name="Caster" type="Node2D" index="0"]
+[node name="Caster" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -34,7 +34,9 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="." index="2"]
 
+scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Transmission" parent="." index="3" instance=ExtResource( 3 )]
 

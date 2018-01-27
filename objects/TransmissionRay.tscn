@@ -64,6 +64,7 @@ round_precision = 8
 
 [node name="ParticleEmitter" type="Particles2D" parent="." index="1"]
 
+scale = Vector2( 3, 3 )
 emitting = true
 amount = 100
 lifetime = 10.0
