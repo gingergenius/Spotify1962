@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://PlayerNode.gd" type="Script" id=1]
-[ext_resource path="res://source_assets/player.png" type="Texture" id=2]
+[ext_resource path="res://objects/player.png" type="Texture" id=2]
 [ext_resource path="res://particle_curve_decrease.tres" type="Texture" id=3]
-[ext_resource path="res://ray_particle.png" type="Texture" id=4]
+[ext_resource path="res://sound_particle.png" type="Texture" id=4]
+[ext_resource path="res://EmitterNode.gd" type="Script" id=5]
+[ext_resource path="res://objects/emitter.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -57,7 +59,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="PlayerNode" type="Node2D" parent="." index="0"]
 
-position = Vector2( 213.579, 183.651 )
+position = Vector2( 174.128, 171.408 )
 script = ExtResource( 1 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="PlayerNode" index="0"]
@@ -73,13 +75,14 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="PlayerNode/KinematicBody2D" index="1"]
 
+position = Vector2( 4.08109, 0 )
 texture = ExtResource( 2 )
 
 [node name="LightParticles" type="Particles2D" parent="." index="1"]
 
-position = Vector2( 409.195, 210.443 )
+position = Vector2( 481.295, 229.488 )
 emitting = true
-amount = 20
+amount = 44
 lifetime = 10.0
 one_shot = false
 preprocess = 0.0
@@ -97,5 +100,15 @@ normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+[node name="EmitterNode" type="Node2D" parent="." index="2"]
+
+position = Vector2( 118.352, 380.904 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="EmitterNode" index="0"]
+
+position = Vector2( 0.487671, 0 )
+texture = ExtResource( 6 )
 
 
