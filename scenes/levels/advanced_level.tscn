@@ -29,7 +29,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 110, 110 )
 
-[node name="game" type="Node" index="0"]
+[node name="game" type="Node"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -1985,6 +1985,7 @@ position = Vector2( 3551.5, 1085.41 )
 [node name="player" parent="." index="4" instance=ExtResource( 22 )]
 
 position = Vector2( 8197.24, 3768.74 )
+SNEAK_SPEED = 300
 
 [node name="Caster" parent="." index="5" instance=ExtResource( 23 )]
 

@@ -27,6 +27,7 @@ angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
 WALK_SPEED = 1500
+SNEAK_SPEED = 300
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -71,5 +72,6 @@ polygon = PoolVector2Array( 32.4577, -50.371, 31.8274, -84.404, 12.2053, -110.05
 script = ExtResource( 3 )
 PULLING_DISTANCE = 500
 PULLING_SPEED = 1200
+SNEAK_PULLING_SPEED = 300
 
 

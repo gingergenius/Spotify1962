@@ -4,6 +4,7 @@ var isPulling = false
 var pullingNode = null
 export var PULLING_DISTANCE = 500
 export var PULLING_SPEED = 1200
+export var SNEAK_PULLING_SPEED = 300
 var offset = null
 onready var player = get_node("..")
 
@@ -35,7 +36,7 @@ func _physics_process(delta):
 				var b = pullingNode.global_position - global_position
 				
 				var vel = a.length() * a.dot(b) * b
-				vel = vel.normalized() * PULLING_SPEED
+				vel = vel.normalized() * (SNEAK_PULLING_SPEED if Input.is_action_pressed("player_sneak") else PULLING_SPEED)
 				
 				if b.dot(vel) < 0:
 					pullingNode.set_linear_velocity(vel)
