@@ -15,7 +15,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
-player = NodePath("../player")
+player = NodePath("/root/game/player")
 MAX_PULL_DISTANCE = 200
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." index="0"]

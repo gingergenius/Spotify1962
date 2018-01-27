@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://images/player_prototype.png" type="Texture" id=2]
 [ext_resource path="res://objects/movable_funiture.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/rotatable_furniture.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/movable_rotatable_chair.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -70,10 +71,17 @@ shape = SubResource( 1 )
 [node name="movable_funiture" parent="furniture" index="0" instance=ExtResource( 3 )]
 
 editor/display_folded = false
-position = Vector2( 241.43, 530.945 )
+position = Vector2( 627.02, 55.5975 )
 
-[node name="rotatable_furniture" parent="furniture" index="1" instance=ExtResource( 4 )]
+[node name="movable_funiture2" parent="furniture" index="1" instance=ExtResource( 3 )]
 
-player = NodePath("../../player")
+editor/display_folded = false
+position = Vector2( 896.598, 64.5104 )
+
+[node name="rotatable_furniture" parent="furniture" index="2" instance=ExtResource( 4 )]
+
+[node name="furniture_builder_place" type="Node2D" parent="." index="2"]
+
+[node name="movable_rotatable_chair" parent="furniture_builder_place" index="0" instance=ExtResource( 5 )]
 
 
