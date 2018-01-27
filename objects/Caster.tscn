@@ -25,14 +25,4 @@ sharp_limit = 2.0
 round_precision = 8
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="RayCast" type="RayCast2D" parent="." index="2"]
-
-modulate = Color( 0.5, 1, 0, 1 )
-self_modulate = Color( 0.96875, 1, 0, 1 )
-enabled = true
-exclude_parent = false
-cast_to = Vector2( 200, 0 )
-collision_mask = 1
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
-
 

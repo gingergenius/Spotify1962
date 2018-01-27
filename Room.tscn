@@ -2,35 +2,35 @@
 
 [ext_resource path="res://Goal.gd" type="Script" id=1]
 [ext_resource path="res://ball.png" type="Texture" id=2]
-[ext_resource path="res://RayCast.gd" type="Script" id=3]
+[ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CanvasItemMaterial" id=2]
+[sub_resource type="CanvasItemMaterial" id=1]
 
 render_priority = 0
 blend_mode = 0
 light_mode = 0
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 200.303, 31.2539 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 165.276, 40.3454 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 49.9373, 308.648 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 486.64, 48.8373 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 47.7365, 302.289 )
@@ -76,7 +76,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 editor/display_folded = true
 modulate = Color( 0.0571136, 0.10164, 0.769531, 1 )
-material = SubResource( 2 )
+material = SubResource( 1 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -115,59 +115,28 @@ _sections_unfolded = [ "Invert", "Texture", "Transform", "Z Index" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" index="2"]
 
 position = Vector2( 254.973, 125.254 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall" index="3"]
 
 position = Vector2( 868.824, 137.442 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall" index="4"]
 
 position = Vector2( 980.875, 405.281 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall" index="5"]
 
 position = Vector2( 538.881, 671.096 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Wall" index="6"]
 
 position = Vector2( 96.8865, 402.19 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
-[node name="Caster" type="Node2D" parent="." index="4"]
-
-script = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Line" type="Line2D" parent="Caster" index="0"]
-
-points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
-width = 5.0
-default_color = Color( 1, 0.990625, 0.4, 1 )
-sharp_limit = 2.0
-round_precision = 8
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="DebugLine" type="Line2D" parent="Caster" index="1"]
-
-points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
-width = 5.0
-default_color = Color( 1, 0.4, 0.892187, 1 )
-sharp_limit = 2.0
-round_precision = 8
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="RayCast" type="RayCast2D" parent="Caster" index="2"]
-
-modulate = Color( 0.5, 1, 0, 1 )
-self_modulate = Color( 0.96875, 1, 0, 1 )
-enabled = true
-exclude_parent = false
-cast_to = Vector2( 200, 0 )
-collision_mask = 1
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+[node name="Caster" parent="." index="4" instance=ExtResource( 3 )]
 
 
