@@ -28,8 +28,6 @@ func _ready():
 	pass
 
 func updateLinePoints(line, points):
-	print (points.size())
-	
 	for i in range (points.size()):
 		if line.get_point_count() <= i:
 			line.add_point(points[i])

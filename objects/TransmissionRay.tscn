@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://TransmissionRay.gd" type="Script" id=1]
+[ext_resource path="res://scripts/TransmissionRay.gd" type="Script" id=1]
 [ext_resource path="res://particle_curve_decrease.tres" type="Texture" id=2]
-[ext_resource path="res://sound_particle.png" type="Texture" id=3]
+[ext_resource path="res://images/sound_particle.png" type="Texture" id=3]
 
 [sub_resource type="ParticlesMaterial" id=1]
 
