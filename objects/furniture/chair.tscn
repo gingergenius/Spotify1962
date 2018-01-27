@@ -2,14 +2,14 @@
 
 [ext_resource path="res://images/Sessel.png" type="Texture" id=1]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="chair" type="RigidBody2D"]
+[node name="chair" type="RigidBody2D" index="0" groups=[
+"Furniture",
+]]
 
 editor/display_folded = true
 position = Vector2( 514.792, 1006.62 )

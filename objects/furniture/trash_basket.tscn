@@ -2,15 +2,15 @@
 
 [ext_resource path="res://images/Papierkorb.png" type="Texture" id=1]
 
-
-
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 73.8708
 height = 43.2526
 
-[node name="trash_basket" type="RigidBody2D"]
+[node name="trash_basket" type="RigidBody2D" index="0" groups=[
+"Furniture",
+]]
 
 position = Vector2( 448.534, 241.819 )
 input_pickable = false
