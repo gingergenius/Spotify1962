@@ -10,7 +10,7 @@ source_file="res://images/Fenster_oben_rechts.png"
 source_md5="0c7681ad4c30537085f01045bf27ec8b"
 
 dest_files=[ "res://.import/Fenster_oben_rechts.png-42618b627ddd59e449c3ad52a861b8a6.stex" ]
-dest_md5="c8dd61c2e7fd7b6753591eecf3780380"
+dest_md5="5662626e5929d756ae04722e126b8212"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

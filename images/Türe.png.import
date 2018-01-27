@@ -7,10 +7,10 @@ path="res://.import/Türe.png-fd1b49212a7b9e0b61b7b53661fbd4f4.stex"
 [deps]
 
 source_file="res://images/Türe.png"
-source_md5="8e39432b3b69780b2041003088b57885"
+source_md5="51a503a4459908a8c127d2c38deb2831"
 
 dest_files=[ "res://.import/Türe.png-fd1b49212a7b9e0b61b7b53661fbd4f4.stex" ]
-dest_md5="648bb7c7a50e33da04986f707db2b496"
+dest_md5="158f60c76be251520d8a6fd8806f2fc5"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -1,70 +1,185 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scripts/player.gd" type="Script" id=1]
-[ext_resource path="res://objects/player.png" type="Texture" id=2]
-[ext_resource path="res://objects/movable_funiture.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/rotatable_furniture.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/movable_rotatable_chair.tscn" type="PackedScene" id=5]
-[ext_resource path="res://images/wall_topleft.png" type="Texture" id=6]
-[ext_resource path="res://images/wall_topright.png" type="Texture" id=7]
-[ext_resource path="res://images/wall_bottomright.png" type="Texture" id=8]
-[ext_resource path="res://images/wall_bottomleft.png" type="Texture" id=9]
-[ext_resource path="res://scripts/wall_editor.gd" type="Script" id=10]
-[ext_resource path="res://images/wall_left.png" type="Texture" id=11]
-[ext_resource path="res://images/wall_top.png" type="Texture" id=12]
-[ext_resource path="res://images/wall_right.png" type="Texture" id=13]
-[ext_resource path="res://images/wall_bottom.png" type="Texture" id=14]
-[ext_resource path="res://images/door.png" type="Texture" id=15]
+[ext_resource path="res://images/Raum_1.png" type="Texture" id=1]
+[ext_resource path="res://images/Fenster_linkeSeite_oben.png" type="Texture" id=2]
+[ext_resource path="res://images/Fenster_oben_rechts.png" type="Texture" id=3]
+[ext_resource path="res://images/Fenster_oben_links.png" type="Texture" id=4]
+[ext_resource path="res://images/Türe.png" type="Texture" id=5]
+[ext_resource path="res://images/Papierkorb.png" type="Texture" id=6]
+[ext_resource path="res://scripts/player.gd" type="Script" id=7]
+[ext_resource path="res://objects/player.png" type="Texture" id=8]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 28.9802
+extents = Vector2( 110, 257.739 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 64, 64 )
+extents = Vector2( 305.574, 110 )
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 64, 264.086 )
-
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 502.603, 65.9671 )
-
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 62.0943, 100.558 )
-
-[sub_resource type="RectangleShape2D" id=6]
-
-custom_solver_bias = 0.0
-extents = Vector2( 503.186, 61.6533 )
-
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 62.1232, 11.9368 )
-
-[sub_resource type="Curve2D" id=8]
-
-bake_interval = 5.0
-_data = {
-"points": PoolVector2Array(  )
-}
+radius = 28.9802
 
 [node name="game" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
-[node name="player" type="RigidBody2D" parent="." index="0"]
+[node name="environment" type="ColorRect" parent="." index="0"]
 
-position = Vector2( 221.268, 236.215 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -359.0
+margin_top = -720.0
+margin_right = 4762.0
+margin_bottom = 2504.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 1 )
+
+[node name="room" type="Node2D" parent="." index="1"]
+
+[node name="floor" type="NinePatchRect" parent="room" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = -4.0
+margin_right = 3727.0
+margin_bottom = 2035.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+patch_margin_left = 222
+patch_margin_top = 232
+patch_margin_right = 231
+patch_margin_bottom = 230
+_sections_unfolded = [ "Mouse", "Patch Margin", "Rect" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room/floor" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="left" type="CollisionShape2D" parent="room/floor/StaticBody2D" index="0"]
+
+position = Vector2( 111.687, 1018.91 )
+scale = Vector2( 1, 3.06322 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="right" type="CollisionShape2D" parent="room/floor/StaticBody2D" index="1"]
+
+position = Vector2( 3602.79, 458.428 )
+scale = Vector2( 1.02948, 0.881262 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="right2" type="CollisionShape2D" parent="room/floor/StaticBody2D" index="2"]
+
+position = Vector2( 3605.61, 1572.51 )
+scale = Vector2( 1, 1.16089 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="top" type="CollisionShape2D" parent="room/floor/StaticBody2D" index="3"]
+
+position = Vector2( 1881.33, 119.347 )
+scale = Vector2( -6.08351, 1.02479 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="bottom" type="CollisionShape2D" parent="room/floor/StaticBody2D" index="4"]
+
+position = Vector2( 1859.03, 1922.52 )
+scale = Vector2( 6.1392, 1 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TextureRect" type="TextureRect" parent="room/floor" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_top = 333.0
+margin_right = 181.0
+margin_bottom = 827.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="room/floor" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2531.0
+margin_top = -1.0
+margin_right = 3025.0
+margin_bottom = 493.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 0
+_sections_unfolded = [ "Anchor", "Rect", "Size Flags" ]
+
+[node name="Fenster_oben_links" type="Sprite" parent="room" index="1"]
+
+position = Vector2( 1027.32, 84.1322 )
+texture = ExtResource( 4 )
+
+[node name="Türe" type="Sprite" parent="room" index="2"]
+
+position = Vector2( 3614.16, 969.188 )
+rotation = 1.5708
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="furniture" type="Node2D" parent="." index="2"]
+
+[node name="Papierkorb" type="Sprite" parent="furniture" index="0"]
+
+position = Vector2( 522.543, 1665 )
+texture = ExtResource( 6 )
+
+[node name="furniture_builder_place" type="Node2D" parent="." index="3"]
+
+visible = false
+position = Vector2( 278.464, 253.591 )
+
+[node name="player" type="RigidBody2D" parent="." index="4"]
+
+position = Vector2( 604.342, 476.793 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -83,7 +198,8 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
-script = ExtResource( 1 )
+script = ExtResource( 7 )
+WALK_SPEED = 500
 
 [node name="Camera2D" type="Camera2D" parent="player" index="0"]
 
@@ -91,7 +207,7 @@ position = Vector2( -0.899048, 12.0487 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 1, 1 )
+zoom = Vector2( 3, 3 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -114,302 +230,14 @@ _sections_unfolded = [ "Limit", "Smoothing" ]
 
 [node name="sprite" type="Sprite" parent="player" index="1"]
 
-scale = Vector2( 0.999999, 0.999999 )
-texture = ExtResource( 2 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="player" index="2"]
 
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="furniture" type="Node2D" parent="." index="1"]
-
-[node name="movable_funiture" parent="furniture" index="0" instance=ExtResource( 3 )]
-
-position = Vector2( 556.814, 244.674 )
-
-[node name="movable_funiture2" parent="furniture" index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 870.285, 278.376 )
-
-[node name="rotatable_furniture" parent="furniture" index="2" instance=ExtResource( 4 )]
-
-[node name="movable_rotatable_chair" parent="furniture" index="3" instance=ExtResource( 5 )]
-
-position = Vector2( 683.573, 533.824 )
-
-[node name="furniture_builder_place" type="Node2D" parent="." index="2"]
-
-position = Vector2( 278.464, 253.591 )
-
-[node name="walls" type="Node2D" parent="." index="3"]
-
-position = Vector2( 30.7613, 33.0496 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="wall_topleft" type="Sprite" parent="walls" index="0"]
-
-position = Vector2( 29.2387, 26.9504 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Animation", "Offset", "Region" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="walls/wall_topleft" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall_topleft/StaticBody2D" index="0"]
-
-shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="wall_topright" type="Sprite" parent="walls" index="1"]
-
-position = Vector2( 1167.62, 23.7369 )
-texture = ExtResource( 7 )
-_sections_unfolded = [ "Animation", "Offset", "Region" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="walls/wall_topright" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall_topright/StaticBody2D" index="0"]
-
-rotation = -0.0104588
-shape = SubResource( 2 )
-
-[node name="wall_bottomright" type="Sprite" parent="walls" index="2"]
-
-position = Vector2( 1167.26, 689.448 )
-texture = ExtResource( 8 )
-_sections_unfolded = [ "Animation", "Offset", "Region" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="walls/wall_bottomright" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall_bottomright/StaticBody2D" index="0"]
-
-position = Vector2( 1.99603, 1.85382 )
-shape = SubResource( 2 )
-
-[node name="wall_bottomleft" type="Sprite" parent="walls" index="3"]
-
-position = Vector2( 33.6973, 682.186 )
-texture = ExtResource( 9 )
-_sections_unfolded = [ "Animation", "Offset", "Region" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="walls/wall_bottomleft" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall_bottomleft/StaticBody2D" index="0"]
-
-position = Vector2( 1.99603, 1.85382 )
-shape = SubResource( 2 )
-
-[node name="wall_left" type="StaticBody2D" parent="walls" index="4"]
-
-position = Vector2( 32.4922, 351.953 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-script = ExtResource( 10 )
-_sections_unfolded = [ "Z Index" ]
-_collider = NodePath("collisionShape")
-_sprite = NodePath("collisionShape/sprite")
-
-[node name="collisionShape" type="CollisionShape2D" parent="walls/wall_left" index="0"]
-
+scale = Vector2( 5, 5 )
 shape = SubResource( 3 )
-_sections_unfolded = [ "Z Index" ]
-
-[node name="sprite" type="Sprite" parent="walls/wall_left/collisionShape" index="0"]
-
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 128, 528.171 )
-_sections_unfolded = [ "Region", "Transform" ]
-
-[node name="wall_top" type="StaticBody2D" parent="walls" index="5"]
-
-editor/display_folded = true
-position = Vector2( 599.239, 26.9504 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-script = ExtResource( 10 )
-_collider = NodePath("collisionShape")
-_sprite = NodePath("collisionShape/sprite")
-
-[node name="collisionShape" type="CollisionShape2D" parent="walls/wall_top" index="0"]
-
-shape = SubResource( 4 )
-
-[node name="sprite" type="Sprite" parent="walls/wall_top/collisionShape" index="0"]
-
-texture = ExtResource( 12 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1005.21, 131.934 )
-_sections_unfolded = [ "Animation", "Offset", "Region" ]
-
-[node name="wall_right" type="StaticBody2D" parent="walls" index="6"]
-
-editor/display_folded = true
-position = Vector2( 1167.83, 185.982 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-script = ExtResource( 10 )
-_collider = "collisionShape"
-_sprite = "collisionShape/sprite"
-
-[node name="collisionShape" type="CollisionShape2D" parent="walls/wall_right" index="0"]
-
-shape = SubResource( 5 )
-
-[node name="sprite" type="Sprite" parent="walls/wall_right/collisionShape" index="0"]
-
-texture = ExtResource( 13 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 124.189, 201.116 )
-_sections_unfolded = [ "Animation", "Offset", "Region" ]
-
-[node name="wall_right2" type="StaticBody2D" parent="walls" index="7"]
-
-position = Vector2( 1165.51, 525.726 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-script = ExtResource( 10 )
-_collider = "collisionShape"
-_sprite = "collisionShape/sprite"
-
-[node name="collisionShape" type="CollisionShape2D" parent="walls/wall_right2" index="0"]
-
-shape = SubResource( 5 )
-
-[node name="sprite" type="Sprite" parent="walls/wall_right2/collisionShape" index="0"]
-
-texture = ExtResource( 13 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 124.189, 201.116 )
-_sections_unfolded = [ "Animation", "Offset", "Region" ]
-
-[node name="wall_bottom" type="StaticBody2D" parent="walls" index="8"]
-
-position = Vector2( 599.374, 685.218 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-script = ExtResource( 10 )
-_collider = "collisionShape"
-_sprite = "collisionShape/sprite"
-
-[node name="collisionShape" type="CollisionShape2D" parent="walls/wall_bottom" index="0"]
-
-shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="sprite" type="Sprite" parent="walls/wall_bottom/collisionShape" index="0"]
-
-texture = ExtResource( 14 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1006.37, 123.307 )
-_sections_unfolded = [ "Animation", "Offset", "Region" ]
-
-[node name="doors" type="Node2D" parent="." index="4"]
-
-editor/display_folded = true
-
-[node name="door" type="RigidBody2D" parent="doors" index="0"]
-
-position = Vector2( 1198.83, 395.65 )
-rotation = 1.5708
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="doors/door" index="0"]
-
-position = Vector2( 9.79837, -15.5637 )
-scale = Vector2( 0.840575, 2.00287 )
-shape = SubResource( 7 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="door" type="Sprite" parent="doors/door/CollisionShape2D" index="0"]
-
-position = Vector2( -0.76947, 0.873657 )
-rotation = -3.48929e-15
-scale = Vector2( 1.01818, 1.01818 )
-texture = ExtResource( 15 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Path2D" type="Path2D" parent="doors" index="1"]
-
-position = Vector2( 63.4859, 0.0387802 )
-curve = SubResource( 8 )
-_sections_unfolded = [ "Pause" ]
 
 
