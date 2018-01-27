@@ -104,6 +104,7 @@ TestResult.xml
 
 *.o
 *.a
+*.ignore/*
 *_i.c
 *_p.c
 *_i.h
