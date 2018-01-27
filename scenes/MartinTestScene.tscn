@@ -1,21 +1,21 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://PlayerNode.gd" type="Script" id=1]
+[ext_resource path="res://scripts/PlayerNode.gd" type="Script" id=1]
 [ext_resource path="res://objects/player.png" type="Texture" id=2]
 [ext_resource path="res://objects/emitter.png" type="Texture" id=3]
-[ext_resource path="res://Transmission.gd" type="Script" id=4]
+[ext_resource path="res://scripts/Transmission.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 25.1465, 16.4711 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 9.20822 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -37,7 +37,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="PlayerNode/KinematicBody2D" index="1"]
 
-position = Vector2( 4.08109, 0 )
+position = Vector2( 6.08109, 0 )
 texture = ExtResource( 2 )
 
 [node name="Level" type="Node2D" parent="." index="1"]
@@ -46,7 +46,6 @@ texture = ExtResource( 2 )
 
 position = Vector2( 629.03, 142.352 )
 rotation = 2.44653
-scale = Vector2( 1, 1 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -55,7 +54,7 @@ collision/safe_margin = 0.08
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/KinematicBody2D2" index="0"]
 
 scale = Vector2( 2.81255, 7.98985 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Level" index="1"]
 
@@ -70,7 +69,7 @@ collision/safe_margin = 0.08
 
 rotation = 0.0571785
 scale = Vector2( 2.81255, 7.98985 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="EmitterNode" type="Node2D" parent="." index="2"]
@@ -86,6 +85,7 @@ _sections_unfolded = [ "Transform" ]
 
 script = ExtResource( 4 )
 points = PoolVector2Array(  )
+ParticleSeparation = 20.0
 
 [node name="Rays" type="Node2D" parent="EmitterNode/Transmission" index="0"]
 

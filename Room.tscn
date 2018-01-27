@@ -18,7 +18,7 @@ _sections_unfolded = [ "Pause" ]
 
 position = Vector2( 21.311, 624.63 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Circle" type="Sprite" parent="Goal" index="0"]
 

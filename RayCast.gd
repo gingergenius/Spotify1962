@@ -6,6 +6,19 @@ extends RayCast2D
 var ray_cast 
 var goal
 var line
+var points
+
+func updateLinePoints(line, points):
+	print (points.size())
+	
+	for i in range (points.size()):
+		print("processing point ", i)
+		if line.get_point_count() == i:
+			line.add_point(points[i])
+		else:
+			line.set_point_position(i, points[i])
+	while line.get_point_count() > points.size():
+		line.remove_point(line.get_point_count() - 1)
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -13,14 +26,17 @@ func _ready():
 	ray_cast = get_node(".")
 	goal = get_node("../Goal")
 	line = get_node("Line")
-	line.set_point_position(0,to_local(ray_cast.position))
+
+func cast_ray(ray_cast, goal, points, depth):
+	
+	pass
 
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 
-	for i in range(1, line.points.size()-1):
-		line.remove_point(i)
+	points = PoolVector2Array()
+	points.push_back(to_local(ray_cast.position))
 
 	ray_cast.cast_to = to_local(goal.position)
 	var source = ray_cast.position
@@ -29,9 +45,14 @@ func _process(delta):
 	if (ray_cast.is_colliding()):
 		end = ray_cast.get_collision_point()
 
-	line.add_point(to_local(end))
+	points.push_back(to_local(end))
 	
-	if (ray_cast.is_colliding()):		
-		var normal = ray_cast.get_collision_normal()
-		var reflected = normal.reflect(source-end)
-		line.add_point(to_local(reflected))
+	if (ray_cast.is_colliding()):
+		var normal = ray_cast.get_collision_normal().normalized()
+		var falling = to_local(get_collision_point())
+		falling = falling.normalized()
+		var reflected = falling.reflect(normal)
+		reflected = - reflected * 2000
+		points.push_back(to_local(end)+reflected)
+	
+	updateLinePoints(line, points)
