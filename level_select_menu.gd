@@ -30,6 +30,7 @@ func update_stage():
 	pass
 
 func play_stage():
+	print("loading level " + str(current_stage))
 	get_tree().change_scene("res://levels/" + str(current_stage) +".tscn")
 	pass
 
