@@ -8,6 +8,7 @@
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+transmission_points = PoolVector2Array(  )
 
 [node name="Line" type="Line2D" parent="." index="0"]
 
