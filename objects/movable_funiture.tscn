@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://images/furniture_placeholder.png" type="Texture" id=1]
+
+[node name="movable_funiture" type="RigidBody2D" index="0"]
+
+editor/display_folded = true
+position = Vector2( 448.534, 241.819 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 2
+mass = 2.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = 20.0
+angular_velocity = 0.0
+angular_damp = 1.0
+_sections_unfolded = [ "Angular", "Linear" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -91.6995, -34.567, -96.0013, -47.831, -106.039, -46.397, -109.982, 41.0735, -107.114, 48.2432, -76.2845, 45.3753, -23.9456, 47.1678, 102.6, 43.9414, 103.675, -43.8876, 92.2038, -41.0197, 88.9774, -32.0576 )
+
+[node name="furniture_placeholder" type="Sprite" parent="CollisionPolygon2D" index="0"]
+
+position = Vector2( -2.95117, -2.20528 )
+texture = ExtResource( 1 )
+
+
