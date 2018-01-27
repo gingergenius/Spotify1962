@@ -1,4 +1,4 @@
-extends RayCast2D
+extends Node2D
 
 # class member variables go here, for example:
 # var a = 2
@@ -6,13 +6,16 @@ extends RayCast2D
 var ray_cast 
 var goal
 var line
-var points
+var source
+var debug_line
+var collision
+var space
+var space_state
 
 func updateLinePoints(line, points):
 	print (points.size())
 	
 	for i in range (points.size()):
-		print("processing point ", i)
 		if line.get_point_count() == i:
 			line.add_point(points[i])
 		else:
@@ -23,36 +26,61 @@ func updateLinePoints(line, points):
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	ray_cast = get_node(".")
+	ray_cast = get_node("RayCast")
 	goal = get_node("../Goal")
+	source = get_node("../Source")
 	line = get_node("Line")
-
-func cast_ray(ray_cast, goal, points, depth):
+	debug_line = get_node("DebugLine")
+	collision = get_node("../Collision")
+	space = get_world_2d().get_space()
+	space_state = Physics2DServer.space_get_direct_state(space)
 	
-	pass
+
+#recursively cast rays and append points array until given depth
+func cast_ray(source, goal, points, cur_depth, max_depth):	
+	if (cur_depth == max_depth):
+		return points
+	else:
+		cur_depth +=1
+		#ray_cast.position = source
+		#ray_cast.cast_to = goal - source
+		#ray_cast.force_raycast_update()
+		
+		var result = space_state.intersect_ray(source, goal)
+	
+		if result.size() > 0:
+			var collision_point = result.position
+			points.push_back(collision_point)
+			collision.position = collision_point
+			var normal = result.normal
+			var falling = collision_point - source
+			
+			if falling.length_squared() < 0.01:
+				points.push_back(goal)
+				return points
+				
+			falling = falling.normalized()
+			var reflected = falling.reflect(normal)
+			var new_goal = collision_point + (-reflected) * 2000
+			return cast_ray(collision_point, new_goal, points, cur_depth, max_depth)
+		else:
+			points.push_back(goal)
+			return points
 
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
+	pass
 
-	points = PoolVector2Array()
-	points.push_back(to_local(ray_cast.position))
+func _physics_process(delta):
+	
+	var points = PoolVector2Array()
+	points.push_back(to_local(source.position))
 
-	ray_cast.cast_to = to_local(goal.position)
-	var source = ray_cast.position
-	var end = goal.position
-	
-	if (ray_cast.is_colliding()):
-		end = ray_cast.get_collision_point()
+	var debug_points = PoolVector2Array()
+	debug_points.push_back(to_local(source.position))
+	debug_points.push_back(to_local(goal.position))
+	updateLinePoints(debug_line, debug_points)
 
-	points.push_back(to_local(end))
-	
-	if (ray_cast.is_colliding()):
-		var normal = ray_cast.get_collision_normal().normalized()
-		var falling = to_local(get_collision_point())
-		falling = falling.normalized()
-		var reflected = falling.reflect(normal)
-		reflected = - reflected * 2000
-		points.push_back(to_local(end)+reflected)
-	
-	updateLinePoints(line, points)
+	var final_points = cast_ray(to_local(source.position), to_local(goal.position), points, 0, 7)
+	updateLinePoints(line, final_points)
