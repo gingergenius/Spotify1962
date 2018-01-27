@@ -1,10 +1,41 @@
 extends RigidBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-const WALK_SPEED = 200
+export var WALK_SPEED = 200
 var velocity = Vector2()
+
+var angle_vel = 6 * 3.141592
+var target_angle = 0.0
+
+onready var sprite = get_node("sprite")
+
+func step_and_wrap_rotation (delta):
+	var rotation = sprite.rotation
+	var rot_delta = target_angle - rotation
+	
+	if rot_delta < -PI:
+		target_angle = target_angle + 2 * PI
+		rot_delta = rot_delta + 2 * PI
+	elif rot_delta > PI:
+		target_angle = target_angle - 2 * PI
+		rot_delta = rot_delta - 2 * PI
+
+	var rot_direction = sign(rot_delta)
+	var angle_min = rotation
+	var angle_max = target_angle
+	if rot_direction < 0.0:
+		angle_min = target_angle
+		angle_max = rotation
+	
+	rotation = max(angle_min,
+		min(angle_max, rotation + rot_direction * angle_vel * delta)
+	)
+	
+	if rotation > 2 * PI:
+		rotation -= 2 * PI
+	if rotation < -2 * PI:
+		rotation += 2 * PI
+
+	sprite.rotation = rotation
 
 
 func _ready():
@@ -29,4 +60,8 @@ func _physics_process(delta):
 
 	set_linear_velocity(velocity)
 	
+	# Step rotation
+	if velocity.length_squared() > 0.0001:
+		target_angle = velocity.angle()
+	step_and_wrap_rotation(delta)
 

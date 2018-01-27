@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ray_particle.png-59dc685efcc788ed4c8d5a29bd8a52fc.stex"
+path="res://.import/Laptop.png-8da9d7cecc7fc825cc2547ce2bd9cdc2.stex"
 
 [deps]
 
-source_file="res://ray_particle.png"
-source_md5="26539b689af2c7e8282cd292e5cda641"
+source_file="res://images/Laptop.png"
+source_md5="d70058f7c048d8a8f46566bf3a87a2cc"
 
-dest_files=[ "res://.import/ray_particle.png-59dc685efcc788ed4c8d5a29bd8a52fc.stex" ]
-dest_md5="72622603d00b55a4dd8f5b6cf5aa60d8"
+dest_files=[ "res://.import/Laptop.png-8da9d7cecc7fc825cc2547ce2bd9cdc2.stex" ]
+dest_md5="efcdd9443be67214e230d2013c2e07a3"
 
 [params]
 

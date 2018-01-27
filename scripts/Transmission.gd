@@ -4,8 +4,8 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 export var points = PoolVector2Array()
-var transmission_rays = []
-var transmission_ray_scene = load("res://TransmissionRay.tscn")
+export var ParticleSeparation = 20.0
+var transmission_ray_scene = load("res://objects/TransmissionRay.tscn")
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -25,17 +25,21 @@ func _process(delta):
 		var ray_children = rays.get_children()
 		
 		for child in ray_children:
-			print ("Removing child: ", child)
 			rays.remove_child(child)
 		
 		for i in range(points.size() - 1):
 			var origin = points[i]
-			var direction = (points[i + 1] - points[i]).normalized()
+			var length = (points[i + 1] - points[i]).length()
+			var direction = (points[i + 1] - points[i]) / length
 			
+			# Instantiate the ray and also assign settings
 			var ray = transmission_ray_scene.instance()
 			ray.position = origin
 			ray.rotation = direction.angle()
-			print ("Instantiated ray: ", ray)
+			var emitter = ray.get_node("ParticleEmitter")
+			var speed = emitter.process_material.initial_velocity
+			emitter.lifetime = length / speed
+			emitter.amount = length / ParticleSeparation
 		
 			get_node("Rays").call_deferred("add_child", ray)
 
