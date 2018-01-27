@@ -13,6 +13,8 @@ var source_position
 var goal_position
 
 export var transmission_points = PoolVector2Array()
+export var max_num_iter = 30
+export var ray_length = 10000.0
 
 func updateLinePoints(line, points):
 	for i in range (points.size()):
@@ -76,7 +78,7 @@ func cast_ray(origin, target, points, cur_depth, max_depth):
 				
 			falling = falling.normalized()
 			var reflected = falling.reflect(normal)
-			var new_target = collision_point + (-reflected) * 2000
+			var new_target = collision_point + (-reflected) * ray_length
 			return cast_ray(collision_point + normal*0.001, new_target, points, cur_depth, max_depth)
 		else:
 			points.push_back(target)
@@ -85,7 +87,7 @@ func cast_ray(origin, target, points, cur_depth, max_depth):
 func _physics_process(delta):
 	# set up origin and target
 	origin = self.position
-	target = origin + Vector2(cos(self.rotation), sin(self.rotation)) * 10000
+	target = origin + Vector2(cos(self.rotation), sin(self.rotation)) * ray_length
 
 	if source_position and goal_position:
 		origin = source_position
@@ -108,7 +110,7 @@ func _physics_process(delta):
 	transmission_objects = {}
 	var points = PoolVector2Array()
 	points.push_back(origin)
-	points = cast_ray(origin, target, points, 0, 10)
+	points = cast_ray(origin, target, points, 0, max_num_iter)
 	
 	if transmission_points.size() != points.size():
 		transmission_has_changed = true

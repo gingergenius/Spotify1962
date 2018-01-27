@@ -4,11 +4,13 @@
 [ext_resource path="res://images/emitter.png" type="Texture" id=2]
 [ext_resource path="res://objects/Transmission.tscn" type="PackedScene" id=3]
 
-[node name="Caster" type="Node2D"]
+[node name="Caster" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 transmission_points = PoolVector2Array(  )
+max_num_iter = 30
+ray_length = 10000.0
 
 [node name="Line" type="Line2D" parent="." index="0"]
 
