@@ -43,6 +43,7 @@ func step_and_wrap_rotation (delta):
 func _ready():
 	sprite.rotation = rotation
 	collisionShape.rotation = rotation
+	target_angle = rotation
 	rotation = 0
 
 func _physics_process(delta):

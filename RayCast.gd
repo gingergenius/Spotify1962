@@ -78,7 +78,7 @@ func cast_ray(origin, target, points, cur_depth, max_depth):
 func _physics_process(delta):
 	# set up origin and target
 	origin = self.position
-	target = origin + Vector2(cos(self.rotation), sin(self.rotation)) * 2000
+	target = origin + Vector2(cos(self.rotation), sin(self.rotation)) * 10000
 
 	if source_position and goal_position:
 		origin = source_position
@@ -101,7 +101,7 @@ func _physics_process(delta):
 	transmission_objects = {}
 	var points = PoolVector2Array()
 	points.push_back(origin)
-	points = cast_ray(origin, target, points, 0, 5)
+	points = cast_ray(origin, target, points, 0, 10)
 	
 	if transmission_points.size() != points.size():
 		transmission_has_changed = true

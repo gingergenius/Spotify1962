@@ -26,7 +26,7 @@ extents = Vector2( 110, 110 )
 custom_solver_bias = 0.0
 extents = Vector2( 312.237, 441.528 )
 
-[node name="game" type="Node" index="0"]
+[node name="game" type="Node"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -444,8 +444,8 @@ texture = ExtResource( 13 )
 
 [node name="player" parent="." index="4" instance=ExtResource( 14 )]
 
-position = Vector2( 2869.81, 685.979 )
-rotation = 1.57429
+position = Vector2( 2825.76, 521.59 )
+rotation = 1.5708
 
 [node name="Caster" parent="." index="5" instance=ExtResource( 15 )]
 
