@@ -91,8 +91,8 @@ ParticleSeparation = 20.0
 
 [node name="debugTransmission" type="Line2D" parent="EmitterNode/Transmission" index="1"]
 
-position = Vector2( 2, 0 )
-points = PoolVector2Array( 0, 0, 472.836, 232.362, 136.836, 281.362, -172.163, 97.3621 )
+position = Vector2( 3, 0 )
+points = PoolVector2Array( 0, 0, 472.836, 232.362, 136.836, 281.362, -172.163, 97.3621, -268.999, 226, -86.999, 307, -28.6414, 236.34, 98.001, 83, 171.001, -194 )
 width = 10.0
 default_color = Color( 1, 0.892187, 0.4, 0.237569 )
 texture_mode = 39818496
