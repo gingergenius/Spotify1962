@@ -2,7 +2,7 @@
 
 [ext_resource path="res://images/furniture_placeholder.png" type="Texture" id=1]
 
-[node name="movable_funiture" type="RigidBody2D"]
+[node name="movable_funiture" type="RigidBody2D" index="0"]
 
 editor/display_folded = true
 position = Vector2( 448.534, 241.819 )
@@ -21,7 +21,7 @@ contact_monitor = false
 sleeping = false
 can_sleep = true
 linear_velocity = Vector2( 0, 0 )
-linear_damp = 4.0
+linear_damp = 20.0
 angular_velocity = 0.0
 angular_damp = 1.0
 _sections_unfolded = [ "Angular", "Linear" ]
