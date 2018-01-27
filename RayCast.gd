@@ -9,6 +9,8 @@ var line
 var source
 var debug_line
 var collision
+var space
+var space_state
 
 func updateLinePoints(line, points):
 	print (points.size())
@@ -30,6 +32,9 @@ func _ready():
 	line = get_node("Line")
 	debug_line = get_node("DebugLine")
 	collision = get_node("../Collision")
+	space = get_world_2d().get_space()
+	space_state = Physics2DServer.space_get_direct_state(space)
+	
 
 #recursively cast rays and append points array until given depth
 func cast_ray(source, goal, points, cur_depth, max_depth):	
@@ -37,15 +42,17 @@ func cast_ray(source, goal, points, cur_depth, max_depth):
 		return points
 	else:
 		cur_depth +=1
-		ray_cast.position = source
-		ray_cast.cast_to = goal - source
-		ray_cast.force_raycast_update()
+		#ray_cast.position = source
+		#ray_cast.cast_to = goal - source
+		#ray_cast.force_raycast_update()
 		
-		if (ray_cast.is_colliding()):
-			var collision_point = ray_cast.get_collision_point()
+		var result = space_state.intersect_ray(source, goal)
+	
+		if result.size() > 0:
+			var collision_point = result.position
 			points.push_back(collision_point)
 			collision.position = collision_point
-			var normal = ray_cast.get_collision_normal().normalized()
+			var normal = result.normal
 			var falling = collision_point - source
 			
 			if falling.length_squared() < 0.01:
@@ -63,7 +70,10 @@ func cast_ray(source, goal, points, cur_depth, max_depth):
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
+	pass
 
+func _physics_process(delta):
+	
 	var points = PoolVector2Array()
 	points.push_back(to_local(source.position))
 
@@ -73,5 +83,4 @@ func _process(delta):
 	updateLinePoints(debug_line, debug_points)
 
 	var final_points = cast_ray(to_local(source.position), to_local(goal.position), points, 0, 7)
-	#print(final_points)
 	updateLinePoints(line, final_points)
