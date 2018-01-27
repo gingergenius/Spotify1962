@@ -1991,5 +1991,6 @@ SNEAK_SPEED = 300
 
 position = Vector2( 8412.03, 4441.18 )
 rotation = 3.14159
+TARGET_DIST = 10000
 
 
