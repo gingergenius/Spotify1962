@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const WALK_SPEED = 200
+export var WALK_SPEED = 200
 var velocity = Vector2()
 
 var angle_vel = 6 * 3.141592
@@ -8,12 +8,9 @@ var target_angle = 0.0
 
 onready var sprite = get_node("sprite")
 
-
 func step_and_wrap_rotation (delta):
 	var rotation = sprite.rotation
 	var rot_delta = target_angle - rotation
-	print("rotation:", rotation)
-	print(rot_delta)
 	
 	if rot_delta < -PI:
 		target_angle = target_angle + 2 * PI
