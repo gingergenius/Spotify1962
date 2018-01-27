@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-export var WALK_SPEED = 200
+export var WALK_SPEED = 1500
+export var SNEAK_SPEED = 300
 var velocity = Vector2()
 
 var angle_vel = 6 * 3.141592
@@ -41,7 +42,10 @@ func step_and_wrap_rotation (delta):
 
 
 func _ready():
-	pass
+	sprite.rotation = rotation
+	collisionShape.rotation = rotation
+	target_angle = rotation
+	rotation = 0
 
 func _physics_process(delta):
 	
@@ -60,7 +64,7 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 
-	set_linear_velocity(velocity.normalized() * WALK_SPEED)
+	set_linear_velocity(velocity.normalized() * (SNEAK_SPEED if Input.is_action_pressed("player_sneak") else WALK_SPEED))
 	
 	# Step rotation
 	if velocity.length_squared() > 0.0001:

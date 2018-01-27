@@ -1,0 +1,143 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Goal.gd" type="Script" id=1]
+[ext_resource path="res://ball.png" type="Texture" id=2]
+[ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+render_priority = 0
+blend_mode = 0
+light_mode = 0
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 200.303, 31.2539 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 165.276, 40.3454 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 49.9373, 308.648 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 486.64, 48.8373 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 47.7365, 302.289 )
+
+[node name="Room" type="Node"]
+
+_sections_unfolded = [ "Pause" ]
+
+[node name="Goal" type="Position2D" parent="." index="0"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 30.3551, 95.5532 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Circle" type="Sprite" parent="Goal" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Collision" type="Position2D" parent="." index="1"]
+
+editor/display_folded = true
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Circle" type="Sprite" parent="Collision" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Source" type="Position2D" parent="." index="2"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 533.862, 380.035 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Circle" type="Sprite" parent="Source" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Wall" type="StaticBody2D" parent="." index="3"]
+
+modulate = Color( 0.0571136, 0.10164, 0.769531, 1 )
+material = SubResource( 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall" index="0"]
+
+visible = false
+position = Vector2( 146.77, 153.022 )
+scale = Vector2( 0.688438, 0.661979 )
+build_mode = 0
+polygon = PoolVector2Array( -4.62061, 8.99561, 451.96, 8.99561, 451.96, -93.5022, -135.072, -79.5252, -134.553, 842.081, 1268.92, 848.912, 1286.44, -89.2205, 803.011, -81.799, 803.011, 43.0787, 1133.02, 43.0787, 1136.83, 693.867, -4.62061, 703.185 )
+disabled = true
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Polygon2D" type="Polygon2D" parent="Wall" index="1"]
+
+polygon = PoolVector2Array( 52.573, 93.9601, 456.724, 93.7098, 459.555, 161.79, 149.585, 161.683, 146.551, 621.551, 923.977, 614.701, 924.97, 179.879, 701.366, 179.753, 697.941, 94.1334, 1033.57, 94.1334, 1019.59, 716.204, 50.5177, 706.886 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Invert", "Texture", "Transform", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" index="2"]
+
+position = Vector2( 254.973, 125.254 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall" index="3"]
+
+position = Vector2( 868.824, 137.442 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall" index="4"]
+
+position = Vector2( 980.875, 405.281 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall" index="5"]
+
+position = Vector2( 538.881, 671.096 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Wall" index="6"]
+
+position = Vector2( 96.8865, 402.19 )
+shape = SubResource( 6 )
+
+[node name="Caster" parent="." index="4" instance=ExtResource( 3 )]
+
+

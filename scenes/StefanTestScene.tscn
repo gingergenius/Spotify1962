@@ -61,8 +61,6 @@ color = Color( 1, 1, 1, 1 )
 
 [node name="rooms" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-
 [node name="room1" type="Node2D" parent="rooms" index="0"]
 
 [node name="floor" type="NinePatchRect" parent="rooms/room1" index="0"]
@@ -234,10 +232,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 19.0
-margin_top = -6.0
-margin_right = 19.0
-margin_bottom = -6.0
+margin_left = 15.0
+margin_top = -2.0
+margin_right = 15.0
+margin_bottom = -2.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -319,6 +317,7 @@ position = Vector2( 4252.76, 0.220581 )
 
 [node name="floor" type="NinePatchRect" parent="rooms/room2" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -340,6 +339,7 @@ _sections_unfolded = [ "Anchor", "Axis Stretch", "Grow Direction", "Margin", "Mo
 
 [node name="windows" type="Control" parent="rooms/room2/floor" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -459,6 +459,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 [node name="doors" type="Control" parent="rooms/room2/floor" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -1310,19 +1311,17 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="furniture" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="aquarium_rect" parent="furniture" index="0" instance=ExtResource( 10 )]
 
 position = Vector2( 1392.52, 421.754 )
 
 [node name="aquarium_circle" parent="furniture" index="1" instance=ExtResource( 11 )]
 
-position = Vector2( 3463.84, 454.164 )
+position = Vector2( 2718.41, 784.949 )
 
 [node name="bookshelf" parent="furniture" index="2" instance=ExtResource( 12 )]
 
-position = Vector2( 455.91, 1828.13 )
+position = Vector2( 610.349, 1587.89 )
 rotation = 1.5708
 _sections_unfolded = [ "Angular", "Linear", "Transform" ]
 
@@ -1349,12 +1348,13 @@ position = Vector2( 4862.96, 2380.06 )
 
 [node name="chair" parent="furniture" index="8" instance=ExtResource( 18 )]
 
-position = Vector2( 3419.92, 1839.5 )
+editor/display_folded = false
+position = Vector2( 3403.1, 1717.56 )
 rotation = 1.55408
 
 [node name="bench" parent="furniture/chair" index="2" instance=ExtResource( 19 )]
 
-position = Vector2( 297.646, 1075.42 )
+position = Vector2( 67.2261, 783.127 )
 rotation = -1.55408
 
 [node name="chair2" parent="furniture" index="9" instance=ExtResource( 20 )]
@@ -1367,7 +1367,7 @@ position = Vector2( 6617.55, 1142.48 )
 
 [node name="table_big" parent="furniture" index="11" instance=ExtResource( 22 )]
 
-position = Vector2( 1459.44, 2030.11 )
+position = Vector2( 1623.87, 1832.78 )
 
 [node name="table_round" parent="furniture" index="12" instance=ExtResource( 23 )]
 
@@ -1379,7 +1379,7 @@ position = Vector2( 6473.6, 3557.9 )
 
 [node name="plant" parent="furniture" index="14" instance=ExtResource( 25 )]
 
-position = Vector2( 2980.45, 442.721 )
+position = Vector2( 2370.13, 973.841 )
 
 [node name="furniture_builder_place" type="Node2D" parent="." index="4"]
 

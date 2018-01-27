@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 8.991, 8.05399 )
 
-[node name="table_small" type="RigidBody2D" index="0" groups=[
+[node name="table_small" type="RigidBody2D" groups=[
 "Furniture",
 ]]
 
@@ -30,7 +30,7 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = 20.0
 angular_velocity = 0.0
 angular_damp = 1.0
-_sections_unfolded = [ "Angular", "Linear" ]
+_sections_unfolded = [ "Angular", "Collision", "Linear" ]
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
