@@ -64,15 +64,7 @@ func _process(delta):
 	line_points.push_back(self.position)
 	line_points.push_back(target.position)
 	
-#	var raycast = new RayCast2D()
-#	raycast.set_position(self.position)
-#	raycast.set_cast_to(target.position)
-#	raycast.force_raycast_update()
-#	print (raycast.is_colliding())
-
 	var collision_point = get_node(\"../CollisionPoint\")
-	print (collision_point.get_position())
-	
 	updateLinePoints(line, line_points)
 	
 	var transmission_line = get_node(\"../TransmissionLines\")
@@ -93,42 +85,25 @@ func _physics_process(delta):
 	while iter < max_cast_iter:
 		iter = iter + 1
 
-		print (\"iter \", iter , \": performing cast from \", cast_origin, \" to \", cast_target)
 		var cast_result = space_state.intersect_ray(cast_origin, cast_target)
 	
 		if (not cast_result.empty()) and (cast_result.normal.length_squared() > 0.001):
-			print (\"iter: \", iter, \" collision\")
-			
 			transmission_points.push_back(cast_result.position)
 			
 			# reflect the ray
 			var old_direction = (cast_target - cast_origin).normalized()
-			assert (cast_result.normal.length() - 1.0 < 0.0001)
-			assert (old_direction.length() - 1.0 < 0.0001)
-			
 			var direction = cast_result.normal.reflect(old_direction).normalized()
-#			var dir_manual = direction - 2 * (direction.dot(cast_result.normal)) * cast_result.normal
 			var dir_manual = (old_direction- 2 * (old_direction.dot(cast_result.normal)) * cast_result.normal).normalized()
-			print (\"iter \", iter, \" old dir= \", old_direction, \" normal = \", cast_result.normal, \" direction = \", direction, \" dir man = \", dir_manual)
 			
 			cast_origin = cast_result.position + dir_manual * 0.001
 			cast_target = cast_origin + dir_manual * 500
-			
-			print (\"iter \", iter, \": next origin: \", cast_origin, \" target: \", cast_target)
 			
 			var collision_point = get_node(\"../CollisionPoint\")
 			collision_point.set_position(cast_result.position)
 
 		else:
 			transmission_points.push_back(cast_target)
-			var normal = \"empty\"
-			if not cast_result.empty():
-				normal = str(cast_result.normal)
-				
-			print (\"no collision at \", cast_target, \" empty: \", cast_result.empty(), \" normal: \", normal)
-			break
-
-	print(\"iter = \", iter, \" transmission line #points: \", transmission_points.size())"
+			break"
 
 [sub_resource type="RectangleShape2D" id=3]
 
