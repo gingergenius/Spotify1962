@@ -3,7 +3,7 @@
 [ext_resource path="res://objects/emitter.png" type="Texture" id=1]
 [ext_resource path="res://ball.png" type="Texture" id=2]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends Node2D
 
@@ -26,13 +26,17 @@ func _input(ev):
 		var target = get_node(\"Target\")
 		target.position = ev.position"
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=2]
 
 script/source = "extends Node2D
 
 # class member variables go here, for example:
 # var a = 2
 # var b = \"textvar\"
+
+export var max_cast_iter = 5
+
+var transmission_points = PoolVector2Array()
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -65,22 +69,66 @@ func _process(delta):
 #	raycast.set_cast_to(target.position)
 #	raycast.force_raycast_update()
 #	print (raycast.is_colliding())
+
+	var collision_point = get_node(\"../CollisionPoint\")
+	print (collision_point.get_position())
 	
 	updateLinePoints(line, line_points)
 	
+	var transmission_line = get_node(\"../TransmissionLines\")
+	updateLinePoints(transmission_line, transmission_points)
+	
 func _physics_process(delta):
-	var target = get_node(\"../Target\")
 	var space_rid = get_world_2d().get_space()
 	var space_state = Physics2DServer.space_get_direct_state(space_rid)
-	var result = space_state.intersect_ray(self.position, target.position)
+	var target = get_node(\"../Target\")
 	
-	if result.size() > 0:
-		var collision_point = get_node(\"../CollisionPoint\")
-		collision_point.set_position(result.position)
-		print (\"collision\")
-	else:
-		print (\"no collision\")
-"
+	var cast_origin = self.position
+	var cast_target = target.position
+	var iter = 0
+	
+	transmission_points = PoolVector2Array()
+	transmission_points.push_back(cast_origin)
+
+	while iter < max_cast_iter:
+		iter = iter + 1
+
+		print (\"iter \", iter , \": performing cast from \", cast_origin, \" to \", cast_target)
+		var cast_result = space_state.intersect_ray(cast_origin, cast_target)
+	
+		if (not cast_result.empty()) and (cast_result.normal.length_squared() > 0.001):
+			print (\"iter: \", iter, \" collision\")
+			
+			transmission_points.push_back(cast_result.position)
+			
+			# reflect the ray
+			var old_direction = (cast_target - cast_origin).normalized()
+			assert (cast_result.normal.length() - 1.0 < 0.0001)
+			assert (old_direction.length() - 1.0 < 0.0001)
+			
+			var direction = cast_result.normal.reflect(old_direction).normalized()
+#			var dir_manual = direction - 2 * (direction.dot(cast_result.normal)) * cast_result.normal
+			var dir_manual = (old_direction- 2 * (old_direction.dot(cast_result.normal)) * cast_result.normal).normalized()
+			print (\"iter \", iter, \" old dir= \", old_direction, \" normal = \", cast_result.normal, \" direction = \", direction, \" dir man = \", dir_manual)
+			
+			cast_origin = cast_result.position + dir_manual * 0.001
+			cast_target = cast_origin + dir_manual * 500
+			
+			print (\"iter \", iter, \": next origin: \", cast_origin, \" target: \", cast_target)
+			
+			var collision_point = get_node(\"../CollisionPoint\")
+			collision_point.set_position(cast_result.position)
+
+		else:
+			transmission_points.push_back(cast_target)
+			var normal = \"empty\"
+			if not cast_result.empty():
+				normal = str(cast_result.normal)
+				
+			print (\"no collision at \", cast_target, \" empty: \", cast_result.empty(), \" normal: \", normal)
+			break
+
+	print(\"iter = \", iter, \" transmission line #points: \", transmission_points.size())"
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -89,12 +137,13 @@ extents = Vector2( 10, 10 )
 
 [node name="Node2D" type="Node2D" index="0"]
 
-script = SubResource( 2 )
+script = SubResource( 1 )
 
 [node name="Emitter" type="Node2D" parent="." index="0"]
 
 position = Vector2( 378, 271 )
-script = SubResource( 1 )
+script = SubResource( 2 )
+max_cast_iter = 5
 
 [node name="Sprite" type="Sprite" parent="Emitter" index="0"]
 
@@ -102,6 +151,7 @@ texture = ExtResource( 1 )
 
 [node name="DebugLine" type="Line2D" parent="." index="1"]
 
+visible = false
 points = PoolVector2Array(  )
 width = 10.0
 default_color = Color( 0.4, 0.5, 1, 1 )
@@ -131,7 +181,53 @@ collision/safe_margin = 0.08
 scale = Vector2( 3.01983, 3.01983 )
 shape = SubResource( 3 )
 
-[node name="CollisionPoint" type="Sprite" parent="." index="4"]
+[node name="Node2D2" type="Node2D" parent="." index="4"]
+
+position = Vector2( 554.5, 492 )
+scale = Vector2( 1.14063, 3.40625 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Node2D2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/KinematicBody2D" index="0"]
+
+scale = Vector2( 3.01983, 3.01983 )
+shape = SubResource( 3 )
+
+[node name="Node2D3" type="Node2D" parent="." index="5"]
+
+position = Vector2( 157.824, 350.172 )
+scale = Vector2( 1.14063, 3.40625 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Node2D3" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D3/KinematicBody2D" index="0"]
+
+scale = Vector2( 3.01983, 3.01983 )
+shape = SubResource( 3 )
+
+[node name="TransmissionLines" type="Line2D" parent="." index="6"]
+
+points = PoolVector2Array( 682.027, 169.953 )
+width = 10.0
+default_color = Color( 0.691406, 0.283753, 0.124237, 1 )
+texture_mode = 65536
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPoint" type="Sprite" parent="." index="7"]
 
 texture = ExtResource( 2 )
 
