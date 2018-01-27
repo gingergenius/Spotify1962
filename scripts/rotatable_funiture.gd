@@ -12,10 +12,8 @@ func _ready():
 func dist(var a, var b):
 	return sqrt( (a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y))
 
-func _process(delta):
-	
+func _process(delta):	
 	var distance = get_node(player).global_position - global_position
-	print(get_node(player).position)
 	if (distance.length() < MAX_PULL_DISTANCE && Input.is_action_pressed("player_pull")):
 		if !pulling:
 			lastRotation = atan2(distance.x, -distance.y)

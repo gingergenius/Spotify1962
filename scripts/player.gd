@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 # class member variables go here, for example:
 # var a = 2
@@ -27,6 +27,6 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 
-	move_and_slide(velocity)
+	set_linear_velocity(velocity)
 	
 
