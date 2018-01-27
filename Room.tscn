@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Goal.gd" type="Script" id=1]
+[ext_resource path="res://ball.png" type="Texture" id=2]
+[ext_resource path="res://RayCast.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+render_priority = 0
+blend_mode = 0
+light_mode = 0
+
+[node name="Room" type="Node" index="0"]
+
+_sections_unfolded = [ "Pause" ]
+
+[node name="Goal" type="Position2D" parent="." index="0"]
+
+position = Vector2( 21.311, 624.63 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Circle" type="Sprite" parent="Goal" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Wall" type="StaticBody2D" parent="." index="1"]
+
+modulate = Color( 0.0571136, 0.10164, 0.769531, 1 )
+material = SubResource( 2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Visibility" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall" index="0"]
+
+position = Vector2( 146.77, 153.022 )
+scale = Vector2( 0.688438, 0.661979 )
+build_mode = 0
+polygon = PoolVector2Array( -4.62061, 8.99561, 451.96, 8.99561, 451.96, -93.5022, -135.072, -79.5252, -121.095, 842.955, 1271.94, 838.296, 1262.62, -93.5022, 803.011, -81.799, 803.011, 43.0787, 1133.02, 43.0787, 1136.83, 693.867, -4.62061, 703.185 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Polygon2D" type="Polygon2D" parent="Wall" index="1"]
+
+polygon = PoolVector2Array( 61.4716, 93.7098, 456.724, 93.7098, 456.724, 171.753, 149.585, 161.683, 146.551, 621.551, 923.977, 614.701, 923.977, 176.328, 701.366, 179.753, 697.941, 94.1334, 1033.57, 94.1334, 1019.59, 716.204, 50.5177, 706.886 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Invert", "Texture", "Transform", "Z Index" ]
+
+[node name="RayCast" type="RayCast2D" parent="." index="2"]
+
+modulate = Color( 0.5, 1, 0, 1 )
+self_modulate = Color( 0.96875, 1, 0, 1 )
+position = Vector2( 256.818, 320.061 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 200, 0 )
+collision_mask = 1
+script = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="Line" type="Line2D" parent="RayCast" index="0"]
+
+points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+width = 5.0
+default_color = Color( 1, 0.990625, 0.4, 1 )
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Visibility" ]
+
+
