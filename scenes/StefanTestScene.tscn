@@ -1347,31 +1347,32 @@ position = Vector2( 4862.96, 2380.06 )
 position = Vector2( 3419.92, 1839.5 )
 rotation = 1.55408
 
-[node name="bench" parent="furniture" index="9" instance=ExtResource( 19 )]
+[node name="bench" parent="furniture/chair" index="2" instance=ExtResource( 19 )]
 
-position = Vector2( 2349.63, 2155.08 )
+position = Vector2( 297.646, 1075.42 )
+rotation = -1.55408
 
-[node name="chair2" parent="furniture" index="10" instance=ExtResource( 20 )]
+[node name="chair2" parent="furniture" index="9" instance=ExtResource( 20 )]
 
 position = Vector2( 5647.29, 2714.08 )
 
-[node name="table_small" parent="furniture" index="11" instance=ExtResource( 21 )]
+[node name="table_small" parent="furniture" index="10" instance=ExtResource( 21 )]
 
 position = Vector2( 6617.55, 1142.48 )
 
-[node name="table_big" parent="furniture" index="12" instance=ExtResource( 22 )]
+[node name="table_big" parent="furniture" index="11" instance=ExtResource( 22 )]
 
 position = Vector2( 1459.44, 2030.11 )
 
-[node name="table_round" parent="furniture" index="13" instance=ExtResource( 23 )]
+[node name="table_round" parent="furniture" index="12" instance=ExtResource( 23 )]
 
 position = Vector2( 5531.84, 3018.87 )
 
-[node name="newspaper_holder" parent="furniture" index="14" instance=ExtResource( 24 )]
+[node name="newspaper_holder" parent="furniture" index="13" instance=ExtResource( 24 )]
 
-position = Vector2( 6695.89, 3515.56 )
+position = Vector2( 6473.6, 3557.9 )
 
-[node name="plant" parent="furniture" index="15" instance=ExtResource( 25 )]
+[node name="plant" parent="furniture" index="14" instance=ExtResource( 25 )]
 
 position = Vector2( 2980.45, 442.721 )
 
