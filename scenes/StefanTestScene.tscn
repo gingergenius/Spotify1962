@@ -58,7 +58,7 @@ _data = {
 "points": PoolVector2Array(  )
 }
 
-[node name="game" type="Node" index="0"]
+[node name="game" type="Node"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -257,7 +257,7 @@ _sections_unfolded = [ "Z Index" ]
 
 texture = ExtResource( 11 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 128, 528.171 )
+region_rect = Rect2( 0, 0, 128, 528.172 )
 _sections_unfolded = [ "Region", "Transform" ]
 
 [node name="wall_top" type="StaticBody2D" parent="walls" index="5"]
