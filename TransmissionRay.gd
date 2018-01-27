@@ -17,6 +17,14 @@ func _ready():
 	transmissionPoints.push_back(transmissionFrom)
 	transmissionPoints.push_back(transmissionTo)	
 
+	var particles = get_node("ParticleEmitter")
+
+	if get_node("DebugUi") and get_node("DebugUi").visible:
+		var count_slider = get_node("DebugUi/GridContainer/CountSlider")
+		count_slider.value = particles.amount
+		var time_slider = get_node("DebugUi/GridContainer/LifetimeSlider")
+		count_slider.value = particles.lifetime
+
 	pass
 
 func updateLinePoints(line, points):
@@ -33,6 +41,10 @@ func updateParticleEmitter():
 	pass
 
 func _process(delta):
+	var debug_ui = get_node("DebugUi")
+	if debug_ui:
+		debug_ui.set_rotation(-self.rotation)
+	
 	var line = get_node("Line2D")
 	
 	var direction_line = get_node("DirectionLine")
@@ -53,3 +65,13 @@ func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
+
+
+func _on_CountSlider_value_changed( value ):
+	var particles = get_node("ParticleEmitter")
+	particles.amount = value
+
+func _on_LifetimeSlider_value_changed( value ):
+	var particles = get_node("ParticleEmitter")
+	particles.lifetime = value
+

@@ -15,7 +15,7 @@ extents = Vector2( 25.1465, 16.4711 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 9.20822 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -37,7 +37,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="PlayerNode/KinematicBody2D" index="1"]
 
-position = Vector2( 4.08109, 0 )
+position = Vector2( 6.08109, 0 )
 texture = ExtResource( 2 )
 
 [node name="Level" type="Node2D" parent="." index="1"]
@@ -86,6 +86,7 @@ _sections_unfolded = [ "Transform" ]
 
 script = ExtResource( 4 )
 points = PoolVector2Array(  )
+ParticleSeparation = 20.0
 
 [node name="Rays" type="Node2D" parent="EmitterNode/Transmission" index="0"]
 
