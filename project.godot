@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Spotify1962"
-run/main_scene="res://StefanTestScene.tscn"
+run/main_scene="res://scenes/StefanTestScene.tscn"
 config/icon="res://icon.png"
 
 [input]
