@@ -4,6 +4,7 @@ var isPulling = false
 var pullingNode = null
 export var PULLING_DISTANCE = 500
 export var PULLING_SPEED = 1200
+export var SNEAK_PULLING_SPEED = 300
 var offset = null
 onready var player = get_node("..")
 
@@ -26,20 +27,17 @@ func _physics_process(delta):
 		if !isPulling:
 			# find nearest node that is within radius
 			pullingNode = get_nearest_furniture()
-			print("start pulling", pullingNode)
 			if pullingNode != null:
 				isPulling = true
 				offset = pullingNode.global_position - global_position
 		if pullingNode != null:
-			#print(player.get_linear_velocity())
 			var a = player.get_linear_velocity()
 			if (a.length() > 0):
 				var b = pullingNode.global_position - global_position
 				
 				var vel = a.length() * a.dot(b) * b
-				vel = vel.normalized() * PULLING_SPEED
+				vel = vel.normalized() * (SNEAK_PULLING_SPEED if Input.is_action_pressed("player_sneak") else PULLING_SPEED)
 				
-				print(vel.dot(b))
 				if b.dot(vel) < 0:
 					pullingNode.set_linear_velocity(vel)
 					player.set_linear_velocity(player.get_linear_velocity() * 0.7) # slower while dragging
