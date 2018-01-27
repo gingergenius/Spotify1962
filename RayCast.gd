@@ -50,7 +50,10 @@ func cast_ray(source, goal, points, cur_depth, max_depth):
 	
 		if result.size() > 0:
 			var collision_point = result.position
-			points.push_back(collision_point)
+			var distance_to_previous = (points[points.size()-1] - collision_point).length_squared()
+			
+			if (distance_to_previous > 0.01):
+				points.push_back(collision_point)
 			collision.position = collision_point
 			var normal = result.normal
 			var falling = collision_point - source

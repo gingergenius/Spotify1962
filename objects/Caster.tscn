@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://RayCast.gd" type="Script" id=1]
+
+[node name="Caster" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Line" type="Line2D" parent="." index="0"]
+
+points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+width = 5.0
+default_color = Color( 1, 0.990625, 0.4, 1 )
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="DebugLine" type="Line2D" parent="." index="1"]
+
+points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+width = 5.0
+default_color = Color( 1, 0.4, 0.892187, 1 )
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="RayCast" type="RayCast2D" parent="." index="2"]
+
+modulate = Color( 0.5, 1, 0, 1 )
+self_modulate = Color( 0.96875, 1, 0, 1 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 200, 0 )
+collision_mask = 1
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+
