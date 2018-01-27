@@ -3,7 +3,6 @@ extends Node2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var ray_cast 
 var goal
 var line
 var source
@@ -26,7 +25,6 @@ func updateLinePoints(line, points):
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	ray_cast = get_node("RayCast")
 	goal = get_node("../Goal")
 	source = get_node("../Source")
 	line = get_node("Line")
@@ -65,7 +63,7 @@ func cast_ray(source, goal, points, cur_depth, max_depth):
 			falling = falling.normalized()
 			var reflected = falling.reflect(normal)
 			var new_goal = collision_point + (-reflected) * 2000
-			return cast_ray(collision_point, new_goal, points, cur_depth, max_depth)
+			return cast_ray(collision_point + normal*0.001, new_goal, points, cur_depth, max_depth)
 		else:
 			points.push_back(goal)
 			return points
@@ -85,5 +83,5 @@ func _physics_process(delta):
 	debug_points.push_back(to_local(goal.position))
 	updateLinePoints(debug_line, debug_points)
 
-	var final_points = cast_ray(to_local(source.position), to_local(goal.position), points, 0, 7)
+	var final_points = cast_ray(to_local(source.position), to_local(goal.position), points, 0, 20)
 	updateLinePoints(line, final_points)
