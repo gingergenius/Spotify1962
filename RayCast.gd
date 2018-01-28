@@ -13,7 +13,8 @@ var source_position
 var goal_position
 
 export var transmission_points = PoolVector2Array()
-export var max_num_iter = 30
+export var max_num_rays = 30
+export var max_transmission_length = 1000
 export var ray_length = 10000.0
 
 func updateLinePoints(line, points):
@@ -110,7 +111,7 @@ func _physics_process(delta):
 	transmission_objects = {}
 	var points = PoolVector2Array()
 	points.push_back(origin)
-	points = cast_ray(origin, target, points, 0, max_num_iter)
+	points = cast_ray(origin, target, points, 0, max_num_rays)
 	
 	if transmission_points.size() != points.size():
 		transmission_has_changed = true
@@ -128,6 +129,7 @@ func _physics_process(delta):
 	if transmission_has_changed:	
 		var transmission = get_node("Transmission")
 		transmission.points = transmission_points
+		transmission.max_length = max_transmission_length
 		transmission.reset_transmission = true
 
 		# check which objects are no more in the transmission
