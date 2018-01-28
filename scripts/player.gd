@@ -49,22 +49,27 @@ func _ready():
 
 func _physics_process(delta):
 	
-	velocity.y += delta * 20
+	velocity = Vector2(Input.get_joy_axis(0, 0), Input.get_joy_axis(0,1))
+	if velocity.length() < 0.3: # joystick deadzone
+		velocity = Vector2(0,0)
+	
 	if (Input.is_action_pressed("player_left")):
 		velocity.x = -1
 	elif (Input.is_action_pressed("player_right")):
 		velocity.x =  1
-	else:
-		velocity.x = 0
+	#else:
+	#	velocity.x = 0
 	
 	if (Input.is_action_pressed("player_up")):
 		velocity.y = -1
 	elif (Input.is_action_pressed("player_down")):
 		velocity.y = 1
-	else:
-		velocity.y = 0
+	#else:
+	#	velocity.y = 0
 
-	set_linear_velocity(velocity.normalized() * (SNEAK_SPEED if Input.is_action_pressed("player_sneak") else WALK_SPEED))
+	if (velocity.length() > 1):
+		velocity = velocity.normalized()
+	set_linear_velocity(velocity * (SNEAK_SPEED if Input.is_action_pressed("player_sneak") else WALK_SPEED))
 	
 	# Step rotation
 	if velocity.length_squared() > 0.0001:

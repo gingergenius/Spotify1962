@@ -4,7 +4,9 @@ extends Panel
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	get_node("Button_play").connect("pressed",self,"load_first_level")
+	var playButton = get_node("Button_play")
+	playButton.connect("pressed",self,"load_first_level")
+	playButton.grab_focus()
 	get_node("Button_select").connect("pressed",self,"load_level_selection")
 	get_node("Button_quit").connect("pressed",self,"quit")
 	pass

@@ -2,7 +2,7 @@ extends Node2D
 
 var isPulling = false
 var pullingNode = null
-export var PULLING_DISTANCE = 500
+export var PULLING_DISTANCE = 800
 export var PULLING_SPEED = 1200
 export var SNEAK_PULLING_SPEED = 300
 var offset = null
@@ -41,7 +41,7 @@ func _physics_process(delta):
 				
 				if b.dot(vel) < 0:
 					pullingNode.set_linear_velocity(vel)
-					player.set_linear_velocity(player.get_linear_velocity() * 0.7) # slower while dragging
+					player.set_linear_velocity(player.get_linear_velocity() * 0.6) # slower while dragging
 				else:
 					pullingNode.set_linear_velocity(Vector2(0,0))			
 #				var vel = (a.dot(b) / (a.length() * b.length() )) * (b/b.length())

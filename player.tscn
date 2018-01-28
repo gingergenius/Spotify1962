@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
-[ext_resource path="res://images/player.png" type="Texture" id=2]
-[ext_resource path="res://scripts/playerPullHelper.gd" type="Script" id=3]
+[ext_resource path="res://scripts/CameraScale.gd" type="Script" id=2]
+[ext_resource path="res://images/player.png" type="Texture" id=3]
+[ext_resource path="res://scripts/playerPullHelper.gd" type="Script" id=4]
 
 [node name="player" type="RigidBody2D"]
 
@@ -51,15 +52,16 @@ drag_margin_left = 0.2
 drag_margin_top = 0.2
 drag_margin_right = 0.2
 drag_margin_bottom = 0.2
-editor_draw_screen = true
+editor_draw_screen = false
 editor_draw_limits = false
 editor_draw_drag_margin = false
+script = ExtResource( 2 )
 _sections_unfolded = [ "Limit", "Smoothing" ]
 
 [node name="sprite" type="Sprite" parent="." index="1"]
 
 scale = Vector2( 5, 5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="collisionShape" type="CollisionPolygon2D" parent="." index="2"]
@@ -69,7 +71,7 @@ polygon = PoolVector2Array( 32.4577, -50.371, 31.8274, -84.404, 12.2053, -110.05
 
 [node name="playerPullHelper" type="Node2D" parent="." index="3"]
 
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 PULLING_DISTANCE = 500
 PULLING_SPEED = 1200
 SNEAK_PULLING_SPEED = 300
