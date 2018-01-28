@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/win_menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/Curvy Thins.tres" type="DynamicFont" id=2]
 
-[node name="upper" type="CenterContainer"]
+[node name="upper" type="CenterContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
