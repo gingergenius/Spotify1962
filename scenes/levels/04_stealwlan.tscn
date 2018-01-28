@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://objects/environment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/Raum_1.png" type="Texture" id=2]
@@ -10,18 +10,26 @@
 [ext_resource path="res://objects/furniture/table_big.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/furniture/bookshelf.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/furniture/plant.tscn" type="PackedScene" id=10]
-[ext_resource path="res://player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://objects/Splitter.tscn" type="PackedScene" id=12]
-[ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=13]
-[ext_resource path="res://objects/Radio.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scripts/LevelState.gd" type="Script" id=15]
+[ext_resource path="res://objects/furniture/trash_basket.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/furniture/chair2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/furniture/chair.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/furniture/doublebed.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/furniture/aquarium_rect.tscn" type="PackedScene" id=15]
+[ext_resource path="res://objects/furniture/table_small.tscn" type="PackedScene" id=16]
+[ext_resource path="res://objects/furniture/desk_chair.tscn" type="PackedScene" id=17]
+[ext_resource path="res://objects/furniture/desk.tscn" type="PackedScene" id=18]
+[ext_resource path="res://player.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/Splitter.tscn" type="PackedScene" id=20]
+[ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=21]
+[ext_resource path="res://objects/Radio.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scripts/LevelState.gd" type="Script" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 110, 110 )
 
-[node name="game" type="Node"]
+[node name="game" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -1216,36 +1224,70 @@ rotation = -2.73036
 
 [node name="plant" parent="furniture" index="2" instance=ExtResource( 10 )]
 
-position = Vector2( 4998.4, 1676.77 )
+position = Vector2( 4888.03, 2074.22 )
 
-[node name="player" parent="." index="4" instance=ExtResource( 11 )]
+[node name="trash_basket" parent="furniture" index="3" instance=ExtResource( 11 )]
+
+position = Vector2( 3314.24, 173.179 )
+
+[node name="chair2" parent="furniture" index="4" instance=ExtResource( 12 )]
+
+position = Vector2( 6438.73, 1950.97 )
+rotation = -3.10633
+
+[node name="chair" parent="furniture" index="5" instance=ExtResource( 13 )]
+
+position = Vector2( 4994.85, 3666.24 )
+rotation = -0.891432
+
+[node name="doublebed" parent="furniture" index="6" instance=ExtResource( 14 )]
+
+position = Vector2( 6207.5, -168.698 )
+
+[node name="aquarium_rect" parent="furniture" index="7" instance=ExtResource( 15 )]
+
+position = Vector2( 3839.49, 229.813 )
+
+[node name="table_small" parent="furniture" index="8" instance=ExtResource( 16 )]
+
+position = Vector2( 2950.34, 306.304 )
+
+[node name="desk_chair" parent="furniture" index="9" instance=ExtResource( 17 )]
+
+position = Vector2( 6231, 4056.18 )
+
+[node name="desk" parent="furniture" index="10" instance=ExtResource( 18 )]
+
+position = Vector2( 6216.14, 3733.13 )
+
+[node name="player" parent="." index="4" instance=ExtResource( 19 )]
 
 position = Vector2( 1159.79, 1616.65 )
 
-[node name="Splitter" parent="." index="5" instance=ExtResource( 12 )]
+[node name="Splitter" parent="." index="5" instance=ExtResource( 20 )]
 
 position = Vector2( 1932.43, 1599.5 )
 rotation = 0.0144869
-scale = Vector2( 1, 1 )
 
-[node name="Caster" parent="." index="6" instance=ExtResource( 13 )]
+[node name="Caster" parent="." index="6" instance=ExtResource( 21 )]
 
 position = Vector2( 760.615, -155.602 )
 rotation = 1.51972
-max_num_rays = 4
+max_num_rays = 5
 
-[node name="Radio" parent="." index="7" instance=ExtResource( 14 )]
+[node name="Radio" parent="." index="7" instance=ExtResource( 22 )]
 
-position = Vector2( 6282.95, 3007.83 )
+position = Vector2( 5449.81, 3417.41 )
 
-[node name="Radio2" parent="." index="8" instance=ExtResource( 14 )]
+[node name="Radio2" parent="." index="8" instance=ExtResource( 22 )]
 
-position = Vector2( 6328.1, 3903.05 )
+position = Vector2( 5485.38, 3880.17 )
 
 [node name="LevelState" type="Node2D" parent="." index="9"]
 
-script = ExtResource( 15 )
-num_transmission_sinks = 1
+position = Vector2( -7.02246, -14.0449 )
+script = ExtResource( 23 )
+num_transmission_sinks = 2
 
 [connection signal="transmission_started" from="Radio" to="LevelState" method="_on_Radio_transmission_started"]
 
