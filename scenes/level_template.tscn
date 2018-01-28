@@ -6,7 +6,7 @@
 [ext_resource path="res://objects/Radio.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/LevelState.gd" type="Script" id=5]
 
-[node name="game" type="Node" index="0"]
+[node name="game" type="Node"]
 
 _sections_unfolded = [ "Pause" ]
 

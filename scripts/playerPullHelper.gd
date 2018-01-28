@@ -50,5 +50,6 @@ func _physics_process(delta):
 	else:
 		if isPulling:
 			isPulling = false
-			pullingNode.set_linear_velocity(Vector2(0,0))
+			if pullingNode != null:
+				pullingNode.set_linear_velocity(Vector2(0,0))
 			
