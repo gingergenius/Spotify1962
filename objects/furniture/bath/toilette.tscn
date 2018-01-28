@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 178.01, 133.779 )
 
-[node name="toilette" type="RigidBody2D" index="0" groups=[
+[node name="toilette" type="RigidBody2D" groups=[
 "Furniture",
 ]]
 
@@ -34,13 +34,15 @@ _sections_unfolded = [ "Angular", "Linear", "Transform" ]
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 184.078, 154.112 )
+scale = Vector2( 1.71348, 1.71348 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="collisionShape" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -81.3964, -4.13629 )
-scale = Vector2( 1, 0.97514 )
+position = Vector2( 57.838, 165.179 )
+scale = Vector2( 1.72831, 1.68535 )
 shape = SubResource( 1 )
 
 

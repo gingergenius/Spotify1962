@@ -423,15 +423,23 @@ max_num_rays = 2
 
 [node name="Radio" parent="." index="6" instance=ExtResource( 11 )]
 
-position = Vector2( 4065.4, 2112.2 )
+position = Vector2( 3590.74, 2112.2 )
 
-[node name="LevelState" type="Node2D" parent="." index="7"]
+[node name="Radio2" parent="." index="7" instance=ExtResource( 11 )]
+
+position = Vector2( 3925.34, 579.282 )
+
+[node name="LevelState" type="Node2D" parent="." index="8"]
 
 script = ExtResource( 12 )
-num_transmission_sinks = 1
+num_transmission_sinks = 2
 
 [connection signal="transmission_started" from="Radio" to="LevelState" method="_on_Radio_transmission_started"]
 
 [connection signal="transmission_stopped" from="Radio" to="LevelState" method="_on_Radio_transmission_stopped"]
+
+[connection signal="transmission_started" from="Radio2" to="LevelState" method="_on_Radio_transmission_started"]
+
+[connection signal="transmission_stopped" from="Radio2" to="LevelState" method="_on_Radio_transmission_stopped"]
 
 

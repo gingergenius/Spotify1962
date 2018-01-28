@@ -388,6 +388,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="furniture" type="Node2D" parent="." index="3"]
 
+_sections_unfolded = [ "Material" ]
+
 [node name="rotatable_furniture" parent="furniture" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 1938.38, 1079.3 )

@@ -6,8 +6,9 @@ var level_names = ["Level 0 - WASDhat signal?",
 				 	"Level 1 - Spin it like a spacebar",
 					"Level 2 - Push & Pull like a git pro",
 					"Level 3 - Cut my radio into pieces",
-					"Level xx - Vacuum the rug"]
-var level_filenames = ["00_intro", "01_rotate", "02_pull", "03_splitter", "11_advanced"]
+					"Level 4 - Stereo pleasures",
+					"Level 5 - Vacuum the rug"]
+var level_filenames = ["00_intro", "01_rotate", "02_pull", "03_splitter", "05_advanced", "04_stealwlan"]
 
 func _ready():
         var root = get_tree().get_root()

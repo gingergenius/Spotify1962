@@ -7,10 +7,10 @@ path="res://.import/00_intro.png-74090abcf5e5044d28323cb309838cdb.stex"
 [deps]
 
 source_file="res://images/level_preview/00_intro.png"
-source_md5="b5850ffa4f2d7e886373f19df6147bb8"
+source_md5="261efbe4dd011485e3555ed943cc4b64"
 
 dest_files=[ "res://.import/00_intro.png-74090abcf5e5044d28323cb309838cdb.stex" ]
-dest_md5="4f946741b78124e2e9bc866c0e885ba3"
+dest_md5="51f13f9b3e3183daae0a5c479fc77f87"
 
 [params]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Splitter.gd" type="Script" id=1]
 [ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=2]
+[ext_resource path="res://images/Aquarium_rund.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -43,7 +44,13 @@ is_enabled = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-scale = Vector2( 5.59866, 5.59866 )
+scale = Vector2( 13.7999, 13.7999 )
 shape = SubResource( 1 )
+
+[node name="Aquarium_rund" type="Sprite" parent="." index="3"]
+
+position = Vector2( 0.549075, 6.54639 )
+scale = Vector2( 1.53131, 1.53131 )
+texture = ExtResource( 3 )
 
 

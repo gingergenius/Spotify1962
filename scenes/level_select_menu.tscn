@@ -28,7 +28,7 @@ func _on_Button_right_pressed():
 	pass # replace with function body
 "
 
-[node name="TextureRect" type="TextureRect" index="0"]
+[node name="TextureRect" type="TextureRect"]
 
 anchor_left = 0.0
 anchor_top = 0.0
