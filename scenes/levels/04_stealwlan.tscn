@@ -22,14 +22,14 @@
 [ext_resource path="res://objects/Splitter.tscn" type="PackedScene" id=20]
 [ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=21]
 [ext_resource path="res://objects/Radio.tscn" type="PackedScene" id=22]
-[ext_resource path="res://scripts/LevelState.gd" type="Script" id=23]
+[ext_resource path="res://objects/LevelState.tscn" type="PackedScene" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 110, 110 )
 
-[node name="game" type="Node" index="0"]
+[node name="game" type="Node"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -1283,18 +1283,8 @@ position = Vector2( 5449.81, 3417.41 )
 
 position = Vector2( 5485.38, 3880.17 )
 
-[node name="LevelState" type="Node2D" parent="." index="9"]
+[node name="LevelState" parent="." index="9" instance=ExtResource( 23 )]
 
-position = Vector2( -7.02246, -14.0449 )
-script = ExtResource( 23 )
 num_transmission_sinks = 2
-
-[connection signal="transmission_started" from="Radio" to="LevelState" method="_on_Radio_transmission_started"]
-
-[connection signal="transmission_stopped" from="Radio" to="LevelState" method="_on_Radio_transmission_stopped"]
-
-[connection signal="transmission_started" from="Radio2" to="LevelState" method="_on_Radio_transmission_started"]
-
-[connection signal="transmission_stopped" from="Radio2" to="LevelState" method="_on_Radio_transmission_stopped"]
 
 

@@ -433,4 +433,6 @@ position = Vector2( 3925.34, 579.282 )
 
 [node name="LevelState" parent="." index="8" instance=ExtResource( 12 )]
 
+num_transmission_sinks = 2
+
 

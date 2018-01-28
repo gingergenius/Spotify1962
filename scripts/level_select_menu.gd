@@ -2,7 +2,7 @@ extends TextureRect
 
 # class member variables go here, for example:
 var current_stage = 0
-var amount_stages = 3
+var amount_stages = 6
 
 func _ready():
 	# Called every time the node is added to the scene.

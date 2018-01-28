@@ -32,16 +32,17 @@ func updateLinePoints(line, points):
 func _ready():
 	line = get_node("Line")
 	debug_line = get_node("DebugLine")
-	debug_collision_point = get_node("../Collision")
+	if has_node("../Collision"):
+		debug_collision_point = get_node("../Collision")
 	space = get_world_2d().get_space()
 	space_state = Physics2DServer.space_get_direct_state(space)
 	
 		# check whether we have debug target goal and source	
-	if get_node("../Goal") and get_node("../Source"):
+	if has_node("../Goal") and has_node("../Source"):
 		source_position = get_node("../Source").position
 		goal_position = get_node("../Goal").position
 		
-	if get_node("/root/game/LevelState"):
+	if has_node("/root/game/LevelState"):
 		var level_state = get_tree().get_root().get_node("/root/game/LevelState")
 		connect ("transmission_changed", level_state, "onTransmissionChanged")
 	else:

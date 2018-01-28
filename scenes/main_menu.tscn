@@ -5,7 +5,7 @@
 [ext_resource path="res://resources/fonts/Curvy Thins.tres" type="DynamicFont" id=3]
 [ext_resource path="res://audio/music/virginians-nothing-could-be-sweeter-from-hit-the-deck.ogg" type="AudioStream" id=4]
 
-[node name="Panel" type="Panel" index="0"]
+[node name="Panel" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -30,6 +30,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Anchor" ]
 
 [node name="logo" type="TextureRect" parent="level_preview" index="0"]
 
@@ -44,20 +45,18 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 2 )
 expand = true
-stretch_mode = 6
-_sections_unfolded = [ "Anchor" ]
+stretch_mode = 0
+_sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="Button_play" type="Button" parent="." index="1"]
 
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 74.0
-margin_top = -438.0
-margin_right = 264.0
-margin_bottom = -378.0
+anchor_left = 0.59
+anchor_top = 0.2625
+anchor_right = 0.76
+anchor_bottom = 0.34
+margin_top = -0.5
 rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_top = NodePath("../Button_quit")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -71,18 +70,18 @@ group = null
 text = "start"
 flat = false
 align = 1
-_sections_unfolded = [ "Anchor", "Rect", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Focus", "Margin", "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Button_select" type="Button" parent="." index="2"]
 
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 72.0
-margin_top = -352.0
-margin_right = 262.0
-margin_bottom = -292.0
+anchor_left = 0.59
+anchor_top = 0.37581
+anchor_right = 0.76
+anchor_bottom = 0.4626
+margin_left = -0.159973
+margin_top = -0.485992
+margin_right = 3.76001
+margin_bottom = -0.559998
 rect_pivot_offset = Vector2( 0, 0 )
 focus_mode = 2
 mouse_filter = 0
@@ -97,19 +96,19 @@ group = null
 text = "select level"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
 [node name="Button_quit" type="Button" parent="." index="3"]
 
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 72.0
-margin_top = -263.0
-margin_right = 262.0
-margin_bottom = -203.0
+anchor_left = 0.59
+anchor_top = 0.5
+anchor_right = 0.76
+anchor_bottom = 0.58
+margin_left = -0.159973
+margin_right = -0.23999
+margin_bottom = 2.0
 rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_bottom = NodePath("../Button_play")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -123,7 +122,7 @@ group = null
 text = "quit"
 flat = false
 align = 1
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Focus", "Margin", "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
 

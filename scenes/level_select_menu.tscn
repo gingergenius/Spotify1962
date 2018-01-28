@@ -28,7 +28,7 @@ func _on_Button_right_pressed():
 	pass # replace with function body
 "
 
-[node name="TextureRect" type="TextureRect"]
+[node name="TextureRect" type="TextureRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -69,6 +69,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
 rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_right = NodePath("../Button_left")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -83,7 +84,7 @@ text = ">"
 flat = false
 align = 1
 script = SubResource( 1 )
-_sections_unfolded = [ "Margin", "custom_fonts" ]
+_sections_unfolded = [ "Focus", "Margin", "custom_fonts" ]
 
 [node name="Button_left" type="Button" parent="navigation" index="1"]
 
@@ -96,6 +97,7 @@ margin_top = 10.0
 margin_right = 200.0
 margin_bottom = -10.0
 rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_left = NodePath("../Button_right")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -109,7 +111,7 @@ group = null
 text = "<"
 flat = false
 align = 1
-_sections_unfolded = [ "Margin", "custom_fonts" ]
+_sections_unfolded = [ "Focus", "Margin", "custom_fonts" ]
 
 [node name="stage_name" type="Label" parent="navigation" index="2"]
 

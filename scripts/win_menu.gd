@@ -5,10 +5,10 @@ extends CanvasLayer
 # var b = "textvar"
 
 func _ready():
-	var cont = get_node("MarginContainer/HBoxContainer/VBoxContainer/popup/Button_continue")
+	var cont = get_node("popup/Button_continue")
 	cont.grab_focus()
 	cont.connect("pressed",self,"continue")
-	var menu = get_node("MarginContainer/HBoxContainer/VBoxContainer/popup/Button_menu")
+	var menu = get_node("popup/Button_menu")
 	menu.connect("pressed",self,"to_menu")
 	pass 
 
