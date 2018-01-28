@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/LevelState.gd" type="Script" id=1]
+[ext_resource path="res://audio/music/1272807233.ogg" type="AudioStream" id=2]
+
+[node name="LevelState" type="Node2D"]
+
+script = ExtResource( 1 )
+num_transmission_sinks = 1
+music_near_radius = 200
+music_far_radius = 800
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="." index="0"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+
