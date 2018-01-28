@@ -12,7 +12,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 110, 110 )
 
-[node name="room" type="Node2D"]
+[node name="room" type="Node2D" index="0"]
 
 [node name="floor" type="NinePatchRect" parent="." index="0"]
 
@@ -21,8 +21,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 10048.0
-margin_bottom = 6547.0
+margin_right = 2674.0
+margin_bottom = 1922.0
 grow_horizontal = 0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2

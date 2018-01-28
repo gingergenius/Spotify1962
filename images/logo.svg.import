@@ -7,7 +7,7 @@ path="res://.import/logo.svg-2a358a172e03a2c52fe1d84dd759ccf5.stex"
 [deps]
 
 source_file="res://images/logo.svg"
-source_md5="72a613706352e75d811cf1dd180cc7df"
+source_md5="d741d93d65120c07942cf769d154b3b8"
 
 dest_files=[ "res://.import/logo.svg-2a358a172e03a2c52fe1d84dd759ccf5.stex" ]
 dest_md5="4b7f5743000d6cb7d9b9966f44b72f34"

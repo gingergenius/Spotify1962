@@ -7,7 +7,7 @@ path="res://.import/sound_particle.svg-6d2bc11e6ef92f64f475b1805dd6fc94.stex"
 [deps]
 
 source_file="res://source_assets/sound_particle.svg"
-source_md5="9d10be23668e7eea1b0fa4a82692677b"
+source_md5="54ad6b8225c35d5a0ab27e07198210c2"
 
 dest_files=[ "res://.import/sound_particle.svg-6d2bc11e6ef92f64f475b1805dd6fc94.stex" ]
 dest_md5="c7bef06c441484d101cc60916f42b7db"

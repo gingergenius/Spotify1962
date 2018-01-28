@@ -7,10 +7,10 @@ path="res://.import/player.svg-33d12672a7cb7648bf6a1b6de8f4a726.stex"
 [deps]
 
 source_file="res://source_assets/player.svg"
-source_md5="71e9d4d4822e03df1aba3071e0c0d978"
+source_md5="081aed47e06a68b6dcba7ce1aab26246"
 
 dest_files=[ "res://.import/player.svg-33d12672a7cb7648bf6a1b6de8f4a726.stex" ]
-dest_md5="196649f52c2a569c73c1c18cc9662535"
+dest_md5="61c6a2c651c857ac2c9c5a817a3575b6"
 
 [params]
 
