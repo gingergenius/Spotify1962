@@ -72,7 +72,7 @@ polygon = PoolVector2Array( 32.4577, -50.371, 31.8274, -84.404, 12.2053, -110.05
 [node name="playerPullHelper" type="Node2D" parent="." index="3"]
 
 script = ExtResource( 4 )
-PULLING_DISTANCE = 500
+PULLING_DISTANCE = 800
 PULLING_SPEED = 1200
 SNEAK_PULLING_SPEED = 300
 

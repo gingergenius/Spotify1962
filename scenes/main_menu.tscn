@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://images/logo.svg" type="Texture" id=2]
 [ext_resource path="res://resources/fonts/Curvy Thins.tres" type="DynamicFont" id=3]
-[ext_resource path="res://audio/music/virginians-nothing-could-be-sweeter-from-hit-the-deck.ogg" type="AudioStream" id=4]
 
 [node name="Panel" type="Panel"]
 
@@ -57,11 +56,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -104.0
-margin_top = -269.0
-margin_right = 107.0
-margin_bottom = -202.0
+margin_left = -106.0
+margin_top = -271.0
+margin_right = 105.0
+margin_bottom = -204.0
 rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_top = NodePath("../Button_quit")
+focus_next = NodePath("../Button_select")
+focus_previous = NodePath("../Button_quit")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -75,7 +77,7 @@ group = null
 text = "start"
 flat = false
 align = 1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Focus", "custom_colors", "custom_fonts" ]
 
 [node name="Button_select" type="Button" parent="." index="2"]
 
@@ -88,6 +90,8 @@ margin_top = -193.0
 margin_right = 105.0
 margin_bottom = -126.0
 rect_pivot_offset = Vector2( 0, 0 )
+focus_next = NodePath("../Button_quit")
+focus_previous = NodePath("../Button_play")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -101,7 +105,7 @@ group = null
 text = "select level"
 flat = false
 align = 1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Focus", "custom_colors", "custom_fonts" ]
 
 [node name="Button_quit" type="Button" parent="." index="3"]
 
@@ -114,6 +118,9 @@ margin_top = -115.0
 margin_right = 105.0
 margin_bottom = -48.0
 rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_bottom = NodePath("../Button_play")
+focus_next = NodePath("../Button_play")
+focus_previous = NodePath("../Button_select")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -127,14 +134,6 @@ group = null
 text = "quit"
 flat = false
 align = 1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
-
-stream = ExtResource( 4 )
-volume_db = 0.0
-autoplay = true
-mix_target = 0
-bus = "Master"
+_sections_unfolded = [ "Focus", "custom_colors", "custom_fonts" ]
 
 

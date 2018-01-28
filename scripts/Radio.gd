@@ -26,7 +26,7 @@ func _ready():
 #	# Update game logic here.
 #	pass
 #
-func onTransmissionStart():
+func onTransmissionStart(remaining_iter):
 	print ("Transmission starting")
 	emit_signal ("transmission_started")
         

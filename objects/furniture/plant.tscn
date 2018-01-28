@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 radius = 125.425
 
-[node name="plant" type="RigidBody2D" index="0" groups=[
+[node name="plant" type="RigidBody2D" groups=[
 "Furniture",
 ]]
 
@@ -34,11 +34,15 @@ _sections_unfolded = [ "Angular", "Linear" ]
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 72.0087, 72.0087 )
+scale = Vector2( 1.57607, 1.57607 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="collisionShape" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( 71.2215, 71.2215 )
+scale = Vector2( 1.55458, 1.55458 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
