@@ -7,10 +7,10 @@ path="res://.import/Tisch_rund.png-8a1ce93bc6666caf1e25c7c8aa91c92c.stex"
 [deps]
 
 source_file="res://images/Tisch_rund.png"
-source_md5="b806cec05f7acf5e1e8c8e8d5d48e264"
+source_md5="361f79b8bada11d23fad3489e69b4dee"
 
 dest_files=[ "res://.import/Tisch_rund.png-8a1ce93bc6666caf1e25c7c8aa91c92c.stex" ]
-dest_md5="1ffd5fb22def5f74fce34ed7495de82f"
+dest_md5="8435873e2ba48770067a2faf1738fe68"
 
 [params]
 
