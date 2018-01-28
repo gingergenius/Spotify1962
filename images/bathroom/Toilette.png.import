@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Spiegel rechts.png-ed56108f08c87e73733ca682ad443622.stex"
+path="res://.import/Toilette.png-152c7496c95a852d2a7b0888f9209a11.stex"
 
 [deps]
 
-source_file="res://images/Bad/Spiegel rechts.png"
-source_md5="1f1089392fc84d4d89c54df8aa52ed25"
+source_file="res://images/bathroom/Toilette.png"
+source_md5="22d92a0f5dfc79ead4743dc9b9d8386e"
 
-dest_files=[ "res://.import/Spiegel rechts.png-ed56108f08c87e73733ca682ad443622.stex" ]
-dest_md5="8c2cfb88b8751fbe63e910d737854922"
+dest_files=[ "res://.import/Toilette.png-152c7496c95a852d2a7b0888f9209a11.stex" ]
+dest_md5="18963bfbe6da46f6e9ce6b71c5225523"
 
 [params]
 

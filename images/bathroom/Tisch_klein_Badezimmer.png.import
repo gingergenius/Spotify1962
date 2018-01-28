@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Radio_2_größer_bad.png-9c1ddf6f39402a2c070131777e07acf4.stex"
+path="res://.import/Tisch_klein_Badezimmer.png-4fcac0dcb8003b8d7277e3ef41e95e56.stex"
 
 [deps]
 
-source_file="res://images/Bad/Radio_2_größer_bad.png"
-source_md5="c4b46b1db18ee826c0e3488d3e6ee71e"
+source_file="res://images/bathroom/Tisch_klein_Badezimmer.png"
+source_md5="736c5aaeacff45aac4b9095169c57b58"
 
-dest_files=[ "res://.import/Radio_2_größer_bad.png-9c1ddf6f39402a2c070131777e07acf4.stex" ]
-dest_md5="5831a7e045f605f909a7a000d1a316c9"
+dest_files=[ "res://.import/Tisch_klein_Badezimmer.png-4fcac0dcb8003b8d7277e3ef41e95e56.stex" ]
+dest_md5="cca90e89b9e0aec848f484d0ede07d68"
 
 [params]
 

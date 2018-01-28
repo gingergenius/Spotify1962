@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tisch_klein_Badezimmer.png-d6e9695693daaa111510158e29a70f8a.stex"
+path="res://.import/Badewanne.png-03d7681f84880cde2546235f16f41a29.stex"
 
 [deps]
 
-source_file="res://images/Bad/Tisch_klein_Badezimmer.png"
-source_md5="efac3c9c93f8269670c549b9de0179ae"
+source_file="res://images/bathroom/Badewanne.png"
+source_md5="74495774523d2e6688a4c5059244b955"
 
-dest_files=[ "res://.import/Tisch_klein_Badezimmer.png-d6e9695693daaa111510158e29a70f8a.stex" ]
-dest_md5="af424d24930a943f75ac036841685426"
+dest_files=[ "res://.import/Badewanne.png-03d7681f84880cde2546235f16f41a29.stex" ]
+dest_md5="5635260e8cf815cddb922b4b1b6edc54"
 
 [params]
 
