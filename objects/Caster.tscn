@@ -9,9 +9,10 @@
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 transmission_points = PoolVector2Array(  )
-max_num_rays = 30
-max_transmission_length = 1000
+max_num_rays = 2
+max_transmission_length = 10000
 ray_length = 10000.0
+is_enabled = true
 
 [node name="Line" type="Line2D" parent="." index="0"]
 
