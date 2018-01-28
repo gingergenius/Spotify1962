@@ -1,4 +1,4 @@
-extends Panel
+extends TextureRect
 
 # class member variables go here, for example:
 var current_stage = 0
@@ -7,9 +7,12 @@ var amount_stages = 3
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	var playButton = get_node("Button_play")
+	playButton.connect("pressed",self,"play_stage")
+	playButton.grab_focus()
 	get_node("navigation/Button_right").connect("pressed",self,"next_stage")
 	get_node("navigation/Button_left").connect("pressed",self,"prev_stage")
-	get_node("Button_play").connect("pressed",self,"play_stage")
+	
 	pass
 
 func next_stage():

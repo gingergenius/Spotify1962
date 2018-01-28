@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Startbild_Zeichenfläche 1.png-3ca5a62359190f0b57871be219fa8ce5.stex"
+
+[deps]
+
+source_file="res://images/Startbild_Zeichenfläche 1.png"
+source_md5="02589e1b144c159e806fddf4ec8c20b2"
+
+dest_files=[ "res://.import/Startbild_Zeichenfläche 1.png-3ca5a62359190f0b57871be219fa8ce5.stex" ]
+dest_md5="1bc4f27c008faa606c5b900b49a61075"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

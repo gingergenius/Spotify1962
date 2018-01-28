@@ -2,10 +2,13 @@ extends Node
 
 var current_scene = null
 var current_stage = 0
-var level_names = ["Level 0 - WASDisconnected",
-				 	"Level 1 - Spacebar has no gravity pull",
-					"Level 2 - Vacuum the rug"]
-var level_filenames = ["00_intro", "01_pull", "02_advanced"]
+var level_names = ["Level 0 - WASDhat signal?",
+				 	"Level 1 - Spin it like a spacebar",
+					"Level 2 - Push & Pull like a git pro",
+					"Level 3 - Cut my radio into pieces",
+					"Level 4 - Stereo pleasures",
+					"Level 5 - Vacuum the rug"]
+var level_filenames = ["00_intro", "01_rotate", "02_pull", "03_splitter", "05_advanced", "04_stealwlan"]
 
 func _ready():
         var root = get_tree().get_root()
@@ -35,13 +38,15 @@ func _deferred_goto_scene():
 	print("loading level " + filename)
 	var path = "res://scenes/levels/" + filename + ".tscn"
 	
-	var s = ResourceLoader.load(path)
+	get_tree().change_scene(path)
+	
+	#var s = ResourceLoader.load(path)
 	
 	# Instance the new scene
-	current_scene = s.instance()
+	#current_scene = s.instance()
 	
 	# Add it to the active scene, as child of root
-	get_tree().get_root().add_child(current_scene)
+	#get_tree().get_root().add_child(current_scene)
 	
 	# optional, to make it compatible with the SceneTree.change_scene() API
-	get_tree().set_current_scene( current_scene )
+	#get_tree().set_current_scene( current_scene )

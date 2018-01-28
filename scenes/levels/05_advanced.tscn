@@ -1,0 +1,2067 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://images/Raum_1.png" type="Texture" id=1]
+[ext_resource path="res://images/Fenster_links.png" type="Texture" id=2]
+[ext_resource path="res://images/Fenster_rechts.png" type="Texture" id=3]
+[ext_resource path="res://images/Fenster_unten.png" type="Texture" id=4]
+[ext_resource path="res://images/Fenster_oben.png" type="Texture" id=5]
+[ext_resource path="res://images/Türe.png" type="Texture" id=6]
+[ext_resource path="res://images/bathroom/Badezimmer.png" type="Texture" id=7]
+[ext_resource path="res://images/Laptop.png" type="Texture" id=8]
+[ext_resource path="res://objects/furniture/doublebed.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/furniture/bookshelf.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/furniture/couch.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/furniture/plant.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/furniture/table_big.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/furniture/desk.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/furniture/desk_chair.tscn" type="PackedScene" id=15]
+[ext_resource path="res://objects/furniture/chair2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://objects/furniture/newspaper_holder.tscn" type="PackedScene" id=17]
+[ext_resource path="res://objects/furniture/bench.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/furniture/trash_basket.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/furniture/aquarium_rect.tscn" type="PackedScene" id=20]
+[ext_resource path="res://objects/furniture/chair.tscn" type="PackedScene" id=21]
+[ext_resource path="res://objects/furniture/bath/toilette.tscn" type="PackedScene" id=22]
+[ext_resource path="res://objects/furniture/bath/bathtub.tscn" type="PackedScene" id=23]
+[ext_resource path="res://objects/furniture/aquarium_circle.tscn" type="PackedScene" id=24]
+[ext_resource path="res://player.tscn" type="PackedScene" id=25]
+[ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=26]
+[ext_resource path="res://objects/Radio.tscn" type="PackedScene" id=27]
+[ext_resource path="res://objects/LevelState.tscn" type="PackedScene" id=28]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 110, 110 )
+
+[node name="game" type="Node" index="0"]
+
+_sections_unfolded = [ "Pause" ]
+
+[node name="environment" type="ColorRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -2434.0
+margin_top = -1517.0
+margin_right = 11808.0
+margin_bottom = 7834.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 1 )
+
+[node name="rooms" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+
+[node name="hallway" type="Node2D" parent="rooms" index="0"]
+
+[node name="floor" type="NinePatchRect" parent="rooms/hallway" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 4827.0
+margin_bottom = 1367.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+patch_margin_left = 222
+patch_margin_top = 232
+patch_margin_right = 231
+patch_margin_bottom = 230
+_sections_unfolded = [ "Anchor", "Axis Stretch", "Grow Direction", "Margin", "Mouse", "Rect", "Size Flags" ]
+
+[node name="windows" type="Control" parent="rooms/hallway/floor" index="0"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = -9.0
+margin_right = 22.0
+margin_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin" ]
+
+[node name="leftup" type="TextureRect" parent="rooms/hallway/floor/windows" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.33
+anchor_right = 0.0
+anchor_bottom = 0.33
+margin_left = -44.0
+margin_top = -300.8
+margin_right = 182.0
+margin_bottom = 299.2
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="leftdown" type="TextureRect" parent="rooms/hallway/floor/windows" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.66
+anchor_right = 0.0
+anchor_bottom = 0.66
+margin_left = -43.0
+margin_top = -300.6
+margin_right = 181.0
+margin_bottom = 299.4
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="rightup" type="TextureRect" parent="rooms/hallway/floor/windows" index="2"]
+
+anchor_left = 1.0
+anchor_top = 0.33
+anchor_right = 1.0
+anchor_bottom = 0.33
+margin_left = -197.0
+margin_top = -301.3
+margin_bottom = 297.7
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="rightdown" type="TextureRect" parent="rooms/hallway/floor/windows" index="3"]
+
+anchor_left = 1.0
+anchor_top = 0.66
+anchor_right = 1.0
+anchor_bottom = 0.66
+margin_left = -197.0
+margin_top = -300.6
+margin_bottom = 299.4
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="downleft" type="TextureRect" parent="rooms/hallway/floor/windows" index="4"]
+
+anchor_left = 0.33
+anchor_top = 1.0
+anchor_right = 0.33
+anchor_bottom = 1.0
+margin_left = -300.9
+margin_top = -172.0
+margin_right = 299.1
+margin_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="downright" type="TextureRect" parent="rooms/hallway/floor/windows" index="5"]
+
+anchor_left = 0.66
+anchor_top = 1.0
+anchor_right = 0.66
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -172.0
+margin_right = 300.0
+margin_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="topleft" type="TextureRect" parent="rooms/hallway/floor/windows" index="6"]
+
+anchor_left = 0.33
+anchor_top = 0.0
+anchor_right = 0.33
+anchor_bottom = 0.0
+margin_left = -300.9
+margin_right = 299.1
+margin_bottom = 199.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="topright" type="TextureRect" parent="rooms/hallway/floor/windows" index="7"]
+
+anchor_left = 0.66
+anchor_top = 0.0
+anchor_right = 0.66
+anchor_bottom = 0.0
+margin_left = -300.8
+margin_right = 299.2
+margin_bottom = 199.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="doors" type="Control" parent="rooms/hallway/floor" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="right" type="TextureRect" parent="rooms/hallway/floor/doors" index="0"]
+
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = -307.0
+margin_right = 628.0
+margin_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="left" type="TextureRect" parent="rooms/hallway/floor/doors" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = 290.5
+margin_right = 592.0
+margin_bottom = 547.5
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 270.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="up" type="TextureRect" parent="rooms/hallway/floor/doors" index="2"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -503.0
+margin_top = -185.0
+margin_right = 497.0
+margin_bottom = 415.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="down" type="TextureRect" parent="rooms/hallway/floor/doors" index="3"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -608.5
+margin_right = 391.5
+margin_bottom = 233.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="down2" type="TextureRect" parent="rooms/hallway/floor/doors" index="4"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 1836.5
+margin_top = 1.0
+margin_right = 2836.5
+margin_bottom = 234.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rooms/hallway" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="left" type="CollisionShape2D" parent="rooms/hallway/StaticBody2D" index="0"]
+
+position = Vector2( 102.547, 1090.63 )
+scale = Vector2( 1, 2.79389 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="left2" type="CollisionShape2D" parent="rooms/hallway/StaticBody2D" index="1"]
+
+position = Vector2( 115.161, 512.252 )
+scale = Vector2( 1, 2.64478 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="right" type="CollisionShape2D" parent="rooms/hallway/StaticBody2D" index="2"]
+
+position = Vector2( 4774.99, 1189.69 )
+scale = Vector2( 1, 1.65474 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="right2" type="CollisionShape2D" parent="rooms/hallway/StaticBody2D" index="3"]
+
+position = Vector2( 4774.99, 253.24 )
+scale = Vector2( 1, 1.65474 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="up" type="CollisionShape2D" parent="rooms/hallway/StaticBody2D" index="4"]
+
+position = Vector2( 2327.63, 116.938 )
+scale = Vector2( 21.2653, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="down" type="CollisionShape2D" parent="rooms/hallway/StaticBody2D" index="5"]
+
+position = Vector2( 601.119, 1307.16 )
+scale = Vector2( 3.76835, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="down2" type="CollisionShape2D" parent="rooms/hallway/StaticBody2D" index="6"]
+
+position = Vector2( 2565.37, 1311.36 )
+scale = Vector2( 8.20214, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="down3" type="CollisionShape2D" parent="rooms/hallway/StaticBody2D" index="7"]
+
+position = Vector2( 4506.1, 1307.57 )
+scale = Vector2( 3.78862, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="bathroom" type="Node2D" parent="rooms" index="1"]
+
+position = Vector2( 22.2511, 1420.13 )
+
+[node name="floor" type="NinePatchRect" parent="rooms/bathroom" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 2561.0
+margin_bottom = 3853.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+patch_margin_left = 222
+patch_margin_top = 232
+patch_margin_right = 231
+patch_margin_bottom = 230
+_sections_unfolded = [ "Anchor", "Axis Stretch", "Grow Direction", "Margin", "Mouse", "Rect", "Size Flags" ]
+
+[node name="windows" type="Control" parent="rooms/bathroom/floor" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = -9.0
+margin_right = 22.0
+margin_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin" ]
+
+[node name="leftup" type="TextureRect" parent="rooms/bathroom/floor/windows" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.33
+anchor_right = 0.0
+anchor_bottom = 0.33
+margin_left = -44.0
+margin_top = -300.8
+margin_right = 182.0
+margin_bottom = 299.2
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="leftdown" type="TextureRect" parent="rooms/bathroom/floor/windows" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.66
+anchor_right = 0.0
+anchor_bottom = 0.66
+margin_left = -43.0
+margin_top = -300.6
+margin_right = 181.0
+margin_bottom = 299.4
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="rightup" type="TextureRect" parent="rooms/bathroom/floor/windows" index="2"]
+
+visible = false
+anchor_left = 1.0
+anchor_top = 0.33
+anchor_right = 1.0
+anchor_bottom = 0.33
+margin_left = -197.0
+margin_top = -301.3
+margin_bottom = 297.7
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="rightdown" type="TextureRect" parent="rooms/bathroom/floor/windows" index="3"]
+
+visible = false
+anchor_left = 1.0
+anchor_top = 0.66
+anchor_right = 1.0
+anchor_bottom = 0.66
+margin_left = -197.0
+margin_top = -300.6
+margin_bottom = 299.4
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="downleft" type="TextureRect" parent="rooms/bathroom/floor/windows" index="4"]
+
+visible = false
+anchor_left = 0.33
+anchor_top = 1.0
+anchor_right = 0.33
+anchor_bottom = 1.0
+margin_left = -300.9
+margin_top = -172.0
+margin_right = 299.1
+margin_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="downright" type="TextureRect" parent="rooms/bathroom/floor/windows" index="5"]
+
+visible = false
+anchor_left = 0.66
+anchor_top = 1.0
+anchor_right = 0.66
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -172.0
+margin_right = 300.0
+margin_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="topleft" type="TextureRect" parent="rooms/bathroom/floor/windows" index="6"]
+
+visible = false
+anchor_left = 0.33
+anchor_top = 0.0
+anchor_right = 0.33
+anchor_bottom = 0.0
+margin_left = -300.9
+margin_right = 299.1
+margin_bottom = 199.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="topright" type="TextureRect" parent="rooms/bathroom/floor/windows" index="7"]
+
+visible = false
+anchor_left = 0.66
+anchor_top = 0.0
+anchor_right = 0.66
+anchor_bottom = 0.0
+margin_left = -300.8
+margin_right = 299.2
+margin_bottom = 199.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="doors" type="Control" parent="rooms/bathroom/floor" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -4.0
+margin_right = 4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="right" type="TextureRect" parent="rooms/bathroom/floor/doors" index="0"]
+
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = -307.0
+margin_right = 628.0
+margin_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="left" type="TextureRect" parent="rooms/bathroom/floor/doors" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = -13.0
+margin_top = 241.0
+margin_right = 602.0
+margin_bottom = 498.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 270.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="up" type="TextureRect" parent="rooms/bathroom/floor/doors" index="2"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -501.5
+margin_top = -187.0
+margin_right = 498.5
+margin_bottom = 413.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="down" type="TextureRect" parent="rooms/bathroom/floor/doors" index="3"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 469.5
+margin_top = 2.0
+margin_right = 1469.5
+margin_bottom = 235.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rooms/bathroom" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="left" type="CollisionShape2D" parent="rooms/bathroom/StaticBody2D" index="0"]
+
+position = Vector2( 114.768, 1930.29 )
+scale = Vector2( 1, 16.3633 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="right" type="CollisionShape2D" parent="rooms/bathroom/StaticBody2D" index="1"]
+
+position = Vector2( 2504.36, 1986.33 )
+scale = Vector2( 1, 15.6598 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="up" type="CollisionShape2D" parent="rooms/bathroom/StaticBody2D" index="2"]
+
+position = Vector2( 474.719, 110.347 )
+scale = Vector2( 4.69708, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="up2" type="CollisionShape2D" parent="rooms/bathroom/StaticBody2D" index="3"]
+
+position = Vector2( 2140.05, 113.104 )
+scale = Vector2( 4.51359, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="down" type="CollisionShape2D" parent="rooms/bathroom/StaticBody2D" index="4"]
+
+position = Vector2( 1320.32, 3805.41 )
+scale = Vector2( 11.7175, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="kitchen" type="Node2D" parent="rooms" index="2"]
+
+position = Vector2( 2646.36, 1419.76 )
+
+[node name="floor" type="NinePatchRect" parent="rooms/kitchen" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 2196.0
+margin_bottom = 3867.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+patch_margin_left = 222
+patch_margin_top = 232
+patch_margin_right = 231
+patch_margin_bottom = 230
+_sections_unfolded = [ "Anchor", "Axis Stretch", "Grow Direction", "Margin", "Mouse", "Rect", "Size Flags" ]
+
+[node name="windows" type="Control" parent="rooms/kitchen/floor" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = -9.0
+margin_right = 22.0
+margin_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin" ]
+
+[node name="leftup" type="TextureRect" parent="rooms/kitchen/floor/windows" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.33
+anchor_right = 0.0
+anchor_bottom = 0.33
+margin_left = -44.0
+margin_top = -300.8
+margin_right = 182.0
+margin_bottom = 299.2
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="leftdown" type="TextureRect" parent="rooms/kitchen/floor/windows" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.66
+anchor_right = 0.0
+anchor_bottom = 0.66
+margin_left = -43.0
+margin_top = -300.6
+margin_right = 181.0
+margin_bottom = 299.4
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="rightup" type="TextureRect" parent="rooms/kitchen/floor/windows" index="2"]
+
+visible = false
+anchor_left = 1.0
+anchor_top = 0.33
+anchor_right = 1.0
+anchor_bottom = 0.33
+margin_left = -197.0
+margin_top = -301.3
+margin_bottom = 297.7
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="rightdown" type="TextureRect" parent="rooms/kitchen/floor/windows" index="3"]
+
+visible = false
+anchor_left = 1.0
+anchor_top = 0.66
+anchor_right = 1.0
+anchor_bottom = 0.66
+margin_left = -197.0
+margin_top = -300.6
+margin_bottom = 299.4
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="downleft" type="TextureRect" parent="rooms/kitchen/floor/windows" index="4"]
+
+anchor_left = 0.33
+anchor_top = 1.0
+anchor_right = 0.33
+anchor_bottom = 1.0
+margin_left = -300.9
+margin_top = -172.0
+margin_right = 299.1
+margin_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="downright" type="TextureRect" parent="rooms/kitchen/floor/windows" index="5"]
+
+anchor_left = 0.66
+anchor_top = 1.0
+anchor_right = 0.66
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -172.0
+margin_right = 300.0
+margin_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="topleft" type="TextureRect" parent="rooms/kitchen/floor/windows" index="6"]
+
+visible = false
+anchor_left = 0.33
+anchor_top = 0.0
+anchor_right = 0.33
+anchor_bottom = 0.0
+margin_left = -300.9
+margin_right = 299.1
+margin_bottom = 199.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="topright" type="TextureRect" parent="rooms/kitchen/floor/windows" index="7"]
+
+visible = false
+anchor_left = 0.66
+anchor_top = 0.0
+anchor_right = 0.66
+anchor_bottom = 0.0
+margin_left = -300.8
+margin_right = 299.2
+margin_bottom = 199.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="doors" type="Control" parent="rooms/kitchen/floor" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 11.0
+margin_top = -42.0
+margin_right = 11.0
+margin_bottom = -42.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="right" type="TextureRect" parent="rooms/kitchen/floor/doors" index="0"]
+
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = -307.0
+margin_right = 628.0
+margin_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="left" type="TextureRect" parent="rooms/kitchen/floor/doors" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = -13.0
+margin_top = 241.0
+margin_right = 602.0
+margin_bottom = 498.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 270.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="up" type="TextureRect" parent="rooms/kitchen/floor/doors" index="2"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -503.0
+margin_top = -185.0
+margin_right = 497.0
+margin_bottom = 415.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="down" type="TextureRect" parent="rooms/kitchen/floor/doors" index="3"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 469.0
+margin_top = 2.0
+margin_right = 1469.0
+margin_bottom = 235.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rooms/kitchen" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="left" type="CollisionShape2D" parent="rooms/kitchen/StaticBody2D" index="0"]
+
+position = Vector2( 105.021, 1973.39 )
+scale = Vector2( 1, 15.963 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="right" type="CollisionShape2D" parent="rooms/kitchen/StaticBody2D" index="1"]
+
+position = Vector2( 2139.89, 1956.9 )
+scale = Vector2( 1, 15.6522 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="up" type="CollisionShape2D" parent="rooms/kitchen/StaticBody2D" index="2"]
+
+position = Vector2( 399.409, 120.209 )
+scale = Vector2( 3.74293, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="up2" type="CollisionShape2D" parent="rooms/kitchen/StaticBody2D" index="3"]
+
+position = Vector2( 1844.45, 110.891 )
+scale = Vector2( 3.47908, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="down" type="CollisionShape2D" parent="rooms/kitchen/StaticBody2D" index="4"]
+
+position = Vector2( 1128.93, 3804.96 )
+scale = Vector2( 10.0771, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="living room" type="Node2D" parent="rooms" index="3"]
+
+position = Vector2( 4887.65, -0.306946 )
+
+[node name="floor" type="NinePatchRect" parent="rooms/living room" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 3720.0
+margin_bottom = 2861.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+patch_margin_left = 222
+patch_margin_top = 232
+patch_margin_right = 231
+patch_margin_bottom = 230
+_sections_unfolded = [ "Anchor", "Axis Stretch", "Grow Direction", "Margin", "Mouse", "Rect", "Size Flags" ]
+
+[node name="windows" type="Control" parent="rooms/living room/floor" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = -9.0
+margin_right = 22.0
+margin_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin" ]
+
+[node name="leftup" type="TextureRect" parent="rooms/living room/floor/windows" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.33
+anchor_right = 0.0
+anchor_bottom = 0.33
+margin_left = -44.0
+margin_top = -300.8
+margin_right = 182.0
+margin_bottom = 299.2
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="leftdown" type="TextureRect" parent="rooms/living room/floor/windows" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.66
+anchor_right = 0.0
+anchor_bottom = 0.66
+margin_left = -43.0
+margin_top = -300.6
+margin_right = 181.0
+margin_bottom = 299.4
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="rightup" type="TextureRect" parent="rooms/living room/floor/windows" index="2"]
+
+anchor_left = 1.0
+anchor_top = 0.33
+anchor_right = 1.0
+anchor_bottom = 0.33
+margin_left = -197.0
+margin_top = -301.3
+margin_bottom = 297.7
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="rightdown" type="TextureRect" parent="rooms/living room/floor/windows" index="3"]
+
+anchor_left = 1.0
+anchor_top = 0.66
+anchor_right = 1.0
+anchor_bottom = 0.66
+margin_left = -197.0
+margin_top = -300.6
+margin_bottom = 299.4
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="downleft" type="TextureRect" parent="rooms/living room/floor/windows" index="4"]
+
+visible = false
+anchor_left = 0.33
+anchor_top = 1.0
+anchor_right = 0.33
+anchor_bottom = 1.0
+margin_left = -300.9
+margin_top = -172.0
+margin_right = 299.1
+margin_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="downright" type="TextureRect" parent="rooms/living room/floor/windows" index="5"]
+
+visible = false
+anchor_left = 0.66
+anchor_top = 1.0
+anchor_right = 0.66
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -172.0
+margin_right = 300.0
+margin_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="topleft" type="TextureRect" parent="rooms/living room/floor/windows" index="6"]
+
+visible = false
+anchor_left = 0.33
+anchor_top = 0.0
+anchor_right = 0.33
+anchor_bottom = 0.0
+margin_left = -300.9
+margin_right = 299.1
+margin_bottom = 199.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="topright" type="TextureRect" parent="rooms/living room/floor/windows" index="7"]
+
+anchor_left = 0.66
+anchor_top = 0.0
+anchor_right = 0.66
+anchor_bottom = 0.0
+margin_left = -300.8
+margin_right = 299.2
+margin_bottom = 199.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="doors" type="Control" parent="rooms/living room/floor" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -23.0
+margin_right = 20.0
+margin_bottom = -23.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="right" type="TextureRect" parent="rooms/living room/floor/doors" index="0"]
+
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = -307.0
+margin_right = 628.0
+margin_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="left" type="TextureRect" parent="rooms/living room/floor/doors" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -434.5
+margin_right = 591.0
+margin_bottom = -177.5
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 270.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="up" type="TextureRect" parent="rooms/living room/floor/doors" index="2"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -503.0
+margin_top = -185.0
+margin_right = 497.0
+margin_bottom = 415.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="down" type="TextureRect" parent="rooms/living room/floor/doors" index="3"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 475.0
+margin_top = 23.0
+margin_right = 1475.0
+margin_bottom = 257.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rooms/living room" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="left" type="CollisionShape2D" parent="rooms/living room/StaticBody2D" index="0"]
+
+position = Vector2( 119.408, 1860.28 )
+scale = Vector2( 1, 7.93144 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="left2" type="CollisionShape2D" parent="rooms/living room/StaticBody2D" index="1"]
+
+position = Vector2( 113.54, 212.162 )
+scale = Vector2( 1, 1.64235 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="right" type="CollisionShape2D" parent="rooms/living room/StaticBody2D" index="2"]
+
+position = Vector2( 3671.74, 1341.67 )
+scale = Vector2( 1, 12.2615 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="up" type="CollisionShape2D" parent="rooms/living room/StaticBody2D" index="3"]
+
+position = Vector2( 1797.63, 121.39 )
+scale = Vector2( 16.0801, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="down" type="CollisionShape2D" parent="rooms/living room/StaticBody2D" index="4"]
+
+position = Vector2( 802.866, 2801.73 )
+scale = Vector2( 6.94103, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="down2" type="CollisionShape2D" parent="rooms/living room/StaticBody2D" index="5"]
+
+position = Vector2( 2986.04, 2804.99 )
+scale = Vector2( 7.15068, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="bedroom" type="Node2D" parent="rooms" index="4"]
+
+position = Vector2( 4885.28, 2925.05 )
+
+[node name="floor" type="NinePatchRect" parent="rooms/bedroom" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -3.0
+margin_right = 3722.0
+margin_bottom = 2362.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+patch_margin_left = 222
+patch_margin_top = 232
+patch_margin_right = 231
+patch_margin_bottom = 230
+_sections_unfolded = [ "Anchor", "Axis Stretch", "Grow Direction", "Margin", "Mouse", "Rect", "Size Flags" ]
+
+[node name="windows" type="Control" parent="rooms/bedroom/floor" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = -9.0
+margin_right = 22.0
+margin_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin" ]
+
+[node name="leftup" type="TextureRect" parent="rooms/bedroom/floor/windows" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.33
+anchor_right = 0.0
+anchor_bottom = 0.33
+margin_left = -44.0
+margin_top = -300.8
+margin_right = 182.0
+margin_bottom = 299.2
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="leftdown" type="TextureRect" parent="rooms/bedroom/floor/windows" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.66
+anchor_right = 0.0
+anchor_bottom = 0.66
+margin_left = -43.0
+margin_top = -300.6
+margin_right = 181.0
+margin_bottom = 299.4
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="rightup" type="TextureRect" parent="rooms/bedroom/floor/windows" index="2"]
+
+anchor_left = 1.0
+anchor_top = 0.33
+anchor_right = 1.0
+anchor_bottom = 0.33
+margin_left = -197.0
+margin_top = -301.3
+margin_bottom = 297.7
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="rightdown" type="TextureRect" parent="rooms/bedroom/floor/windows" index="3"]
+
+anchor_left = 1.0
+anchor_top = 0.66
+anchor_right = 1.0
+anchor_bottom = 0.66
+margin_left = -197.0
+margin_top = -300.6
+margin_bottom = 299.4
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="downleft" type="TextureRect" parent="rooms/bedroom/floor/windows" index="4"]
+
+visible = false
+anchor_left = 0.33
+anchor_top = 1.0
+anchor_right = 0.33
+anchor_bottom = 1.0
+margin_left = -300.9
+margin_top = -172.0
+margin_right = 299.1
+margin_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="downright" type="TextureRect" parent="rooms/bedroom/floor/windows" index="5"]
+
+visible = false
+anchor_left = 0.66
+anchor_top = 1.0
+anchor_right = 0.66
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -172.0
+margin_right = 300.0
+margin_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="topleft" type="TextureRect" parent="rooms/bedroom/floor/windows" index="6"]
+
+visible = false
+anchor_left = 0.33
+anchor_top = 0.0
+anchor_right = 0.33
+anchor_bottom = 0.0
+margin_left = -300.9
+margin_right = 299.1
+margin_bottom = 199.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="topright" type="TextureRect" parent="rooms/bedroom/floor/windows" index="7"]
+
+visible = false
+anchor_left = 0.66
+anchor_top = 0.0
+anchor_right = 0.66
+anchor_bottom = 0.0
+margin_left = -300.8
+margin_right = 299.2
+margin_bottom = 199.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="doors" type="Control" parent="rooms/bedroom/floor" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="right" type="TextureRect" parent="rooms/bedroom/floor/doors" index="0"]
+
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = -307.0
+margin_right = 628.0
+margin_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="left" type="TextureRect" parent="rooms/bedroom/floor/doors" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = -13.0
+margin_top = 241.0
+margin_right = 602.0
+margin_bottom = 498.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 270.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="up" type="TextureRect" parent="rooms/bedroom/floor/doors" index="2"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -506.0
+margin_top = -183.0
+margin_right = 494.0
+margin_bottom = 417.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="down" type="TextureRect" parent="rooms/bedroom/floor/doors" index="3"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 469.5
+margin_top = 2.0
+margin_right = 1469.5
+margin_bottom = 235.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="wallColliders" type="StaticBody2D" parent="rooms/bedroom" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="left" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="0"]
+
+position = Vector2( 129.732, 1096.88 )
+scale = Vector2( 1, 10.022 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="right" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="1"]
+
+position = Vector2( 3668.88, 675.791 )
+scale = Vector2( 1, 5.93344 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="right2" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="2"]
+
+position = Vector2( 3679.15, 2140.82 )
+scale = Vector2( 1, 2.57616 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="up" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="3"]
+
+position = Vector2( 906.924, 115.509 )
+scale = Vector2( 6.02153, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="up2" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="4"]
+
+position = Vector2( 2895.78, 116.193 )
+scale = Vector2( 6.24996, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="down" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="5"]
+
+position = Vector2( 1766.38, 2308.15 )
+scale = Vector2( 16.35, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="windowColliders" type="StaticBody2D" parent="rooms/bedroom" index="2"]
+
+input_pickable = false
+collision_layer = 4
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="right2" type="CollisionShape2D" parent="rooms/bedroom/windowColliders" index="0"]
+
+position = Vector2( 3679.15, 1592.85 )
+scale = Vector2( 1, 2.57616 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="decorations" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="Laptop" type="Sprite" parent="decorations" index="0"]
+
+position = Vector2( 1312.58, 4632.69 )
+texture = ExtResource( 8 )
+
+[node name="furniture" type="Node2D" parent="." index="3"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="doublebed" parent="furniture" index="0" instance=ExtResource( 9 )]
+
+position = Vector2( 5500.77, 4670.85 )
+
+[node name="bookshelf" parent="furniture" index="1" instance=ExtResource( 10 )]
+
+position = Vector2( 5842.56, 3288.03 )
+
+[node name="couch" parent="furniture" index="2" instance=ExtResource( 11 )]
+
+position = Vector2( 8107.61, 4483.56 )
+rotation = 1.54015
+
+[node name="plant" parent="furniture" index="3" instance=ExtResource( 12 )]
+
+position = Vector2( 7438.56, 3503.35 )
+
+[node name="table_big" parent="furniture" index="4" instance=ExtResource( 13 )]
+
+position = Vector2( 7740.56, 841.453 )
+
+[node name="desk" parent="furniture" index="5" instance=ExtResource( 14 )]
+
+position = Vector2( 8298.88, 2045.32 )
+rotation = 1.61324
+_sections_unfolded = [ "Angular", "Linear", "Transform" ]
+
+[node name="desk_chair" parent="furniture" index="6" instance=ExtResource( 15 )]
+
+position = Vector2( 7967.55, 2189.15 )
+rotation = 0.441178
+
+[node name="chair2" parent="furniture" index="7" instance=ExtResource( 16 )]
+
+position = Vector2( 7522.3, 1152.08 )
+rotation = -0.948513
+
+[node name="chair3" parent="furniture" index="8" instance=ExtResource( 16 )]
+
+position = Vector2( 7942.73, 1152.08 )
+rotation = -1.10227
+
+[node name="chair4" parent="furniture" index="9" instance=ExtResource( 16 )]
+
+position = Vector2( 7918.75, 491.1 )
+rotation = -4.01832
+
+[node name="chair5" parent="furniture" index="10" instance=ExtResource( 16 )]
+
+position = Vector2( 7489.24, 485.03 )
+rotation = -3.79344
+
+[node name="newspaper_holder" parent="furniture" index="11" instance=ExtResource( 17 )]
+
+position = Vector2( 4377.34, 523.252 )
+rotation = 0.673023
+
+[node name="bench" parent="furniture" index="12" instance=ExtResource( 18 )]
+
+position = Vector2( 677.956, 1043.42 )
+rotation = 0.174728
+
+[node name="trash_basket" parent="furniture" index="13" instance=ExtResource( 19 )]
+
+position = Vector2( 4440.6, 932.794 )
+
+[node name="aquarium_rect" parent="furniture" index="14" instance=ExtResource( 20 )]
+
+position = Vector2( 3451.15, 357.317 )
+
+[node name="bookshelf2" parent="furniture" index="15" instance=ExtResource( 10 )]
+
+position = Vector2( 3288.22, 904.729 )
+
+[node name="chair" parent="furniture" index="16" instance=ExtResource( 21 )]
+
+position = Vector2( 5538.93, 3937.45 )
+rotation = -1.63924
+
+[node name="toilette" parent="furniture" index="17" instance=ExtResource( 22 )]
+
+position = Vector2( 1317.58, 4925.54 )
+rotation = 4.71239
+
+[node name="bathtub" parent="furniture" index="18" instance=ExtResource( 23 )]
+
+position = Vector2( 2053.29, 3552.8 )
+
+[node name="aquarium_circle" parent="furniture" index="19" instance=ExtResource( 24 )]
+
+position = Vector2( 2961.29, 2038.49 )
+
+[node name="player" parent="." index="4" instance=ExtResource( 25 )]
+
+position = Vector2( 8197.24, 3768.74 )
+
+[node name="Caster" parent="." index="5" instance=ExtResource( 26 )]
+
+position = Vector2( 9084.56, 4495.71 )
+rotation = 3.14159
+max_num_rays = 5
+
+[node name="Radio" parent="." index="6" instance=ExtResource( 27 )]
+
+position = Vector2( 387.482, 3180.8 )
+rotation = 0.163663
+
+[node name="LevelState" parent="." index="7" instance=ExtResource( 28 )]
+
+

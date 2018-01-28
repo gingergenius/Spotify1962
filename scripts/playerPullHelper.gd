@@ -46,9 +46,10 @@ func _physics_process(delta):
 					pullingNode.set_linear_velocity(Vector2(0,0))			
 #				var vel = (a.dot(b) / (a.length() * b.length() )) * (b/b.length())
 			if pullingNode.global_position.distance_to(global_position) > PULLING_DISTANCE:
-				isPulling = false
+				pullingNode=null
 	else:
 		if isPulling:
 			isPulling = false
-			pullingNode.set_linear_velocity(Vector2(0,0))
+			if pullingNode != null:
+				pullingNode.set_linear_velocity(Vector2(0,0))
 			

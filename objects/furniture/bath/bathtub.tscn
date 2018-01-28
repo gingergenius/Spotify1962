@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://images/Bad/Badewanne.png" type="Texture" id=1]
+[ext_resource path="res://images/bathroom/Badewanne.png" type="Texture" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 224.829, 99.9056 )
+radius = 11.991
+height = 19.77
 
-[node name="bathtub" type="RigidBody2D" groups=[
+[node name="bathtub" type="RigidBody2D" index="0" groups=[
 "Furniture",
 ]]
 
-editor/display_folded = true
 position = Vector2( 1073.38, 749.505 )
 input_pickable = false
 collision_layer = 1
@@ -35,13 +35,15 @@ _sections_unfolded = [ "Angular", "Linear" ]
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( -101.406, -134.295 )
+scale = Vector2( 1.27407, 1.27407 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="collisionShape" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, 5.11693 )
-scale = Vector2( 1, 4.6255 )
+position = Vector2( 74.2474, -136.928 )
+scale = Vector2( 23.4535, 28.4323 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 

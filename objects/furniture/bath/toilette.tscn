@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://images/Bad/Toilette.png" type="Texture" id=1]
+[ext_resource path="res://images/bathroom/Toilette.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 184.077, 133.779 )
+extents = Vector2( 178.01, 133.779 )
 
 [node name="toilette" type="RigidBody2D" groups=[
 "Furniture",
@@ -32,13 +32,17 @@ angular_velocity = 0.0
 angular_damp = 1.0
 _sections_unfolded = [ "Angular", "Linear", "Transform" ]
 
-[node name="collisionShape" type="CollisionShape2D" parent="." index="0"]
+[node name="sprite" type="Sprite" parent="." index="0"]
 
-shape = SubResource( 1 )
-
-[node name="sprite" type="Sprite" parent="collisionShape" index="0"]
-
+position = Vector2( 184.078, 154.112 )
+scale = Vector2( 1.71348, 1.71348 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="collisionShape" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 57.838, 165.179 )
+scale = Vector2( 1.72831, 1.68535 )
+shape = SubResource( 1 )
 
 

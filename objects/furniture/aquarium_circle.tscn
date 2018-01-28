@@ -34,6 +34,8 @@ _sections_unfolded = [ "Angular", "Linear" ]
 
 [node name="collisionShape" type="CollisionShape2D" parent="." index="0"]
 
+position = Vector2( 163.236, 163.236 )
+scale = Vector2( 2.72736, 2.72736 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 

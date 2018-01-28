@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://images/Bad/Dusche.png" type="Texture" id=1]
+[ext_resource path="res://images/bathroom/Dusche.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 260.391, 210.859 )
 
-[node name="shower" type="RigidBody2D" groups=[
+[node name="shower" type="RigidBody2D" index="0" groups=[
 "Furniture",
 ]]
 
@@ -39,6 +39,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="collisionShape" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( 107.157, 3.0363 )
+scale = Vector2( 1, 1.11105 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 

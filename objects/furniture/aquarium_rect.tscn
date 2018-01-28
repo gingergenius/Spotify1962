@@ -11,7 +11,6 @@ extents = Vector2( 184.077, 83.4596 )
 "Furniture",
 ]]
 
-editor/display_folded = true
 position = Vector2( 1334.62, 316.019 )
 input_pickable = false
 collision_layer = 1
@@ -35,6 +34,8 @@ _sections_unfolded = [ "Angular", "Linear", "Transform" ]
 
 [node name="collisionShape" type="CollisionShape2D" parent="." index="0"]
 
+position = Vector2( 158.3, 73.1601 )
+scale = Vector2( 1.84618, 1.84618 )
 shape = SubResource( 1 )
 
 [node name="sprite" type="Sprite" parent="collisionShape" index="0"]

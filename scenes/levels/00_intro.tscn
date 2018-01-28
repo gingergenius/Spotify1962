@@ -12,7 +12,7 @@
 [ext_resource path="res://player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=11]
 [ext_resource path="res://objects/Radio.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scripts/LevelState.gd" type="Script" id=13]
+[ext_resource path="res://objects/LevelState.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,7 +24,7 @@ extents = Vector2( 110, 110 )
 custom_solver_bias = 0.0
 extents = Vector2( 312.237, 441.528 )
 
-[node name="game" type="Node"]
+[node name="game" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -46,8 +46,6 @@ size_flags_vertical = 1
 color = Color( 1, 1, 1, 1 )
 
 [node name="rooms" type="Node2D" parent="." index="1"]
-
-editor/display_folded = true
 
 [node name="room" type="Node2D" parent="rooms" index="0"]
 
@@ -263,6 +261,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -3.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = 3.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -458,13 +460,6 @@ max_transmission_length = 5000
 position = Vector2( 2433.98, 286.135 )
 rotation = 0.163663
 
-[node name="LevelState" type="Node2D" parent="." index="7"]
-
-script = ExtResource( 13 )
-num_transmission_sinks = 1
-
-[connection signal="transmission_started" from="Radio" to="LevelState" method="_on_Radio_transmission_started"]
-
-[connection signal="transmission_stopped" from="Radio" to="LevelState" method="_on_Radio_transmission_stopped"]
+[node name="LevelState" parent="." index="7" instance=ExtResource( 13 )]
 
 

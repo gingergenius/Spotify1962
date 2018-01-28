@@ -46,8 +46,7 @@ func _on_Radio_transmission_started():
 	print ("Level State: transmission started. active count: ", num_active_transmissions)
 
 	if completed:
-		print ("You win!")
-#		get_tree().change_scene("res://scenes/win_menu.tscn")
+		win()
 
 	pass # replace with function body
 
@@ -58,7 +57,6 @@ func _on_Radio_transmission_stopped():
 	print ("Level State: transmission stopped. active count: ", num_active_transmissions)
 
 	pass # replace with function body
-
 
 func onTransmissionChanged(points):
 	print("transmission changed!")
@@ -119,3 +117,7 @@ func checkTransmissionPointsWithRadios(points):
 #		for r in radios:
 #			var dist = (p - r).length_squared()
 			
+func win():
+	var scene = load("res://scenes/win_menu.tscn")
+	var node = scene.instance()
+	add_child(node)
