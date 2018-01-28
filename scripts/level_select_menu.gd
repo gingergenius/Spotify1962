@@ -1,4 +1,4 @@
-extends Panel
+extends TextureRect
 
 # class member variables go here, for example:
 var current_stage = 0
