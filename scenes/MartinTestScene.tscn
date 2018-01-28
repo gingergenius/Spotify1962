@@ -15,7 +15,7 @@ extents = Vector2( 25.1465, 16.4711 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 9.20822 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -82,7 +82,5 @@ texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Transmission" parent="EmitterNode" index="1" instance=ExtResource( 4 )]
-
-reset_transmission = false
 
 
