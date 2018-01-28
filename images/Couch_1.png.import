@@ -7,10 +7,10 @@ path="res://.import/Couch_1.png-f797e00abf1d5a83c4c2669b25718bc9.stex"
 [deps]
 
 source_file="res://images/Couch_1.png"
-source_md5="70e85e4dfd1a009e175bfb4ddce93f58"
+source_md5="cc74baf3fe1819d4f8df3fbcd6af93b7"
 
 dest_files=[ "res://.import/Couch_1.png-f797e00abf1d5a83c4c2669b25718bc9.stex" ]
-dest_md5="20c11bee98f6c5d36eac55ff6563b0a9"
+dest_md5="79e82b8abee2f95a6d168e8809f739a8"
 
 [params]
 
