@@ -16,6 +16,7 @@ export var transmission_points = PoolVector2Array()
 export var max_num_rays = 30
 export var max_transmission_length = 1000
 export var ray_length = 10000.0
+export var is_enabled = true
 
 func updateLinePoints(line, points):
 	for i in range (points.size()):
@@ -58,7 +59,7 @@ func cast_ray(origin, target, points, cur_depth, max_depth):
 
 			# mark object as being reached by the transmission
 			if not transmission_objects.has(result.collider):
-				transmission_objects[result.collider] = true
+				transmission_objects[result.collider] = cur_depth
 
 			# check whether we are at the end of a transmission
 			var is_object_transmission_sink = "isTransmissionSink" in collider and collider.isTransmissionSink
@@ -85,7 +86,25 @@ func cast_ray(origin, target, points, cur_depth, max_depth):
 			points.push_back(target)
 			return points
 
+func disable():
+	is_enabled = false
+
+	# Reset the transmission line
+	transmission_points = PoolVector2Array()
+	updateLinePoints(line, transmission_points)	
+	
+	# Reset the transmission itself
+	var transmission = get_node("Transmission")
+	transmission.points = transmission_points
+	transmission.reset_transmission = true
+
+func enable():
+	is_enabled = true
+
 func _physics_process(delta):
+	if not is_enabled:
+		return
+	
 	# set up origin and target
 	origin = self.position
 	target = origin + Vector2(cos(self.rotation), sin(self.rotation)) * ray_length
@@ -93,13 +112,30 @@ func _physics_process(delta):
 	if source_position and goal_position:
 		origin = source_position
 		target = goal_position
-
+		
 	var debug_points = PoolVector2Array()
-	debug_points.push_back(Vector2(0.0, 0.0))
-	debug_points.push_back(Vector2(100.0, 0.0))
-	debug_points.push_back(Vector2(80.0, 20.0))
-	debug_points.push_back(Vector2(100.0, 0.0))
-	debug_points.push_back(Vector2(80.0, -20.0))
+	var debug_line_scale = 3
+
+	# transform origin and target if we are relative to a node with
+	# a position property
+	var parent = get_parent()
+	if parent.get("position"):
+		origin = to_global(origin)
+		target = to_global(target)
+	
+		debug_points.push_back(Vector2(0.0, 0.0).rotated(self.rotation) * debug_line_scale)
+		debug_points.push_back(Vector2(100.0, 0.0).rotated(self.rotation) * debug_line_scale)
+		debug_points.push_back(Vector2(80.0, 20.0).rotated(self.rotation) * debug_line_scale)
+		debug_points.push_back(Vector2(100.0, 0.0).rotated(self.rotation) * debug_line_scale)
+		debug_points.push_back(Vector2(80.0, -20.0).rotated(self.rotation) * debug_line_scale)
+	else:
+		debug_points.push_back((Vector2(0.0, 0.0) * debug_line_scale))
+		debug_points.push_back((Vector2(100.0, 0.0) * debug_line_scale))
+		debug_points.push_back((Vector2(80.0, 20.0) * debug_line_scale))
+		debug_points.push_back((Vector2(100.0, 0.0) * debug_line_scale))
+		debug_points.push_back((Vector2(80.0, -20.0) * debug_line_scale))
+
+		
 	updateLinePoints(debug_line, debug_points)
 
 	# backup old transmissions
@@ -144,6 +180,6 @@ func _physics_process(delta):
 			if not old_transmission_objects.has(o):
 				# object is being touched by the transmission
 				if o.has_method("onTransmissionStart"):
-					o.onTransmissionStart()
+					o.onTransmissionStart(max_num_rays - transmission_objects[o])
 
 		
