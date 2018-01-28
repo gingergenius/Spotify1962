@@ -1480,10 +1480,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 469.5
-margin_top = 2.0
-margin_right = 1469.5
-margin_bottom = 235.0
+margin_left = 475.0
+margin_top = 23.0
+margin_right = 1475.0
+margin_bottom = 257.0
 grow_horizontal = 0
 grow_vertical = 0
 rect_rotation = 180.0
@@ -1537,14 +1537,14 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="down" type="CollisionShape2D" parent="rooms/living room/StaticBody2D" index="4"]
 
-position = Vector2( 792.523, 2801.73 )
-scale = Vector2( 6.8495, 1 )
+position = Vector2( 802.866, 2801.73 )
+scale = Vector2( 6.94103, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="down2" type="CollisionShape2D" parent="rooms/living room/StaticBody2D" index="5"]
 
-position = Vector2( 2991, 2812 )
+position = Vector2( 2986.04, 2804.99 )
 scale = Vector2( 7.15068, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -1827,10 +1827,10 @@ anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -503.0
-margin_top = -185.0
-margin_right = 497.0
-margin_bottom = 415.0
+margin_left = -506.0
+margin_top = -183.0
+margin_right = 494.0
+margin_bottom = 417.0
 grow_horizontal = 0
 grow_vertical = 0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -1899,8 +1899,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="up" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="3"]
 
-position = Vector2( 914.598, 106.645 )
-scale = Vector2( 6.12867, 1 )
+position = Vector2( 906.924, 115.509 )
+scale = Vector2( 6.02153, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -2034,7 +2034,7 @@ position = Vector2( 3551.5, 1085.41 )
 
 [node name="chair" parent="furniture" index="16" instance=ExtResource( 23 )]
 
-position = Vector2( 6781.89, 4507.87 )
+position = Vector2( 5538.93, 3937.45 )
 rotation = -1.63924
 
 [node name="toilette" parent="furniture" index="17" instance=ExtResource( 24 )]

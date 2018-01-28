@@ -3,11 +3,8 @@
 [ext_resource path="res://scripts/rotatable_funiture.gd" type="Script" id=1]
 [ext_resource path="res://images/furniture_placeholder.png" type="Texture" id=2]
 
-
-
 [node name="rotatable_furniture" type="StaticBody2D"]
 
-editor/display_folded = true
 position = Vector2( 443.399, 418.168 )
 input_pickable = false
 collision_layer = 1
@@ -18,11 +15,12 @@ friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
 player = NodePath("/root/game/player")
-MAX_PULL_DISTANCE = 200
+MAX_PULL_DISTANCE = 1000
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." index="0"]
 
-position = Vector2( 5.1347, -2.05295 )
+position = Vector2( 91.2876, -15.967 )
+scale = Vector2( 4.13535, 4.13536 )
 build_mode = 0
 polygon = PoolVector2Array( -91.6995, -34.567, -96.0013, -47.831, -106.039, -46.397, -109.982, 41.0735, -107.114, 48.2432, -76.2845, 45.3753, -23.9456, 47.1678, 102.6, 43.9414, 103.675, -43.8876, 92.2038, -41.0197, 88.9774, -32.0576 )
 
