@@ -7,7 +7,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 224.829, 99.9056 )
 
-[node name="bathtub" type="RigidBody2D"]
+[node name="bathtub" type="RigidBody2D" groups=[
+"Furniture",
+]]
 
 editor/display_folded = true
 position = Vector2( 1073.38, 749.505 )

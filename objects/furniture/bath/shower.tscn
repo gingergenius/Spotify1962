@@ -7,7 +7,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 260.391, 210.859 )
 
-[node name="shower" type="RigidBody2D"]
+[node name="shower" type="RigidBody2D" groups=[
+"Furniture",
+]]
 
 position = Vector2( 1073.38, 749.505 )
 input_pickable = false

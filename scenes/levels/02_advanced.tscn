@@ -1867,7 +1867,7 @@ texture = ExtResource( 8 )
 stretch_mode = 4
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="rooms/bedroom" index="1"]
+[node name="wallColliders" type="StaticBody2D" parent="rooms/bedroom" index="1"]
 
 input_pickable = false
 collision_layer = 1
@@ -1878,38 +1878,63 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="left" type="CollisionShape2D" parent="rooms/bedroom/StaticBody2D" index="0"]
+[node name="left" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="0"]
 
 position = Vector2( 129.732, 1096.88 )
 scale = Vector2( 1, 10.022 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="right" type="CollisionShape2D" parent="rooms/bedroom/StaticBody2D" index="1"]
+[node name="right" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="1"]
 
-position = Vector2( 3668.88, 1229.86 )
-scale = Vector2( 1, 10.8367 )
+position = Vector2( 3668.88, 675.791 )
+scale = Vector2( 1, 5.93344 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="up" type="CollisionShape2D" parent="rooms/bedroom/StaticBody2D" index="2"]
+[node name="right2" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="2"]
+
+position = Vector2( 3679.15, 2140.82 )
+scale = Vector2( 1, 2.57616 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="up" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="3"]
 
 position = Vector2( 914.598, 106.645 )
 scale = Vector2( 6.12867, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="up2" type="CollisionShape2D" parent="rooms/bedroom/StaticBody2D" index="3"]
+[node name="up2" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="4"]
 
 position = Vector2( 2895.78, 116.193 )
 scale = Vector2( 6.24996, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="down" type="CollisionShape2D" parent="rooms/bedroom/StaticBody2D" index="4"]
+[node name="down" type="CollisionShape2D" parent="rooms/bedroom/wallColliders" index="5"]
 
 position = Vector2( 1766.38, 2308.15 )
 scale = Vector2( 16.35, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="windowColliders" type="StaticBody2D" parent="rooms/bedroom" index="2"]
+
+input_pickable = false
+collision_layer = 4
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="right2" type="CollisionShape2D" parent="rooms/bedroom/windowColliders" index="0"]
+
+position = Vector2( 3679.15, 1592.85 )
+scale = Vector2( 1, 2.57616 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -2033,7 +2058,7 @@ position = Vector2( 8197.24, 3768.74 )
 
 [node name="Caster" parent="." index="5" instance=ExtResource( 30 )]
 
-position = Vector2( 8412.03, 4441.18 )
+position = Vector2( 9084.56, 4495.71 )
 rotation = 3.14159
 
 

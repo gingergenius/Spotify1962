@@ -7,7 +7,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 493.271, 137.533 )
 
-[node name="sink" type="RigidBody2D"]
+[node name="sink" type="RigidBody2D" groups=[
+"Furniture",
+]]
 
 position = Vector2( 564.05, 593.424 )
 input_pickable = false

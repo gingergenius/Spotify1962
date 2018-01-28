@@ -4,11 +4,11 @@
 [ext_resource path="res://images/player.png" type="Texture" id=2]
 [ext_resource path="res://scripts/playerPullHelper.gd" type="Script" id=3]
 
-[node name="player" type="RigidBody2D"]
+[node name="player" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
-collision_mask = 1
+collision_mask = 5
 mode = 2
 mass = 1.0
 friction = 1.0

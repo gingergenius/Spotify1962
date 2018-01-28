@@ -44,7 +44,7 @@ func cast_ray(origin, target, points, cur_depth, max_depth):
 	else:
 		cur_depth +=1
 		
-		var result = space_state.intersect_ray(origin, target)
+		var result = space_state.intersect_ray(origin, target, Array(), 1)
 	
 		if result.size() > 0:
 			var collision_point = result.position
