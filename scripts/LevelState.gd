@@ -45,11 +45,21 @@ func _on_Radio_transmission_started():
 	num_active_transmissions = num_active_transmissions + 1
 	print ("Level State: transmission started. active count: ", num_active_transmissions)
 
+	completed = num_active_transmissions == num_transmission_sinks
 	if completed:
 		win()
 
 	pass # replace with function body
 
+func onTransmissionStarted(points):
+	num_active_transmissions = num_active_transmissions + 1
+	print ("Level State: transmission started. active count: ", num_active_transmissions)
+
+	completed = num_active_transmissions == num_transmission_sinks
+	if completed:
+		win()
+
+	pass # replace with function body
 
 func _on_Radio_transmission_stopped():
 	num_active_transmissions = num_active_transmissions - 1

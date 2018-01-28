@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://objects/environment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/Raum_1.png" type="Texture" id=2]
@@ -11,14 +11,23 @@
 [ext_resource path="res://player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/Radio.tscn" type="PackedScene" id=11]
-[ext_resource path="res://objects/LevelState.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/LevelState.gd" type="Script" id=12]
+[ext_resource path="res://resources/fonts/Curvy Thins.otf" type="DynamicFontData" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 110, 110 )
 
-[node name="game" type="Node"]
+[sub_resource type="DynamicFont" id=2]
+
+size = 200
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 13 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="game" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -388,6 +397,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="furniture" type="Node2D" parent="." index="3"]
 
+position = Vector2( -1210, -59 )
 _sections_unfolded = [ "Material" ]
 
 [node name="rotatable_furniture" parent="furniture" index="0" instance=ExtResource( 8 )]
@@ -409,5 +419,4 @@ max_num_rays = 3
 position = Vector2( 921.541, 1689.85 )
 
 [node name="LevelState" parent="." index="7" instance=ExtResource( 12 )]
-
 
