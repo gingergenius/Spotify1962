@@ -2,10 +2,10 @@
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://scripts/CameraScale.gd" type="Script" id=2]
-[ext_resource path="res://images/player.png" type="Texture" id=3]
+[ext_resource path="res://images/Figur_5.png" type="Texture" id=3]
 [ext_resource path="res://scripts/playerPullHelper.gd" type="Script" id=4]
 
-[node name="player" type="RigidBody2D"]
+[node name="player" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -60,7 +60,9 @@ _sections_unfolded = [ "Limit", "Smoothing" ]
 
 [node name="sprite" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 5, 5 )
+position = Vector2( -19.1393, -3.66631 )
+rotation = 1.58061
+scale = Vector2( 1.92934, 1.92934 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
