@@ -1,12 +1,14 @@
-extends CenterContainer
+extends CanvasLayer
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
 
 func _ready():
-	get_node("MarginContainer/HBoxContainer/VBoxContainer/popup/Button_continue").connect("pressed",self,"continue")
-	pass
+	var cont = get_node("MarginContainer/HBoxContainer/VBoxContainer/popup/Button_continue")
+	cont.grab_focus()
+	cont.connect("pressed",self,"continue")
+	pass 
 
 func continue():
 	get_node("/root/global").goto_next_stage()
