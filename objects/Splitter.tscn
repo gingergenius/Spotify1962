@@ -34,11 +34,13 @@ _sections_unfolded = [ "Linear", "Transform" ]
 [node name="CasterA" parent="." index="0" instance=ExtResource( 2 )]
 
 rotation = 0.349066
+max_transmission_length = 10000
 is_enabled = false
 
 [node name="CasterB" parent="." index="1" instance=ExtResource( 2 )]
 
 rotation = -0.349066
+max_transmission_length = 10000
 is_enabled = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]

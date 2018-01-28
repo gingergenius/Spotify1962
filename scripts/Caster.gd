@@ -12,6 +12,8 @@ var transmission_objects = {}
 var source_position
 var goal_position
 
+signal transmission_changed
+
 export var transmission_points = PoolVector2Array()
 export var max_num_rays = 30
 export var max_transmission_length = 1000
@@ -26,7 +28,7 @@ func updateLinePoints(line, points):
 			line.set_point_position(i, points[i])
 	while line.get_point_count() > points.size():
 		line.remove_point(line.get_point_count() - 1)
-
+		
 func _ready():
 	line = get_node("Line")
 	debug_line = get_node("DebugLine")
@@ -38,6 +40,13 @@ func _ready():
 	if get_node("../Goal") and get_node("../Source"):
 		source_position = get_node("../Source").position
 		goal_position = get_node("../Goal").position
+		
+	if get_node("/root/game/LevelState"):
+		var level_state = get_tree().get_root().get_node("/root/game/LevelState")
+		connect ("transmission_changed", level_state, "onTransmissionChanged")
+	else:
+		print ("did not find levelstate")
+
 	
 #recursively cast rays and append points array until given depth
 func cast_ray(origin, target, points, cur_depth, max_depth):	
@@ -162,7 +171,9 @@ func _physics_process(delta):
 
 	updateLinePoints(line, transmission_points)	
 	
-	if transmission_has_changed:	
+	if transmission_has_changed:
+		emit_signal("transmission_changed", points)
+		
 		var transmission = get_node("Transmission")
 		transmission.points = transmission_points
 		transmission.max_length = max_transmission_length
@@ -181,5 +192,6 @@ func _physics_process(delta):
 				# object is being touched by the transmission
 				if o.has_method("onTransmissionStart"):
 					o.onTransmissionStart(max_num_rays - transmission_objects[o])
-
+		
+		transmission_has_changed = false
 		

@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/167191__mojomills__fm-radio-sweep.ogg-732fa44d6b0f938ed04124dd9eb319b6.oggstr"
+
+[deps]
+
+source_file="res://audio/tuning/167191__mojomills__fm-radio-sweep.ogg"
+source_md5="d69eb49244506776658d404174002f0c"
+
+dest_files=[ "res://.import/167191__mojomills__fm-radio-sweep.ogg-732fa44d6b0f938ed04124dd9eb319b6.oggstr" ]
+dest_md5="8b55adac74fefe6e4bec485053884e90"
+
+[params]
+
+loop=true
+loop_offset=0
