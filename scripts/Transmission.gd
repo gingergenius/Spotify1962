@@ -7,6 +7,7 @@ export var points = PoolVector2Array()
 export var reset_transmission = false
 export var ParticleSeparation = 20.0
 var transmission_ray_scene = load("res://objects/TransmissionRay.tscn")
+var max_length = 100000
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -28,10 +29,18 @@ func _process(delta):
 		for child in ray_children:
 			rays.remove_child(child)
 		
+		var total_ray_length = 0
+		
 		for i in range(points.size() - 1):
 			var origin = points[i]
 			var length = (points[i + 1] - points[i]).length()
 			var direction = (points[i + 1] - points[i]) / length
+			
+			total_ray_length = total_ray_length + length
+			if total_ray_length > max_length:
+				break
+			
+			var opacity = (max_length - total_ray_length) / max_length
 			
 			# Instantiate the ray and also assign settings
 			var ray = transmission_ray_scene.instance()
@@ -41,6 +50,7 @@ func _process(delta):
 			var speed = emitter.process_material.initial_velocity
 			emitter.lifetime = length / emitter.scale.x / speed
 			emitter.amount = length / emitter.scale.x / ParticleSeparation
+			emitter.modulate = Color(1, 1, 1, opacity)
 		
 			get_node("Rays").call_deferred("add_child", ray)
 		
