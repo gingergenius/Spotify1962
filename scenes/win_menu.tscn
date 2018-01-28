@@ -3,18 +3,13 @@
 [ext_resource path="res://scripts/win_menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/Curvy Thins.tres" type="DynamicFont" id=2]
 
-[node name="upper" type="CenterContainer" index="0"]
+[node name="upper" type="CanvasLayer" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-use_top_left = false
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "GUI", "Rect", "Render Target", "Rendering", "Visibility" ]
 
@@ -123,39 +118,5 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
-
-[node name="Viewport" type="Viewport" parent="." index="1"]
-
-arvr = false
-size = Vector2( 0, 0 )
-own_world = false
-world = null
-transparent_bg = false
-msaa = 0
-hdr = true
-disable_3d = false
-usage = 2
-debug_draw = 0
-render_target_v_flip = false
-render_target_clear_mode = 0
-render_target_update_mode = 2
-audio_listener_enable_2d = false
-audio_listener_enable_3d = false
-physics_object_picking = false
-gui_disable_input = false
-gui_snap_controls_to_pixels = true
-shadow_atlas_size = 0
-shadow_atlas_quad_0 = 2
-shadow_atlas_quad_1 = 2
-shadow_atlas_quad_2 = 3
-shadow_atlas_quad_3 = 4
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Viewport" index="0"]
-
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 
