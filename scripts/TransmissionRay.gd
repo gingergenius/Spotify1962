@@ -7,6 +7,8 @@ export var transmissionPoints = PoolVector2Array()
 export var transmissionFrom = Vector2(0.0, 0.0)
 export var transmissionTo = Vector2(100.0, 0.0)
 var direction = Vector2(1.0, 0.0)
+var opacity_start = 1.0
+var opacity_end = 1.0
 
 func _ready():
 	# Called every time the node is added to the scene.
