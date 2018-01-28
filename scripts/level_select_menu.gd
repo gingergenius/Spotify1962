@@ -3,8 +3,6 @@ extends Panel
 # class member variables go here, for example:
 var current_stage = 0
 var amount_stages = 3
-var level_names = ["Intro", "Level 1 - get a move on", "Level 2 - vacuum the rug"]
-var level_filenames = ["00_intro", "01_medium", "02_advanced"]
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -25,15 +23,16 @@ func prev_stage():
 	pass
 
 func update_stage():
-	get_node("navigation/stage_name").text = level_names[current_stage]
-	var texture = load("res://images/level_preview/" + str(current_stage) + ".png")
+	var global = get_node("/root/global")
+	get_node("navigation/stage_name").text = global.level_names[current_stage]
+	var texture = load("res://images/level_preview/" + global.level_filenames[current_stage] + ".png")
 	get_node("level_preview/image").set_texture(texture)
 	pass
 
 func play_stage():
-	var filename = level_filenames[current_stage]
-	print("loading level " + filename)
-	get_tree().change_scene("res://scenes/levels/" + filename + ".tscn")
+	var global = get_node("/root/global")
+	global.current_stage = current_stage-1
+	global.goto_next_stage()
 	pass
 
 
