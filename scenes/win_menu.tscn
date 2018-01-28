@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/win_menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/Curvy Thins.tres" type="DynamicFont" id=2]
 
-[node name="upper" type="CanvasLayer"]
+[node name="upper" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -95,7 +95,35 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/popup" index="1"]
+[node name="Button_menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/popup" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = 68.0
+margin_right = 75.0
+margin_bottom = 127.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_top = NodePath("../Button_continue")
+focus_neighbour_bottom = NodePath(".")
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "To Menu"
+flat = false
+align = 1
+_sections_unfolded = [ "Focus", "custom_fonts" ]
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/popup" index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5

@@ -8,10 +8,15 @@ func _ready():
 	var cont = get_node("MarginContainer/HBoxContainer/VBoxContainer/popup/Button_continue")
 	cont.grab_focus()
 	cont.connect("pressed",self,"continue")
+	var menu = get_node("MarginContainer/HBoxContainer/VBoxContainer/popup/Button_menu")
+	menu.connect("pressed",self,"to_menu")
 	pass 
 
 func continue():
 	get_node("/root/global").goto_next_stage()
+
+func to_menu():
+	get_tree().change_scene("res://scenes/main_menu.tscn")
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
