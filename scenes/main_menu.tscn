@@ -4,7 +4,7 @@
 [ext_resource path="res://images/logo.svg" type="Texture" id=2]
 [ext_resource path="res://resources/fonts/Curvy Thins.tres" type="DynamicFont" id=3]
 
-[node name="Panel" type="Panel"]
+[node name="Panel" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -61,6 +61,9 @@ margin_top = -271.0
 margin_right = 105.0
 margin_bottom = -204.0
 rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_top = NodePath("../Button_quit")
+focus_next = NodePath("../Button_select")
+focus_previous = NodePath("../Button_quit")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -74,7 +77,7 @@ group = null
 text = "start"
 flat = false
 align = 1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Focus", "custom_colors", "custom_fonts" ]
 
 [node name="Button_select" type="Button" parent="." index="2"]
 
@@ -87,6 +90,8 @@ margin_top = -193.0
 margin_right = 105.0
 margin_bottom = -126.0
 rect_pivot_offset = Vector2( 0, 0 )
+focus_next = NodePath("../Button_quit")
+focus_previous = NodePath("../Button_play")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -100,7 +105,7 @@ group = null
 text = "select level"
 flat = false
 align = 1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Focus", "custom_colors", "custom_fonts" ]
 
 [node name="Button_quit" type="Button" parent="." index="3"]
 
@@ -113,6 +118,9 @@ margin_top = -115.0
 margin_right = 105.0
 margin_bottom = -48.0
 rect_pivot_offset = Vector2( 0, 0 )
+focus_neighbour_bottom = NodePath("../Button_play")
+focus_next = NodePath("../Button_play")
+focus_previous = NodePath("../Button_select")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -126,6 +134,6 @@ group = null
 text = "quit"
 flat = false
 align = 1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Focus", "custom_colors", "custom_fonts" ]
 
 
