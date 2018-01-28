@@ -9,14 +9,12 @@
 [ext_resource path="res://images/Fenster_oben_rechts.png" type="Texture" id=7]
 [ext_resource path="res://images/Türe.png" type="Texture" id=8]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 110, 110 )
 
-[node name="room" type="Node2D"]
+[node name="room" type="Node2D" index="0"]
 
 [node name="floor" type="NinePatchRect" parent="." index="0"]
 
@@ -321,7 +319,7 @@ texture = ExtResource( 8 )
 stretch_mode = 4
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+[node name="wallColliders" type="StaticBody2D" parent="." index="1"]
 
 editor/display_folded = true
 input_pickable = false
@@ -333,31 +331,49 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="left" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+[node name="left" type="CollisionShape2D" parent="wallColliders" index="0"]
 
 position = Vector2( -1093.1, 544.794 )
 scale = Vector2( 1, 2.79389 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="right" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+[node name="right" type="CollisionShape2D" parent="wallColliders" index="1"]
 
 position = Vector2( -248.152, 543.537 )
 scale = Vector2( 1, 2.3515 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="up" type="CollisionShape2D" parent="StaticBody2D" index="2"]
+[node name="up" type="CollisionShape2D" parent="wallColliders" index="2"]
 
 position = Vector2( -707.745, 118.085 )
 scale = Vector2( 3.22274, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="down" type="CollisionShape2D" parent="StaticBody2D" index="3"]
+[node name="down" type="CollisionShape2D" parent="wallColliders" index="3"]
 
 position = Vector2( -654.039, 980.866 )
 scale = Vector2( 2.96977, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="windowColliders" type="StaticBody2D" parent="." index="2"]
+
+input_pickable = false
+collision_layer = 4
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+
+[node name="left" type="CollisionShape2D" parent="windowColliders" index="0"]
+
+position = Vector2( -669.79, 539.632 )
+scale = Vector2( 1, 2.79389 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
