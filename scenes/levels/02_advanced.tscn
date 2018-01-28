@@ -2060,5 +2060,6 @@ position = Vector2( 8197.24, 3768.74 )
 
 position = Vector2( 9084.56, 4495.71 )
 rotation = 3.14159
+max_num_rays = 5
 
 

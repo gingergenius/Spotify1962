@@ -4,7 +4,7 @@
 [ext_resource path="res://images/logo.svg" type="Texture" id=2]
 [ext_resource path="res://resources/fonts/Curvy Thins.tres" type="DynamicFont" id=3]
 
-[node name="Panel" type="Panel" index="0"]
+[node name="Panel" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
