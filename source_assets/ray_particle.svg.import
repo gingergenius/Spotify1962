@@ -7,10 +7,10 @@ path="res://.import/ray_particle.svg-7e44ce76cbbfdd1c005906160043df05.stex"
 [deps]
 
 source_file="res://source_assets/ray_particle.svg"
-source_md5="683c3288464a7971f5fac83c6320638a"
+source_md5="fcf90b93d8b304314b4eefd269fd8e79"
 
 dest_files=[ "res://.import/ray_particle.svg-7e44ce76cbbfdd1c005906160043df05.stex" ]
-dest_md5="d749b102290eb3220c85faad68fc88d8"
+dest_md5="bcd015037b07aa39d12ee88c449f9407"
 
 [params]
 
