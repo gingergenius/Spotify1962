@@ -4,7 +4,7 @@
 [ext_resource path="res://images/player.png" type="Texture" id=2]
 [ext_resource path="res://scripts/playerPullHelper.gd" type="Script" id=3]
 
-[node name="player" type="RigidBody2D" index="0"]
+[node name="player" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 2

@@ -28,6 +28,7 @@ func _physics_process(delta):
 			# find nearest node that is within radius
 			pullingNode = get_nearest_furniture()
 			if pullingNode != null:
+				print("start pulling")
 				isPulling = true
 				offset = pullingNode.global_position - global_position
 		if pullingNode != null:

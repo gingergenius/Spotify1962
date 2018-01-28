@@ -2,14 +2,14 @@
 
 [ext_resource path="res://images/Aquarium_eckig.png" type="Texture" id=1]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 184.077, 83.4596 )
 
-[node name="aquarium_rect" type="RigidBody2D"]
+[node name="aquarium_rect" type="RigidBody2D" groups=[
+"Furniture",
+]]
 
 editor/display_folded = true
 position = Vector2( 1334.62, 316.019 )
