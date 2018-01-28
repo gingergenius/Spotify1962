@@ -35,13 +35,15 @@ _sections_unfolded = [ "Angular", "Linear" ]
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( -101.406, -134.295 )
+scale = Vector2( 1.27407, 1.27407 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="collisionShape" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 141.975, -0.683008 )
-scale = Vector2( 18.9356, 22.9553 )
+position = Vector2( 74.2474, -136.928 )
+scale = Vector2( 23.4535, 28.4323 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
