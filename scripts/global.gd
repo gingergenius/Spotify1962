@@ -37,13 +37,15 @@ func _deferred_goto_scene():
 	print("loading level " + filename)
 	var path = "res://scenes/levels/" + filename + ".tscn"
 	
-	var s = ResourceLoader.load(path)
+	get_tree().change_scene(path)
+	
+	#var s = ResourceLoader.load(path)
 	
 	# Instance the new scene
-	current_scene = s.instance()
+	#current_scene = s.instance()
 	
 	# Add it to the active scene, as child of root
-	get_tree().get_root().add_child(current_scene)
+	#get_tree().get_root().add_child(current_scene)
 	
 	# optional, to make it compatible with the SceneTree.change_scene() API
-	get_tree().set_current_scene( current_scene )
+	#get_tree().set_current_scene( current_scene )
