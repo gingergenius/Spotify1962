@@ -2,10 +2,10 @@ extends Node
 
 var current_scene = null
 var current_stage = 0
-var level_names = ["Level 0 - WASDisconnected",
-				 	"Level 1",
-					"Level 2 - Spacebar has no gravity pull",
-					"Level 3",
+var level_names = ["Level 0 - WASDhat signal?",
+				 	"Level 1 - Spin it like a spacebar",
+					"Level 2 - Push & Pull like a git pro",
+					"Level 3 - Cut my radio into pieces",
 					"Level xx - Vacuum the rug"]
 var level_filenames = ["00_intro", "01_rotate", "02_pull", "03_splitter", "11_advanced"]
 
