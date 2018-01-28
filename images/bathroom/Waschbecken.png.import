@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Toilette.png-ca11bf91d490b4bbe21da5dac3611fb8.stex"
+path="res://.import/Waschbecken.png-89cb1f24171ad5c0f055818e53023244.stex"
 
 [deps]
 
-source_file="res://images/Bad/Toilette.png"
-source_md5="b896e03bce43f237ee984862ebd42ebf"
+source_file="res://images/bathroom/Waschbecken.png"
+source_md5="5ecaa660767eb976628cef816cc8c6c3"
 
-dest_files=[ "res://.import/Toilette.png-ca11bf91d490b4bbe21da5dac3611fb8.stex" ]
-dest_md5="42929f62b508734cda13af20002c54b6"
+dest_files=[ "res://.import/Waschbecken.png-89cb1f24171ad5c0f055818e53023244.stex" ]
+dest_md5="3aae2fdaaa1ea8d56a6ae09d17f99c54"
 
 [params]
 

@@ -1,11 +1,11 @@
-extends Panel
+extends Viewport
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
 
 func _ready():
-	get_node("Button_continue").connect("pressed",self,"continue")
+	get_node("MarginContainer/HBoxContainer/VBoxContainer/popup/Button_continue").connect("pressed",self,"continue")
 	pass
 
 func continue():

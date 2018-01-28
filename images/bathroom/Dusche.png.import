@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Teppich Badewanne.png-4b16a1d5eeda4a912697457c3e1e4634.stex"
+path="res://.import/Dusche.png-15aee3556c4d4e46b7535774a07c2008.stex"
 
 [deps]
 
-source_file="res://images/Bad/Teppich Badewanne.png"
-source_md5="76107430d75db1cfa10dca1e43ed5610"
+source_file="res://images/bathroom/Dusche.png"
+source_md5="fdfcdae090e8c859d0235d1fc5e0da75"
 
-dest_files=[ "res://.import/Teppich Badewanne.png-4b16a1d5eeda4a912697457c3e1e4634.stex" ]
-dest_md5="baf65fa07895c6e57a8bfc49fbbe0f34"
+dest_files=[ "res://.import/Dusche.png-15aee3556c4d4e46b7535774a07c2008.stex" ]
+dest_md5="4de72c87bef449bb1b9f07c725ed019b"
 
 [params]
 
