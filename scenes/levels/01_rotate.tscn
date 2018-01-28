@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://objects/environment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/Raum_1.png" type="Texture" id=2]
@@ -12,13 +12,22 @@
 [ext_resource path="res://objects/Caster.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/Radio.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scripts/LevelState.gd" type="Script" id=12]
+[ext_resource path="res://resources/fonts/Curvy Thins.otf" type="DynamicFontData" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 110, 110 )
 
-[node name="game" type="Node"]
+[sub_resource type="DynamicFont" id=2]
+
+size = 200
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 13 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="game" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -388,6 +397,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="furniture" type="Node2D" parent="." index="3"]
 
+position = Vector2( -1210, -59 )
 _sections_unfolded = [ "Material" ]
 
 [node name="rotatable_furniture" parent="furniture" index="0" instance=ExtResource( 8 )]
@@ -412,6 +422,44 @@ position = Vector2( 921.541, 1689.85 )
 
 script = ExtResource( 12 )
 num_transmission_sinks = 1
+
+[node name="Panel" type="Panel" parent="." index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1068.0
+margin_top = -280.0
+margin_right = 3199.0
+margin_bottom = 206.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Label" type="Label" parent="Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 65.0
+margin_right = 2207.0
+margin_bottom = 752.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Some furniture can be rotated. Use Spacebar to do so."
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="transmission_started" from="Radio" to="LevelState" method="_on_Radio_transmission_started"]
 
